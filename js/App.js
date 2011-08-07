@@ -15,9 +15,11 @@ var App = function()
         pCardsContainer = $('#player-cards'),
         dCardsContainer = $('#dealer-cards'),
         playerTotal     = $('#player-total'),
-        playerScore     = 0,
         playerCards     = [],
-        playerAces      = 0;
+        playerAces      = 0,
+        dealerTotal     = $('#dealer-total'),
+        dealerCards     = [],
+        dealerAces      = 0;
         
   
 //  Initialisation
@@ -37,7 +39,7 @@ var App = function()
           };
         }
         
-        //cards.shuffle();
+        cards.shuffle();
     };
     
 //  Game management
@@ -49,30 +51,91 @@ var App = function()
         ditributeCards();
     };
     
-    var hit = function()
-    {
+    var hit = function() {
         addCard('front', 'player');
+        if ( playerCards.sum() > 21 ) lose('busted');
     };
     
     var stand = function()
     {
-        
+        revealDealerCard();
+        if ( dealerCards.sum() < 17 ) dealerTurn();
+        else end();
     };
     
-    var double = function()
+      var dealerTurn = function()
+      {
+          addCard('front', 'dealer');
+          dealerTotal.html(calculateDealerScore());
+          
+          if ( dealerCards.sum() < 17 ) dealerTurn();
+          else end();
+      };
+    
+    var doubledown = function()
     {
+        console.log('double');
+    };
+    
+    var push = function()
+    {
+        console.log('push');
+        stopGame();
+    };
+    
+    var win = function ( msg )
+    {
+        console.log('win', msg);
+        stopGame();
+    };
+    
+    var lose = function ( msg )
+    {
+        console.log('lose', msg);
+        stopGame();
+    };
+    
+    var end = function()
+    {
+        var pScore  = playerCards.sum(),
+            dScore  = dealerCards.sum();
         
+        if ( dScore > 21 ) win('dealer busted');
+        else if ( dScore > pScore ) lose('');
+        else if ( pScore > dScore ) win('');
+        else if ( pScore == dScore ) push();
+    };
+    
+    var stopGame = function()
+    {
+        dealNav.show();
+        actionsNav.hide();
     };
     
     var ditributeCards = function()
     {
         addCard('front', 'player');
-        setTimeout(function(){ addCard('front', 'dealer'); }, 200);
-        setTimeout(function(){ addCard('front', 'player'); }, 400);
-        setTimeout(function(){ addCard('back', 'dealer'); }, 600);
+        addCard('front', 'dealer');
+        addCard('front', 'player');
+        addCard('back', 'dealer');
         
         dealNav.hide();
         actionsNav.show();
+        
+        checkBlackjack();
+    };
+    
+    var checkBlackjack = function()
+    {
+        var pScore  = playerCards.sum(),
+            dScore  = dealerCards.sum();
+        
+        if ( pScore == 21 && dScore == 21 ) push();
+        else if ( pScore == 21 ) win('blackjack');
+        else if ( dScore == 21 ) {
+          lose('blackjack');
+          revealDealerCard();
+        }
     };
     
     var addCard = function ( side, player )
@@ -85,10 +148,12 @@ var App = function()
         
         cardsIndex++;
         if ( player == 'player' ) addToPlayerTotal(cardData.value);
+        else                      addToDealerTotal(cardData.value);
         
         container.append(card);
     };
     
+//  Player management
     var addToPlayerTotal = function ( value )
     {
         if ( value == 1 ) {
@@ -97,27 +162,61 @@ var App = function()
         }
         
         playerCards.push(value);
-        playerTotal.html(calculateScore());
+        playerTotal.html(calculatePlayerScore());
     };
     
-    var calculateScore = function()
+    var calculatePlayerScore = function()
     {
         var score = playerCards.sum();
         
         if ( score > 21 && playerAces > 0 ) {
           playerCards.splice(playerCards.indexOf(11), 1, 1);
           playerAces--;
-          score = calculateScore();
+          score = calculatePlayerScore();
+        }
+        
+        return score;
+    };
+    
+//  Dealer management
+    var revealDealerCard = function()
+    {
+        var card  = $('.back'),
+            id    = card.data('id'),
+            data  = cards[id];
+        
+        card.html(data.card + ' ' + data.type);
+        dealerTotal.html(calculateDealerScore());
+    };
+    
+    var addToDealerTotal = function ( value )
+    {
+        if ( value == 1 ) {
+          value = 11;
+          dealerAces++;
+        }
+        
+        dealerCards.push(value);
+    };
+    
+    var calculateDealerScore = function()
+    {
+        var score = dealerCards.sum();
+        
+        if ( score > 21 && dealerAces > 0 ) {
+          dealerCards.splice(dealerCards.indexOf(11), 1, 1);
+          dealerAces--;
+          score = calculateDealerScore();
         }
         
         return score;
     };
     
 //  Public access
-    this.deal   = function() { deal(); };
-    this.hit    = function() { hit(); };
-    this.stand  = function() { stand(); };
-    this.double = function() { double(); };
+    this.deal       = function() { deal(); };
+    this.hit        = function() { hit(); };
+    this.stand      = function() { stand(); };
+    this.doubledown = function() { doubledown(); };
   
 //  Constructor
     (function() {
