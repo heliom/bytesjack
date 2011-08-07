@@ -10,6 +10,7 @@ var App = function()
         cards           = [],
         cardsIndex      = 0,
         isPlaying       = false,
+        gameDealed      = false,
         dealNav         = $('#deal'),
         actionsNav      = $('#actions'),
         pCardsContainer = $('#player-cards'),
@@ -48,7 +49,22 @@ var App = function()
         if ( isPlaying ) return;
         isPlaying = true;
         
+        if ( gameDealed ) {
+          pCardsContainer.html('');
+          dCardsContainer.html('');
+          playerTotal.html('');
+          dealerTotal.html('');
+          playerAces = 0;
+          dealerAces = 0;
+          playerCards = [];
+          dealerCards = [];
+          cards = [];
+          
+          initDeck();
+        }
+        
         ditributeCards();
+        gameDealed = true;
     };
     
     var hit = function() {
@@ -108,6 +124,7 @@ var App = function()
     
     var stopGame = function()
     {
+        isPlaying = false;
         dealNav.show();
         actionsNav.hide();
     };
