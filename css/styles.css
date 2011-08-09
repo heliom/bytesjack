@@ -5,3 +5,5 @@
 #actions {
     display: none;
 }
+
+.desactivate { opacity: 0.2; }

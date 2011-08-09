@@ -13,6 +13,7 @@ var App = function()
         gameDealed      = false,
         dealNav         = $('#deal'),
         actionsNav      = $('#actions'),
+        doubleBtn       = $('#double'),
         pCardsContainer = $('#player-cards'),
         dCardsContainer = $('#dealer-cards'),
         playerTotal     = $('#player-total'),
@@ -50,6 +51,7 @@ var App = function()
         isPlaying = true;
         
         if ( gameDealed ) {
+          doubleBtn.removeClass('desactivate');
           pCardsContainer.html('');
           dCardsContainer.html('');
           playerTotal.html('');
@@ -67,7 +69,9 @@ var App = function()
         gameDealed = true;
     };
     
-    var hit = function() {
+    var hit = function()
+    {
+        doubleBtn.addClass('desactivate');
         addCard('front', 'player');
         if ( playerCards.sum() > 21 ) lose('busted');
     };
@@ -90,7 +94,10 @@ var App = function()
     
     var doubledown = function()
     {
-        console.log('double');
+        if ( doubleBtn.hasClass('desactivate') ) return;
+        addCard('front', 'player');
+        if ( playerCards.sum() > 21 ) lose('busted');
+        else stand();
     };
     
     var push = function()
