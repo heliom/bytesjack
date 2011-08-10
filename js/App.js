@@ -6,7 +6,7 @@ var App = function()
 {
     AppClass = this;
     
-    var types           = ['Clubs', 'Diamonds', 'Hearts', 'Spades'],
+    var types           = ['clubs', 'diamonds', 'hearts', 'spades'],
         cards           = [],
         cardsIndex      = 0,
         isPlaying       = false,
@@ -33,7 +33,6 @@ var App = function()
     this.init = function()
     {
         $('a[href="#"]').bind('click', function(e){ e.preventDefault(); });
-        initDeck();
         initBet();
     };
     
@@ -50,6 +49,34 @@ var App = function()
         cards.shuffle();
     };
     
+    var addCard = function ( side, player )
+    {
+        var cardData  = cards[cardsIndex],
+            container = ( player == 'player' ) ? pCardsContainer : dCardsContainer;
+            card      = buildCard(cardsIndex, cardData.type, cardData.card, side);
+        
+        cardsIndex++;
+        if ( player == 'player' ) addToPlayerTotal(cardData.value);
+        else                      addToDealerTotal(cardData.value);
+        
+        container.append(card);
+    };
+    
+    var buildCard = function (id, type, value, side)
+    {
+        var card;
+        if ( side == 'back' ) card = $('<div data-id="'+id+'" class="card back"></div>');
+        else {
+          var cardValue = ( value == 1 ) ? 'A' : ( value == 11 ) ? 'J' : ( value == 12 ) ? 'Q' : ( value == 13 ) ? 'K' : value;
+          var cardIcon = ( type == 'hearts' ) ? '♥' : ( type == 'diamonds' ) ? '♦' : ( type == 'spades' ) ? '♠' : '♣';
+          var corner = '<div><span>'+cardValue+'</span><span>'+cardIcon+'</span></div>';
+          var icons = '<div><div class="cl"></div><div class="cc"></div><div class="cr"></div></div>';
+          card =  $('<div data-id="'+id+'" class="card '+type+'">'+corner+'<div class="icons">'+icons+'</div>'+corner+'</div>');
+        }
+        
+        return card;
+    };
+    
 //  Game management
     var deal = function()
     {
@@ -58,8 +85,6 @@ var App = function()
         
         if ( gameDealed ) {
           doubleBtn.removeClass('desactivate');
-          pCardsContainer.html('');
-          dCardsContainer.html('');
           playerTotal.html('');
           dealerTotal.html('');
           playerAces = 0;
@@ -69,9 +94,11 @@ var App = function()
           cards = [];
           cardsIndex = 0;
           doubled = false;
-          
-          initDeck();
         }
+        
+        pCardsContainer.html('');
+        dCardsContainer.html('');
+        initDeck();
         
         changeBankroll(-1);
         ditributeCards();
@@ -176,21 +203,6 @@ var App = function()
           lose('blackjack');
           revealDealerCard();
         }
-    };
-    
-    var addCard = function ( side, player )
-    {
-        var cardData  = cards[cardsIndex],
-            container = ( player == 'player' ) ? pCardsContainer : dCardsContainer;
-            card      = ( side == 'front' )
-                        ? $('<div data-id="'+cardsIndex+'" class="card">'+cardData.card+' '+cardData.type+'</div>')
-                        : $('<div data-id="'+cardsIndex+'" class="card back">Back</div>');
-        
-        cardsIndex++;
-        if ( player == 'player' ) addToPlayerTotal(cardData.value);
-        else                      addToDealerTotal(cardData.value);
-        
-        container.append(card);
     };
     
 //  Player management
