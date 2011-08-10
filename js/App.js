@@ -21,7 +21,12 @@ var App = function()
         playerAces      = 0,
         dealerTotal     = $('#dealer-total'),
         dealerCards     = [],
-        dealerAces      = 0;
+        dealerAces      = 0,
+        allChips        = $('.chip'),
+        bank            = 100,
+        bankroll        = $('#bankroll'),
+        doubled         = false,
+        currentBet      = allChips.first().data('value');
         
   
 //  Initialisation
@@ -29,6 +34,7 @@ var App = function()
     {
         $('a[href="#"]').bind('click', function(e){ e.preventDefault(); });
         initDeck();
+        initBet();
     };
     
 // Cards management
@@ -61,10 +67,13 @@ var App = function()
           playerCards = [];
           dealerCards = [];
           cards = [];
+          cardsIndex = 0;
+          doubled = false;
           
           initDeck();
         }
         
+        changeBankroll(-1);
         ditributeCards();
         gameDealed = true;
     };
@@ -95,6 +104,9 @@ var App = function()
     var doubledown = function()
     {
         if ( doubleBtn.hasClass('desactivate') ) return;
+        
+        changeBankroll(-1);
+        doubled = true;
         addCard('front', 'player');
         if ( playerCards.sum() > 21 ) lose('busted');
         else stand();
@@ -103,18 +115,22 @@ var App = function()
     var push = function()
     {
         console.log('push');
+        changeBankroll(1);
         stopGame();
     };
     
     var win = function ( msg )
     {
         console.log('win', msg);
+        var increment = ( doubled ) ? 4 : 2;
+        changeBankroll(increment);
         stopGame();
     };
     
     var lose = function ( msg )
     {
         console.log('lose', msg);
+        changeBankroll(0);
         stopGame();
     };
     
@@ -234,6 +250,28 @@ var App = function()
         }
         
         return score;
+    };
+    
+//  Bet management
+    var initBet = function()
+    {
+        allChips.bind('click', function(e){
+          allChips.removeClass('bet');
+          
+          var chip = $(this);
+          chip.addClass('bet');
+          changeBet(chip.data('value'));
+        });
+    };
+    
+    var changeBet = function ( newValue ) {
+        if ( isPlaying ) return;
+        currentBet = newValue;
+    };
+    
+    var changeBankroll = function ( increment ) {
+        bank += increment * currentBet;
+        bankroll.html((bank / 10) + 'k');
     };
     
 //  Public access
