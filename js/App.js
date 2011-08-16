@@ -1,6 +1,7 @@
 /*
  * @class   App
  * @author  EtienneLem
+ * Special thanks to rafBM <http://twitter.com/#!/rafbm/> for the prototype class structure.
  */
 
 // Static class hack (auto init)
