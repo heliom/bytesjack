@@ -1,96 +1,122 @@
-/* Utils ---------------------------------------------- */
-.desactivate { opacity: 0.2; }
+* {
+  margin: 0;
+  padding: 0; }
 
-/* Game ----------------------------------------------- */
+body, html {
+  width: 100%;
+  height: 100%; }
+
+.desactivate {
+  opacity: 0.2; }
+
 #game {
-  
-}
-
-/* UI ------------------------------------------------- */
-#ui { clear: both; }
-
-#actions { display: none; }
-
-#deal li {
-  list-style-type: none;
   overflow: hidden;
-}
-#deal li:first-child { padding: 0 0 0 15px; }
+  position: relative;
+  width: 100%;
+  height: 100%; }
+  #game #ui {
+    position: absolute;
+    top: 50%;
+    clear: both; }
+    #game #ui #deal li {
+      list-style-type: none;
+      overflow: hidden; }
+      #game #ui #deal li:first-child {
+        padding: 0 0 0 15px; }
+    #game #ui #actions {
+      display: none; }
+  #game #player-cards, #game #dealer-cards {
+    position: absolute;
+    left: 50%;
+    margin: 0 0 0 -25%;
+    width: 100%;
+    height: 460px; }
+    #game #player-cards .card, #game #dealer-cards .card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      -webkit-transition: top 250ms ease-in-out;
+      -khtml-transition: top 250ms ease-in-out;
+      -moz-transition: top 250ms ease-in-out;
+      -ms-transition: top 250ms ease-in-out;
+      -o-transition: top 250ms ease-in-out;
+      transition: top 250ms ease-in-out; }
+  #game #dealer-cards {
+    top: -250px; }
+  #game #player-cards {
+    bottom: -250px; }
+  #game #player-total, #game #dealer-total {
+    font-size: 2em; }
 
-#player-cards { margin: 50px 0 0 0; }
-#player-cards, #dealer-cards { 
- width: 90%;
- margin: 0 auto;
-}
-#player-total, #dealer-total { font-size: 2em; }
-
-/* Chips ---------------------------------------------- */
 .chip {
   cursor: pointer;
   float: left;
   margin: 0 10px 0 0;
-	background-color: #c00;
-	position: relative;
-	width: 50px;
-	height: 50px;
-	border-radius: 50px;
-	border: 5px dashed #fff;
-	box-shadow: 0 0 0px #b00, 0 1px 0px #a00, 0 2px 0px #a00, 0 3px 0px #a00, 0 4px 0px #a00;
-	
-	-webkit-transform: perspective(500px) rotateX(45deg);
-}
-.chip.bet {
-  box-shadow: 0 0 0px #b00, 0 1px 0px #a00, 0 2px 0px #a00, 0 3px 0px #a00, 0 4px 0px #a00, 0 0 15px #f00;
-}
-	.chip span {
-	  font-weight: bold;
-		background-color: #d00;
-		display: block;
-		width: 100%;
-		height: 100%;
-		border-radius: 100%;
-		color: #fff;
-		font-size: 18px;
-		line-height: 52px;
-		text-align: center;
-		
-		text-shadow: 0 -2px 0px rgba(0,0,0,0.3);
-	}
+  background-color: #c00;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: 5px dashed #fff;
+  box-shadow: 0 0 0px #b00, 0 1px 0px #a00, 0 2px 0px #a00, 0 3px 0px #a00, 0 4px 0px #a00;
+  -webkit-transform: perspective(500px) rotateX(45deg); }
+  .chip span {
+    font-weight: bold;
+    background-color: #d00;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    color: #fff;
+    font-size: 18px;
+    line-height: 52px;
+    text-align: center;
+    text-shadow: 0 -2px 0px rgba(0, 0, 0, 0.3); }
 
-/* Cards ---------------------------------------------- */
+.chip.bet {
+  box-shadow: 0 0 0px #b00, 0 1px 0px #a00, 0 2px 0px #a00, 0 3px 0px #a00, 0 4px 0px #a00, 0 0 15px #f00; }
+
 .card {
   font-size: 1.5em;
   position: relative;
-  float: left;
-  width: 300px; height: 460px;
-  margin: 0 0 0 15px;
+  width: 300px;
+  height: 460px;
   background-color: #f9f9f9;
   border-radius: 20px;
-}
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 15, 0.2);
+  -khtml-box-shadow: 0 0 5px rgba(0, 0, 15, 0.2);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 15, 0.2);
+  -ms-box-shadow: 0 0 5px rgba(0, 0, 15, 0.2);
+  -o-box-shadow: 0 0 5px rgba(0, 0, 15, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 15, 0.2); }
+  .card div {
+    position: absolute; }
+    .card div:first-child {
+      top: 2%;
+      left: 5%; }
+    .card div:last-child {
+      bottom: 2%;
+      right: 5%;
+      -webkit-transform: rotate(180deg); }
+    .card div span {
+      text-align: center;
+      display: block; }
+    .card div .icons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 1px; }
+      .card div .icons > div {
+        position: relative; }
+
 .card.back {
   background-color: #c00;
-  background-image: -webkit-repeating-linear-gradient(-30deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .1) 1px, transparent 1px, transparent 60px), -webkit-repeating-linear-gradient(30deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .1) 1px, transparent 1px, transparent 60px), -webkit-linear-gradient(30deg, rgba(0, 0, 0, .1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, .1) 75%, rgba(0, 0, 0, .1)), -webkit-linear-gradient(-30deg, rgba(0, 0, 0, .1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, .1) 75%, rgba(0, 0, 0, .1));
-  background-size: 12px 20px;
-}
-.card.hearts, .card.diamonds { color: #c00; }
-.card.spades, .card.clubs { color: #111; }
-    .card div {
-      position: absolute;
-    }
-    .card div:first-child { top: 2%; left: 5%; }
-    .card div:last-child {
-      bottom: 2%; right: 5%;
-      -webkit-transform: rotate(180deg);
-    }
-      .card div span {
-        text-align: center;
-        display: block;
-      }
-    .card .icons {
-      position: absolute;
-      top: 0; left: 0;
-      width: 1px; height: 1px;
-    }
-      .card .icons > div {
-        position: relative;
-      }
+  background-image: -webkit-repeating-linear-gradient(-30deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 1px, transparent 1px, transparent 60px), -webkit-repeating-linear-gradient(30deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 1px, transparent 1px, transparent 60px), -webkit-linear-gradient(30deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.1) 75%, rgba(0, 0, 0, 0.1)), -webkit-linear-gradient(-30deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.1) 75%, rgba(0, 0, 0, 0.1));
+  background-size: 12px 20px; }
+
+.card.hearts, .card.diamonds {
+  color: #c00; }
+
+.card.spades, .card.clubs {
+  color: #111; }

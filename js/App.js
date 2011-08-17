@@ -66,14 +66,23 @@ App.prototype = (function() { var pro = {};
   var addCard = function ( side, player )
   {
       var cardData  = cards[cardsIndex],
-      container = ( player == 'player' ) ? pCardsContainer : dCardsContainer;
-      card      = buildCard(cardsIndex, cardData.type, cardData.card, side);
+          container = ( player == 'player' ) ? pCardsContainer : dCardsContainer;
+          card      = buildCard(cardsIndex, cardData.type, cardData.card, side);
     
-      cardsIndex++;
-      if ( player == 'player' ) addToPlayerTotal(cardData.value);
-      else                      addToDealerTotal(cardData.value);
+      cardsIndex++;     
     
+      if ( player == 'player' ) {
+        addToPlayerTotal(cardData.value);
+        //card.css('top', '100%');
+      } else {
+        addToDealerTotal(cardData.value);
+        //card.css('top', '-100%');
+      }
+      
       container.append(card);
+      /*setTimeout(function(){
+        card.css('top', '0%');
+      }, 500);*/
   };
   
   var buildCard = function (id, type, value, side)

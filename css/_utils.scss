@@ -1,0 +1,66 @@
+// Scss Utils
+// @author EtienneLem
+
+//	CSS3 misc
+	  @mixin rounded ( $radius, $prefix:'' ) {
+  		@include prefixes(border-radius, $radius, $prefix);
+  	}
+	
+  	@mixin box-shadow ( $value ) {
+  		@include prefixes(box-shadow, $value);
+  	}
+	
+  	@mixin gradient-top-bottom ( $top, $bottom ) {
+  		background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, $bottom), color-stop(1, $top));
+  		background-image: -moz-linear-gradient( center bottom, $bottom 0%, $top 100%);
+  	}
+
+//  Animation
+	  @mixin transition ( $value ) {
+  		@include prefixes(transition, $value);
+  	}
+	
+  	@mixin translate3d ( $value ) {
+  		$action: translate3d($value);
+  		@include transform($action);
+  	}
+
+//  Transforms
+    @mixin skew ( $deg ) {
+  		$action: skew($value);
+  		@include transform($action);
+  	}
+
+  	@mixin scale ( $value ) {
+  		$action: scale($value);
+  		@include transform($action);
+  	}
+	
+  	@mixin rotate ( $deg ) {
+  		$action: rotate($deg);
+  		@include transform($action);
+  	}
+	
+  	@mixin rotateY ( $deg ) {
+  		$action: rotateY($deg);
+  		@include transform($action);
+  	}
+
+  	@mixin transform ( $value ) {
+  		@include prefixes(transform, $value);
+  	}
+
+//	Utils
+	  @mixin prefixes ( $key, $value, $prefix:'' )
+  	{
+  		$prefixes: -webkit, -khtml, -moz, -ms, -o;
+  		@if $prefix != '' { $prefixes: $prefix }
+  		@each $prefix in $prefixes {
+  			#{$prefix}-#{$key} : $value;
+  		}
+  		@if $prefix == '' { #{$key} : $value; }
+  	}
+	
+  	@mixin noselect() {
+  	  @include prefixes(user-select, none);
+    }

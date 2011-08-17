@@ -7,8 +7,8 @@
   </head>
   <body>
     <div id="game">
-      <div id="dealer-cards"><div class="card back"></div><div class="card back"></div></div>
-      <div id="dealer-total"></div>
+      <div id="dealer-cards">
+      </div>
       
       <div id="ui">
         <ul id="deal">
@@ -24,11 +24,12 @@
           <li><a href="#" onclick="App.stand();">Stand</a></li>
           <li><a id="double" href="#" onclick="App.doubledown();">Double</a></li>
         </ul>
+        <div id="player-total"></div>
+        <div id="dealer-total"></div>
         <div id="bankroll">10k</div>
       </div>
       
-      <div id="player-cards"><div class="card back"></div><div class="card back"></div></div>
-      <div id="player-total"></div>
+      <div id="player-cards"></div>
     </div>
     
     <script defer type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js"></script>
