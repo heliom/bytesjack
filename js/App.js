@@ -66,23 +66,63 @@ App.prototype = (function() { var pro = {};
   var addCard = function ( side, player )
   {
       var cardData  = cards[cardsIndex],
-          container = ( player == 'player' ) ? pCardsContainer : dCardsContainer;
-          card      = buildCard(cardsIndex, cardData.type, cardData.card, side);
+          container = ( player == 'player' ) ? pCardsContainer : dCardsContainer,
+          card      = buildCard(cardsIndex, cardData.type, cardData.card, side),
+          zIndex    = 0;
     
-      cardsIndex++;     
-    
-      if ( player == 'player' ) {
-        addToPlayerTotal(cardData.value);
-        //card.css('top', '100%');
-      } else {
-        addToDealerTotal(cardData.value);
-        //card.css('top', '-100%');
-      }
+      cardsIndex++;
       
+      card.css({
+        'top'   : '-150%',
+        'left'  : '100%'
+      });  
+    
       container.append(card);
-      /*setTimeout(function(){
-        card.css('top', '0%');
-      }, 500);*/
+      zIndex = ( player == 'player' ) ? card.index() : -card.index();
+      card.css('z-index', zIndex);
+      
+      setTimeout(function(){
+        card.css({
+          'top'     : '0%',
+          'left'    : 10 * card.index() + '%'
+        });
+        rotateCards(container, player);
+        
+        setTimeout(function(){
+          if ( player == 'player' ) addToPlayerTotal(cardData.value);
+          else                      addToDealerTotal(cardData.value);
+        }, 250);
+      }, 10);
+  };
+  
+  var rotateCards = function ( container, player )
+  {
+      var cards     = container.children('.card'),
+          numCards  = cards.size(),
+          increment = ( player == 'player' ) ? -1 : 1;
+      
+      switch ( numCards ) {
+        case 1 :
+          $(cards[0]).css('-webkit-transform', 'rotate(0deg)');
+        break;
+        case 2 :
+          $(cards[0]).css('-webkit-transform', 'rotate('+(5*increment)+'deg)');
+          $(cards[1]).css({
+            '-webkit-transform' : 'rotate('+(-1*increment)+'deg)'
+          });
+        break;
+        case 3 :
+          container.css('-webkit-transform', 'rotate('+(5*increment)+'deg)');
+          $(cards[0]).css('-webkit-transform', 'rotate('+(9*increment)+'deg)');
+          $(cards[1]).css({
+            '-webkit-transform' : 'rotate('+(-1*increment)+'deg)'
+          });
+          $(cards[2]).css({
+            '-webkit-transform' : 'rotate('+(-9*increment)+'deg)',
+            'top' : -20*increment + 'px'
+          });
+        break;
+      }
   };
   
   var buildCard = function (id, type, value, side)
@@ -133,23 +173,29 @@ App.prototype = (function() { var pro = {};
   {
       doubleBtn.addClass('desactivate');
       addCard('front', 'player');
-      if ( playerCards.sum() > 21 ) lose('busted');
+      setTimeout(function(){
+        if ( playerCards.sum() > 21 ) lose('busted');
+      }, 300);
   };
 
   var stand = function()
   {
       revealDealerCard();
-      if ( dealerCards.sum() < 17 ) dealerTurn();
-      else end();
+      setTimeout(function(){
+        if ( dealerCards.sum() < 17 ) dealerTurn();
+        else end();
+      }, 300);
   };
 
   var dealerTurn = function()
   {
       addCard('front', 'dealer');
-      dealerTotal.html(calculateDealerScore());
+      setTimeout(function(){
+        dealerTotal.html('Dealer score ' + calculateDealerScore());
 
-      if ( dealerCards.sum() < 17 ) dealerTurn();
-      else end();
+        if ( dealerCards.sum() < 17 ) dealerTurn();
+        else end();
+      }, 300);
   };
 
   var doubledown = function()
@@ -159,20 +205,23 @@ App.prototype = (function() { var pro = {};
       changeBankroll(-1);
       doubled = true;
       addCard('front', 'player');
-      if ( playerCards.sum() > 21 ) lose('busted');
-      else stand();
+      
+      setTimeout(function(){
+        if ( playerCards.sum() > 21 ) lose('busted');
+        else stand();
+      }, 300);
   };
 
   var push = function()
   {
-      //console.log('push');
+      console.log('push');
       changeBankroll(1);
       stopGame();
   };
 
   var win = function ( msg )
   {
-      //console.log('win', msg);
+      console.log('win', msg);
       var increment = ( doubled ) ? 4 : 2;
       changeBankroll(increment);
       stopGame();
@@ -180,7 +229,7 @@ App.prototype = (function() { var pro = {};
 
   var lose = function ( msg )
   {
-      //console.log('lose', msg);
+      console.log('lose', msg);
       changeBankroll(0);
       stopGame();
   };
@@ -206,14 +255,21 @@ App.prototype = (function() { var pro = {};
   var ditributeCards = function()
   {
       addCard('front', 'player');
-      addCard('front', 'dealer');
-      addCard('front', 'player');
-      addCard('back', 'dealer');
-
+      setTimeout(function(){
+        addCard('front', 'dealer');
+        setTimeout(function(){
+          addCard('front', 'player');
+          setTimeout(function(){
+            addCard('back', 'dealer');
+            setTimeout(function(){
+              checkBlackjack();
+            }, 300);
+          }, 200);
+        }, 200);
+      }, 200);
+      
       dealNav.hide();
       actionsNav.show();
-
-      checkBlackjack();
   };
 
   var checkBlackjack = function()
@@ -238,7 +294,7 @@ App.prototype = (function() { var pro = {};
         }
 
         playerCards.push(value);
-        playerTotal.html(calculatePlayerScore());
+        playerTotal.html('Your score ' + calculatePlayerScore());
     };
 
     var calculatePlayerScore = function()
@@ -257,12 +313,18 @@ App.prototype = (function() { var pro = {};
   //  Dealer management
   var revealDealerCard = function()
   {
-      var card  = $('.back'),
-          id    = card.data('id'),
-          data  = cards[id];
-
-      card.html(data.card + ' ' + data.type);
-      dealerTotal.html(calculateDealerScore());
+      var card    = $('.back'),
+          id      = card.data('id'),
+          data    = cards[id],
+          newCard = buildCard(id, data.type, data.value, 'front');
+      
+      newCard.css({
+        'left' : 10 * card.index() + '%',
+        'z-index' : -card.index()
+      });
+      
+      card.after(newCard).remove();
+      dealerTotal.html('Dealer score ' + calculateDealerScore());
   };
 
   var addToDealerTotal = function ( value )
