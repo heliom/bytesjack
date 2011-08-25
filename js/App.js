@@ -42,7 +42,9 @@ App.prototype = (function() { var pro = {};
       bankroll        = $('#bankroll'),
       doubled         = false,
       currentBet      = allChips.first().data('value'),
-      resizeTimer     = null;
+      resizeTimer     = null,
+      canDoAction     = true,
+      isStanding      = false;
       
   //  public
   pro.initialize = function(opts) { initialize() };
@@ -121,6 +123,7 @@ App.prototype = (function() { var pro = {};
           zIndex    = 0;
     
       cardsIndex++;
+      canDoAction = false;
       
       card.css({
         'top'   : '-150%',
@@ -143,6 +146,7 @@ App.prototype = (function() { var pro = {};
           centerContainer(container);
           if ( player == 'player' ) addToPlayerTotal(cardData.value);
           else                      addToDealerTotal(cardData.value);
+          canDoAction = true;
         }, 275);
       }, 10);
   };
@@ -214,19 +218,23 @@ App.prototype = (function() { var pro = {};
   var deal = function()
   {
       if ( isPlaying ) return;
+      if ( ! canDoAction ) return
+      
       isPlaying = true;
     
       if ( gameDealed ) {
         doubleBtn.removeClass('desactivate');
         playerTotal.html('');
         dealerTotal.html('');
-        playerAces = 0;
-        dealerAces = 0;
+        playerAces  = 0;
+        dealerAces  = 0;
         playerCards = [];
         dealerCards = [];
-        cards = [];
-        cardsIndex = 0;
-        doubled = false;
+        cards       = [];
+        cardsIndex  = 0;
+        doubled     = false;
+        canDoAction = true;
+        isStanding  = false;
       }
     
       pCardsContainer.html('');
@@ -240,7 +248,7 @@ App.prototype = (function() { var pro = {};
 
   var hit = function()
   {
-      if ( ! isPlaying ) return;
+      if ( !isPlaying || !canDoAction || isStanding ) return;
       
       doubleBtn.addClass('desactivate');
       addCard('front', 'player');
@@ -251,8 +259,10 @@ App.prototype = (function() { var pro = {};
 
   var stand = function()
   {
-      if ( ! isPlaying ) return;
+      if ( !isPlaying || !canDoAction || isStanding ) return;
       
+      console.log('stand');
+      isStanding = true;
       revealDealerCard();
       setTimeout(function(){
         if ( dealerCards.sum() < 17 ) dealerTurn();
@@ -273,8 +283,7 @@ App.prototype = (function() { var pro = {};
 
   var doubledown = function()
   {
-      if ( ! isPlaying ) return;
-      if ( doubleBtn.hasClass('desactivate') ) return;
+      if ( !isPlaying || !canDoAction || isStanding || doubleBtn.hasClass('desactivate') ) return;
 
       changeBankroll(-1);
       doubled = true;
@@ -334,6 +343,7 @@ App.prototype = (function() { var pro = {};
 
   var ditributeCards = function()
   {
+      canDoAction = false;
       addCard('front', 'player');
       setTimeout(function(){
         addCard('front', 'dealer');
