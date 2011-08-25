@@ -12,6 +12,7 @@ var App = function() { this.initialize.apply(this, arguments) };
 App.prototype = (function() { var pro = {};
 
   //  Contants
+  var ANIN_DELAY = 300;
       
   //  Variables
   var types           = ['clubs', 'diamonds', 'hearts', 'spades'],
@@ -34,7 +35,8 @@ App.prototype = (function() { var pro = {};
       bank            = 100,
       bankroll        = $('#bankroll'),
       doubled         = false,
-      currentBet      = allChips.first().data('value');
+      currentBet      = allChips.first().data('value'),
+      resizeTimer     = null;
       
   //  public
   pro.initialize = function(opts) { initialize() };
@@ -48,7 +50,24 @@ App.prototype = (function() { var pro = {};
   {
       $('a[href="#"]').bind('click', function(e){ e.preventDefault(); });
       initBet();
+      initResize();
   }
+  
+  //  Resize management
+  var initResize = function()
+  {
+      $(window).bind('resize', onWindowResize);
+      onWindowResize(null);
+  };
+  
+  var onWindowResize = function ( e )
+  {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function(){
+        centerContainers();
+      }, 100);
+      //centerContainers();
+  };
   
   //  Cards management
   var initDeck = function()
@@ -88,10 +107,12 @@ App.prototype = (function() { var pro = {};
         });
         rotateCards(container, player);
         
+        
         setTimeout(function(){
+          centerContainer(container);
           if ( player == 'player' ) addToPlayerTotal(cardData.value);
           else                      addToDealerTotal(cardData.value);
-        }, 250);
+        }, 275);
       }, 10);
   };
   
@@ -103,16 +124,16 @@ App.prototype = (function() { var pro = {};
       
       switch ( numCards ) {
         case 1 :
-          $(cards[0]).css('-webkit-transform', 'rotate(0deg)');
+          // $(cards[0]).css('-webkit-transform', 'rotate(0deg)');
         break;
         case 2 :
-          $(cards[0]).css('-webkit-transform', 'rotate('+(5*increment)+'deg)');
+          /*$(cards[0]).css('-webkit-transform', 'rotate('+(5*increment)+'deg)');
           $(cards[1]).css({
             '-webkit-transform' : 'rotate('+(-1*increment)+'deg)'
-          });
+          });*/
         break;
         case 3 :
-          container.css('-webkit-transform', 'rotate('+(5*increment)+'deg)');
+          /*container.css('-webkit-transform', 'rotate('+(5*increment)+'deg)');
           $(cards[0]).css('-webkit-transform', 'rotate('+(9*increment)+'deg)');
           $(cards[1]).css({
             '-webkit-transform' : 'rotate('+(-1*increment)+'deg)'
@@ -120,9 +141,26 @@ App.prototype = (function() { var pro = {};
           $(cards[2]).css({
             '-webkit-transform' : 'rotate('+(-9*increment)+'deg)',
             'top' : -20*increment + 'px'
-          });
+          });*/
         break;
       }
+  };
+  
+  var centerContainers = function()
+  {
+      centerContainer(pCardsContainer);
+      centerContainer(dCardsContainer);
+  };
+  
+  var centerContainer = function ( container )
+  {
+      var lastCard    = container.children('.card:last-child'),
+          totalWidth  = 0;
+      
+      if ( lastCard.size() == 0 ) return;
+      
+      totalWidth = lastCard.position().left + lastCard.width();
+      container.css('margin-left', -totalWidth / 2 + 'px');
   };
   
   var buildCard = function (id, type, value, side)
@@ -175,7 +213,7 @@ App.prototype = (function() { var pro = {};
       addCard('front', 'player');
       setTimeout(function(){
         if ( playerCards.sum() > 21 ) lose('busted');
-      }, 300);
+      }, ANIN_DELAY);
   };
 
   var stand = function()
@@ -184,7 +222,7 @@ App.prototype = (function() { var pro = {};
       setTimeout(function(){
         if ( dealerCards.sum() < 17 ) dealerTurn();
         else end();
-      }, 300);
+      }, ANIN_DELAY);
   };
 
   var dealerTurn = function()
@@ -195,7 +233,7 @@ App.prototype = (function() { var pro = {};
 
         if ( dealerCards.sum() < 17 ) dealerTurn();
         else end();
-      }, 300);
+      }, ANIN_DELAY);
   };
 
   var doubledown = function()
@@ -209,7 +247,7 @@ App.prototype = (function() { var pro = {};
       setTimeout(function(){
         if ( playerCards.sum() > 21 ) lose('busted');
         else stand();
-      }, 300);
+      }, ANIN_DELAY);
   };
 
   var push = function()
@@ -263,10 +301,10 @@ App.prototype = (function() { var pro = {};
             addCard('back', 'dealer');
             setTimeout(function(){
               checkBlackjack();
-            }, 300);
-          }, 200);
-        }, 200);
-      }, 200);
+            }, ANIN_DELAY);
+          }, ANIN_DELAY);
+        }, ANIN_DELAY);
+      }, ANIN_DELAY);
       
       dealNav.hide();
       actionsNav.show();
@@ -320,7 +358,7 @@ App.prototype = (function() { var pro = {};
       
       newCard.css({
         'left' : 10 * card.index() + '%',
-        'z-index' : -card.index()
+        'z-index' : 50-card.index()
       });
       
       card.after(newCard).remove();
