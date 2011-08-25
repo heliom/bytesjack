@@ -66,7 +66,6 @@ App.prototype = (function() { var pro = {};
       resizeTimer = setTimeout(function(){
         centerContainers();
       }, 100);
-      //centerContainers();
   };
   
   //  Cards management
@@ -288,6 +287,12 @@ App.prototype = (function() { var pro = {};
       isPlaying = false;
       dealNav.show();
       actionsNav.hide();
+      
+      allChips.each(function(i){
+        var chip = $(this);
+        if ( chip.data('value') > bank ) chip.addClass('desactivate');
+        else if ( chip.hasClass('desactivate') ) chip.removeClass('desactivate');
+      });
   };
 
   var ditributeCards = function()
@@ -314,7 +319,8 @@ App.prototype = (function() { var pro = {};
   {
       var pScore  = playerCards.sum(),
           dScore  = dealerCards.sum();
-
+      
+      dScore = 21;
       if ( pScore == 21 && dScore == 21 ) push();
       else if ( pScore == 21 ) win('blackjack');
       else if ( dScore == 21 ) {
@@ -391,10 +397,12 @@ App.prototype = (function() { var pro = {};
   //  Bet management
   var initBet = function()
   {
+      currentBet = 90;
       allChips.bind('click', function(e){
-        allChips.removeClass('bet');
-
         var chip = $(this);
+        if ( chip.hasClass('desactivate') ) return;
+        
+        allChips.removeClass('bet');
         chip.addClass('bet');
         changeBet(chip.data('value'));
       });
