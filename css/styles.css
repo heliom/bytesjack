@@ -20,13 +20,60 @@ body, html {
   position: relative;
   width: 100%;
   height: 100%;
-  font: 400 13px/1.4 "futura-pt", Helvetica, Arial, sans-serif; }
+  font: 400 16px/1.4 "futura-pt", Helvetica, Arial, sans-serif; }
+  #game h1 {
+    font: 7.5em/1 "bello-pro", "Cooper STD", Georgia, serif;
+    margin: 5% auto;
+    color: #507c18;
+    text-align: center;
+    text-shadow: 0px -1px 0px rgba(25, 48, 0, 0.1), 0px 1px 0px rgba(152, 184, 42, 0.3); }
   #game #ui {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -25%;
-    clear: both; }
+    position: relative;
+    top: 10%;
+    width: 90%;
+    max-width: 1280px;
+    margin: 40px auto;
+    clear: both;
+    color: #dce4c9; }
+    #game #ui .zone {
+      width: auto;
+      overflow: hidden;
+      border: 9px solid #809d29;
+      border-color: rgba(208, 209, 78, 0.3);
+      -webkit-border-radius: 30px;
+      -khtml-border-radius: 30px;
+      -moz-border-radius: 30px;
+      -ms-border-radius: 30px;
+      -o-border-radius: 30px;
+      border-radius: 30px; }
+      #game #ui .zone div, #game #ui .zone ul {
+        float: left; }
+    #game #ui .total {
+      background-color: #809d29;
+      background-color: rgba(208, 209, 78, 0.3);
+      width: 25%;
+      margin: 0 auto;
+      padding: 1em 0;
+      color: #47861a;
+      font-size: 1em;
+      letter-spacing: 0.15em;
+      text-align: center;
+      text-transform: uppercase;
+      -webkit-border-radius: 6px 6px 0px 0px;
+      -khtml-border-radius: 6px 6px 0px 0px;
+      -moz-border-radius: 6px 6px 0px 0px;
+      -ms-border-radius: 6px 6px 0px 0px;
+      -o-border-radius: 6px 6px 0px 0px;
+      border-radius: 6px 6px 0px 0px; }
+    #game #ui .total.bot {
+      -webkit-border-radius: 0 0 6px 6px;
+      -khtml-border-radius: 0 0 6px 6px;
+      -moz-border-radius: 0 0 6px 6px;
+      -ms-border-radius: 0 0 6px 6px;
+      -o-border-radius: 0 0 6px 6px;
+      border-radius: 0 0 6px 6px; }
+    #game #ui #bankroll {
+      font-size: 4.5em; }
     #game #ui #deal li {
       list-style-type: none; }
       #game #ui #deal li:first-child {

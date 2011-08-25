@@ -24,22 +24,63 @@ body, html { width: 100%; height: 100%; }
   overflow: hidden;
   position: relative;
   width: 100%; height: 100%;
-  font: 400 13px/1.4 'futura-pt', Helvetica, Arial, sans-serif;
+  font: 400 16px/1.4 'futura-pt', Helvetica, Arial, sans-serif;
   
-  #ui {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -25%;
-    clear: both;
+  h1 {
+    font: 7.5em/1 'bello-pro','Cooper STD', Georgia, serif;
+    margin: 5% auto;
+    color: #507c18;
+    text-align: center;
+    text-shadow: 0px -1px 0px rgba(25,48,0,0.1), 0px 1px 0px rgba(152,184,42,0.3);
+  }
+  
+// UI -------------------------------------------------
+#ui {
+  position: relative;
+  top: 10%;
+  width: 90%;
+  max-width: 1280px;
+  margin: 40px auto;
+  clear: both;
+  color: #dce4c9;
 
-    #deal {
+  .zone {
+    width: auto;
+    overflow: hidden;
+    border: 9px solid #809d29;
+    border-color: rgba(208,209,78,0.3);
+    @include rounded(30px);
+    div, ul {
+      float: left;
+    }
+  }
+  .total {
+    background-color: #809d29;
+    background-color: rgba(208,209,78,0.3);
+    width: 25%;
+    margin: 0 auto;
+    padding: 1em 0;
+    color: #47861a;
+    font-size: 1em;
+    letter-spacing: 0.15em;
+    text-align: center;
+    text-transform: uppercase;
+    @include rounded(6px 6px 0px 0px);
+  }
+  .total.bot {
+    @include rounded( 0 0 6px 6px);
+  }
+  #bankroll {
+    font-size: 4.5em;
+  }
+    
+  #deal {
       
       li {
         list-style-type: none;
         &:first-child { padding: 0 0 0 15px; }
       }
-    }
+  }
 
     #actions { display: none; }
   }
@@ -111,6 +152,8 @@ body, html { width: 100%; height: 100%; }
 .chip.bet {
 //  box-shadow: 0 0 0px #b00, 0 1px 0px #a00, 0 2px 0px #a00, 0 3px 0px #a00, 0 4px 0px #a00, 0 0 15px #f00;
 }
+
+
 
 // Cards ----------------------------------------------
 .card {
