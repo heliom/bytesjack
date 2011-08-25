@@ -12,7 +12,13 @@ var App = function() { this.initialize.apply(this, arguments) };
 App.prototype = (function() { var pro = {};
 
   //  Contants
-  var ANIN_DELAY = 300;
+  var ANIN_DELAY  = 300,
+      KEY_SPACE   = 32,
+      KEY_S       = 83,
+      KEY_D       = 68,
+      KEY_1       = 49,
+      KEY_2       = 50,
+      KEY_3       = 51;
       
   //  Variables
   var types           = ['clubs', 'diamonds', 'hearts', 'spades'],
@@ -51,6 +57,7 @@ App.prototype = (function() { var pro = {};
       $('a[href="#"]').bind('click', function(e){ e.preventDefault(); });
       initBet();
       initResize();
+      initKeyboardKeys();
   }
   
   //  Resize management
@@ -66,6 +73,31 @@ App.prototype = (function() { var pro = {};
       resizeTimer = setTimeout(function(){
         centerContainers();
       }, 100);
+  };
+  
+  //  Keyboard managment
+  var initKeyboardKeys = function() {
+      $(document).bind('keyup', onKeyUp);
+  };
+  
+  var onKeyUp = function ( e )
+  {
+      e.preventDefault();
+      
+      switch ( e.keyCode ) {
+        case KEY_SPACE : ( isPlaying ) ? hit() : deal(); break;
+        case KEY_S : stand(); break;
+        case KEY_D : doubledown(); break;
+        case KEY_1 : selectChip(0); break;
+        case KEY_2 : selectChip(1); break;
+        case KEY_3 : selectChip(2); break;
+      }
+  };
+  
+  var selectChip = function ( index )
+  {
+      if ( isPlaying ) return;
+      allChips.eq(index).trigger('click');
   };
   
   //  Cards management
@@ -208,6 +240,8 @@ App.prototype = (function() { var pro = {};
 
   var hit = function()
   {
+      if ( ! isPlaying ) return;
+      
       doubleBtn.addClass('desactivate');
       addCard('front', 'player');
       setTimeout(function(){
@@ -217,6 +251,8 @@ App.prototype = (function() { var pro = {};
 
   var stand = function()
   {
+      if ( ! isPlaying ) return;
+      
       revealDealerCard();
       setTimeout(function(){
         if ( dealerCards.sum() < 17 ) dealerTurn();
@@ -237,6 +273,7 @@ App.prototype = (function() { var pro = {};
 
   var doubledown = function()
   {
+      if ( ! isPlaying ) return;
       if ( doubleBtn.hasClass('desactivate') ) return;
 
       changeBankroll(-1);
@@ -320,7 +357,6 @@ App.prototype = (function() { var pro = {};
       var pScore  = playerCards.sum(),
           dScore  = dealerCards.sum();
       
-      dScore = 21;
       if ( pScore == 21 && dScore == 21 ) push();
       else if ( pScore == 21 ) win('blackjack');
       else if ( dScore == 21 ) {
@@ -397,9 +433,9 @@ App.prototype = (function() { var pro = {};
   //  Bet management
   var initBet = function()
   {
-      currentBet = 90;
       allChips.bind('click', function(e){
         var chip = $(this);
+        if ( isPlaying ) return;
         if ( chip.hasClass('desactivate') ) return;
         
         allChips.removeClass('bet');
