@@ -78,7 +78,7 @@ App.prototype = (function() { var pro = {};
       });  
     
       container.append(card);
-      zIndex = ( player == 'player' ) ? card.index() : -card.index();
+      zIndex = ( player == 'player' ) ? card.index() : 50-card.index();
       card.css('z-index', zIndex);
       
       setTimeout(function(){
