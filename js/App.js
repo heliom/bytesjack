@@ -1,7 +1,10 @@
 /*
- * @class   App
- * @author  EtienneLem
- * Special thanks to rafBM <http://twitter.com/#!/rafbm/> for the prototype class structure.
+ *  BytesJack
+ *
+ *  Dev      Etienne Lemay <http://twitter.com/#!/EtienneLem>
+ *  Design   Tristan L'abbé <http://twitter.com/#!/_Tristan>
+ *
+ *  Special thanks to rafBM <http://twitter.com/#!/rafbm> for some JS tricks!
  */
 
 // Static class hack (auto init)
@@ -27,7 +30,7 @@ App.prototype = (function() { var pro = {};
         [{deg: 12, top: 50}, {deg: 8, top: 10}, {deg: -4, top: 0}, {deg: -12, top: 15}, {deg: -16, top: 40}],
         [{deg: 14, top: 40}, {deg: 8, top: 10}, {deg: -2, top: 5}, {deg: -5, top: 15}, {deg: -8, top: 40}, {deg: -14, top: 70}],
         [{deg: 14, top: 70}, {deg: 8, top: 30}, {deg: 4, top: 10}, {deg: 0, top: 5}, {deg: -4, top: 20}, {deg: -8, top: 40}, {deg: -16, top: 70}]
-      ]
+      ];
       
   //  Variables
   var types           = ['clubs', 'diamonds', 'hearts', 'spades'],
@@ -53,7 +56,8 @@ App.prototype = (function() { var pro = {};
       currentBet      = allChips.first().data('value'),
       resizeTimer     = null,
       canDoAction     = true,
-      isStanding      = false;
+      isStanding      = false,
+      gameEnded       = false;
       
   //  public
   pro.initialize = function(opts) { initialize() };
@@ -107,7 +111,7 @@ App.prototype = (function() { var pro = {};
   
   var selectChip = function ( index )
   {
-      if ( isPlaying ) return;
+      if ( isPlaying || gameEnded ) return;
       allChips.eq(index).trigger('click');
   };
   
@@ -214,8 +218,7 @@ App.prototype = (function() { var pro = {};
   //  Game management
   var deal = function()
   {
-      if ( isPlaying ) return;
-      if ( ! canDoAction ) return
+      if ( isPlaying || !canDoAction || gameEnded ) return;
       
       isPlaying = true;
     
@@ -245,7 +248,7 @@ App.prototype = (function() { var pro = {};
 
   var hit = function()
   {
-      if ( !isPlaying || !canDoAction || isStanding ) return;
+      if ( !isPlaying || !canDoAction || isStanding || gameEnded ) return;
       
       doubleBtn.addClass('desactivate');
       addCard('front', 'player');
@@ -256,7 +259,7 @@ App.prototype = (function() { var pro = {};
 
   var stand = function()
   {
-      if ( !isPlaying || !canDoAction || isStanding ) return;
+      if ( !isPlaying || !canDoAction || isStanding || gameEnded ) return;
       
       console.log('stand');
       isStanding = true;
@@ -280,7 +283,7 @@ App.prototype = (function() { var pro = {};
 
   var doubledown = function()
   {
-      if ( !isPlaying || !canDoAction || isStanding || doubleBtn.hasClass('desactivate') ) return;
+      if ( !isPlaying || !canDoAction || isStanding || doubleBtn.hasClass('desactivate') || gameEnded ) return;
 
       changeBankroll(-1);
       doubled = true;
@@ -324,6 +327,12 @@ App.prototype = (function() { var pro = {};
       else if ( pScore > dScore ) win('');
       else if ( pScore == dScore ) push();
   };
+  
+  var endGame = function()
+  {
+      console.log('Game has ended');
+      gameEnded = true;
+  };
 
   var stopGame = function()
   {
@@ -333,8 +342,18 @@ App.prototype = (function() { var pro = {};
       
       allChips.each(function(i){
         var chip = $(this);
-        if ( chip.data('value') > bank ) chip.addClass('desactivate');
-        else if ( chip.hasClass('desactivate') ) chip.removeClass('desactivate');
+        if ( chip.data('value') > bank ) {
+          chip.addClass('desactivate');
+          
+          var chipsAvailable = allChips.removeClass('bet').not('.desactivate');
+          if ( chipsAvailable.size() == 0 ) endGame();
+          else {
+            var newChip = chipsAvailable.last();
+            newChip.addClass('bet');
+            changeBet(newChip.data('value'));
+          }
+           
+        } else if ( chip.hasClass('desactivate') ) chip.removeClass('desactivate');
       });
   };
 
@@ -373,29 +392,29 @@ App.prototype = (function() { var pro = {};
   };
 
   //  Player management
-    var addToPlayerTotal = function ( value )
-    {
-        if ( value == 1 ) {
-          value = 11;
-          playerAces++;
-        }
+  var addToPlayerTotal = function ( value )
+  {
+      if ( value == 1 ) {
+        value = 11;
+        playerAces++;
+      }
 
-        playerCards.push(value);
-        playerTotal.html('Your score ' + calculatePlayerScore());
+      playerCards.push(value);
+      playerTotal.html('Your score ' + calculatePlayerScore());
     };
 
-    var calculatePlayerScore = function()
-    {
-        var score = playerCards.sum();
+  var calculatePlayerScore = function()
+  {
+      var score = playerCards.sum();
 
-        if ( score > 21 && playerAces > 0 ) {
-          playerCards.splice(playerCards.indexOf(11), 1, 1);
-          playerAces--;
-          score = calculatePlayerScore();
-        }
+      if ( score > 21 && playerAces > 0 ) {
+        playerCards.splice(playerCards.indexOf(11), 1, 1);
+        playerAces--;
+        score = calculatePlayerScore();
+      }
 
-        return score;
-    };
+      return score;
+  };
 
   //  Dealer management
   var revealDealerCard = function()
@@ -442,8 +461,7 @@ App.prototype = (function() { var pro = {};
   {
       allChips.bind('click', function(e){
         var chip = $(this);
-        if ( isPlaying ) return;
-        if ( chip.hasClass('desactivate') ) return;
+        if ( isPlaying || chip.hasClass('desactivate') ) return;
         
         allChips.removeClass('bet');
         chip.addClass('bet');
