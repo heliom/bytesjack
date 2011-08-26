@@ -18,7 +18,16 @@ App.prototype = (function() { var pro = {};
       KEY_D       = 68,
       KEY_1       = 49,
       KEY_2       = 50,
-      KEY_3       = 51;
+      KEY_3       = 51,
+      PATTERNS    = [
+        [{deg: 0, top: 0}],
+        [{deg: 5, top: 0}, {deg: -5, top: 0}],
+        [{deg: 5, top: 15}, {deg: -1, top: 0}, {deg: -5, top: 15}],
+        [{deg: 9, top: 20}, {deg: 4, top: 0}, {deg: -4, top: 0}, {deg: -9, top: 15}],
+        [{deg: 12, top: 50}, {deg: 8, top: 10}, {deg: -4, top: 0}, {deg: -12, top: 15}, {deg: -16, top: 40}],
+        [{deg: 14, top: 40}, {deg: 8, top: 10}, {deg: -2, top: 5}, {deg: -5, top: 15}, {deg: -8, top: 40}, {deg: -14, top: 70}],
+        [{deg: 14, top: 70}, {deg: 8, top: 30}, {deg: 4, top: 10}, {deg: 0, top: 5}, {deg: -4, top: 20}, {deg: -8, top: 40}, {deg: -16, top: 70}]
+      ]
       
   //  Variables
   var types           = ['clubs', 'diamonds', 'hearts', 'spades'],
@@ -139,7 +148,7 @@ App.prototype = (function() { var pro = {};
           'top'     : '0%',
           'left'    : 10 * card.index() + '%'
         });
-        rotateCards(container, player);
+        rotateCards(container, (player == 'player'));
         
         
         setTimeout(function(){
@@ -151,34 +160,22 @@ App.prototype = (function() { var pro = {};
       }, 10);
   };
   
-  var rotateCards = function ( container, player )
+  var rotateCards = function ( container, isPlayer )
   {
       var cards     = container.children('.card'),
-          numCards  = cards.size(),
-          increment = ( player == 'player' ) ? -1 : 1;
+          numCards  = cards.size() - 1,
+          increment = ( isPlayer ) ? -1 : 1,
+          pattern   = ( PATTERNS[numCards] ) ? PATTERNS[numCards] : PATTERNS[PATTERNS.length-1];
       
-      switch ( numCards ) {
-        case 1 :
-          // $(cards[0]).css('-webkit-transform', 'rotate(0deg)');
-        break;
-        case 2 :
-          /*$(cards[0]).css('-webkit-transform', 'rotate('+(5*increment)+'deg)');
-          $(cards[1]).css({
-            '-webkit-transform' : 'rotate('+(-1*increment)+'deg)'
-          });*/
-        break;
-        case 3 :
-          /*container.css('-webkit-transform', 'rotate('+(5*increment)+'deg)');
-          $(cards[0]).css('-webkit-transform', 'rotate('+(9*increment)+'deg)');
-          $(cards[1]).css({
-            '-webkit-transform' : 'rotate('+(-1*increment)+'deg)'
-          });
-          $(cards[2]).css({
-            '-webkit-transform' : 'rotate('+(-9*increment)+'deg)',
-            'top' : -20*increment + 'px'
-          });*/
-        break;
-      }
+      cards.each(function(i){
+        var deg = ( i < pattern.length ) ? pattern[i].deg : pattern[pattern.length-1].deg;
+            top = ( i < pattern.length ) ? pattern[i].top : pattern[pattern.length-1].top + (20 * (i - pattern.length + 1));
+        
+        $(this).css({
+          '-webkit-transform' : 'rotate('+ deg * increment +'deg)',
+          'top' : top * -increment + 'px'
+        });
+      });
   };
   
   var centerContainers = function()
