@@ -20,17 +20,132 @@ body, html {
   position: relative;
   width: 100%;
   height: 100%;
-  font: 400 13px/1.4 "futura-pt", Helvetica, Arial, sans-serif; }
+  font: 400 16px/1.4 "futura-pt", Helvetica, Arial, sans-serif; }
+  #game h1 {
+    font: 5em/1 "bello-pro", "Cooper STD", Georgia, serif;
+    margin: 5% auto;
+    color: #507c18;
+    text-align: center;
+    text-shadow: 0px 0px 1px rgba(25, 48, 0, 0.1), 0px 1px 0px rgba(152, 184, 42, 0.3); }
+  #game .shortcut {
+    display: block;
+    padding: 1em 0;
+    color: #77a421;
+    font-size: 0.65em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase; }
   #game #ui {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -25%;
-    clear: both; }
-    #game #ui #deal li {
-      list-style-type: none; }
-      #game #ui #deal li:first-child {
-        padding: 0 0 0 15px; }
+    position: relative;
+    top: 0;
+    width: 90%;
+    max-width: 1280px;
+    margin: 40px auto;
+    clear: both;
+    color: #dce4c9; }
+    #game #ui .zone {
+      width: auto;
+      overflow: hidden;
+      border: 9px solid #809d29;
+      border-color: rgba(208, 209, 78, 0.3);
+      padding: 2%;
+      -webkit-border-radius: 30px;
+      -khtml-border-radius: 30px;
+      -moz-border-radius: 30px;
+      -ms-border-radius: 30px;
+      -o-border-radius: 30px;
+      border-radius: 30px; }
+      #game #ui .zone div, #game #ui .zone ul {
+        width: 20%;
+        float: left; }
+      #game #ui .zone #bankroll {
+        font-size: 4.5em;
+        margin-right: 5%;
+        text-align: center; }
+      #game #ui .zone #deal, #game #ui .zone #actions {
+        width: 50%;
+        margin: auto;
+        text-align: center;
+        list-style: none; }
+        #game #ui .zone #deal a, #game #ui .zone #deal li a, #game #ui .zone #actions a, #game #ui .zone #actions li a {
+          background-color: #ffe000;
+          position: relative;
+          background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffc900), color-stop(1, #ffec01));
+          background-image: -moz-linear-gradient(center bottom, #ffc900 0%, #ffec01 100%);
+          display: block;
+          padding: 5% 5% 3.875% 5%;
+          color: #724a0e;
+          font: 2.5em/1 "bello-pro", "Cooper STD", Georgia, serif;
+          text-decoration: none;
+          text-shadow: 0 1px 0px rgba(255, 255, 255, 0.3), 0px -1px 0px rgba(0, 0, 0, 0.2);
+          -webkit-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
+          -khtml-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
+          -moz-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
+          -ms-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
+          -o-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
+          -webkit-border-radius: 12px;
+          -khtml-border-radius: 12px;
+          -moz-border-radius: 12px;
+          -ms-border-radius: 12px;
+          -o-border-radius: 12px;
+          border-radius: 12px;
+          -webkit-transition: box-shadow 50ms ease-out;
+          -khtml-transition: box-shadow 50ms ease-out;
+          -moz-transition: box-shadow 50ms ease-out;
+          -ms-transition: box-shadow 50ms ease-out;
+          -o-transition: box-shadow 50ms ease-out;
+          transition: box-shadow 50ms ease-out; }
+          #game #ui .zone #deal a:hover, #game #ui .zone #deal a:focus, #game #ui .zone #deal li a:hover, #game #ui .zone #deal li a:focus, #game #ui .zone #actions a:hover, #game #ui .zone #actions a:focus, #game #ui .zone #actions li a:hover, #game #ui .zone #actions li a:focus {
+            -webkit-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 246, 0, 0.8);
+            -khtml-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 246, 0, 0.8);
+            -moz-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 246, 0, 0.8);
+            -ms-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 246, 0, 0.8);
+            -o-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 246, 0, 0.8);
+            box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 246, 0, 0.8); }
+          #game #ui .zone #deal a:active, #game #ui .zone #deal li a:active, #game #ui .zone #actions a:active, #game #ui .zone #actions li a:active {
+            top: 2px;
+            -webkit-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 3px 0px 0px #daa206, 0px 3px 0px 2px rgba(0, 0, 0, 0.2);
+            -khtml-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 3px 0px 0px #daa206, 0px 3px 0px 2px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 3px 0px 0px #daa206, 0px 3px 0px 2px rgba(0, 0, 0, 0.2);
+            -ms-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 3px 0px 0px #daa206, 0px 3px 0px 2px rgba(0, 0, 0, 0.2);
+            -o-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 3px 0px 0px #daa206, 0px 3px 0px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 3px 0px 0px #daa206, 0px 3px 0px 2px rgba(0, 0, 0, 0.2); }
+        #game #ui .zone #deal li, #game #ui .zone #actions li {
+          display: block;
+          width: 28%;
+          margin: 0 2%;
+          float: left; }
+          #game #ui .zone #deal li a, #game #ui .zone #actions li a {
+            padding: 1.25em 0;
+            font-size: 1.5em; }
+    #game #ui .total {
+      background-color: #809d29;
+      background-color: rgba(208, 209, 78, 0.3);
+      width: 25%;
+      margin: 0 auto;
+      padding: 1em 0;
+      color: #47861a;
+      font-size: 1em;
+      letter-spacing: 0.15em;
+      text-align: center;
+      text-transform: uppercase;
+      -webkit-border-radius: 9px 9px 0px 0px;
+      -khtml-border-radius: 9px 9px 0px 0px;
+      -moz-border-radius: 9px 9px 0px 0px;
+      -ms-border-radius: 9px 9px 0px 0px;
+      -o-border-radius: 9px 9px 0px 0px;
+      border-radius: 9px 9px 0px 0px; }
+    #game #ui .total.bot {
+      -webkit-border-radius: 0 0 9px 9px;
+      -khtml-border-radius: 0 0 9px 9px;
+      -moz-border-radius: 0 0 9px 9px;
+      -ms-border-radius: 0 0 9px 9px;
+      -o-border-radius: 0 0 9px 9px;
+      border-radius: 0 0 9px 9px; }
+    #game #ui #chips {
+      position: absolute;
+      top: 25%;
+      right: -15%; }
     #game #ui #actions {
       display: none; }
   #game #player-cards, #game #dealer-cards {

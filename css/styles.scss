@@ -24,22 +24,129 @@ body, html { width: 100%; height: 100%; }
   overflow: hidden;
   position: relative;
   width: 100%; height: 100%;
-  font: 400 13px/1.4 'futura-pt', Helvetica, Arial, sans-serif;
+  font: 400 16px/1.4 'futura-pt', Helvetica, Arial, sans-serif;
   
-  #ui {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -25%;
-    clear: both;
+  h1 {
+    font: 5em/1 'bello-pro','Cooper STD', Georgia, serif;
+    margin: 5% auto;
+    color: #507c18;
+//    color: rgba(80,124,24,0.2);
+    text-align: center;
+    text-shadow: 0px 0px 1px rgba(25,48,0,0.1), 0px 1px 0px rgba(152,184,42,0.3);
+  }
+  
+  .shortcut {
+    display: block;
+    padding: 1em 0;
+    color: #77a421;
+    font-size: 0.65em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+//  #dealer-cards { display: none; }
 
-    #deal {
-      
-      li {
-        list-style-type: none;
-        &:first-child { padding: 0 0 0 15px; }
-      }
+// UI -------------------------------------------------
+#ui {
+  position: relative;
+  top: 0;
+  width: 90%;
+  max-width: 1280px;
+  margin: 40px auto;
+  clear: both;
+  color: #dce4c9;
+
+  .zone {
+    width: auto;
+    overflow: hidden;
+    border: 9px solid #809d29;
+    border-color: rgba(208,209,78,0.3);
+    padding: 2%;
+    @include rounded(30px);
+    
+    div, ul {
+      width: 20%;
+      float: left;
     }
+    #bankroll {
+      font-size: 4.5em;
+      margin-right: 5%;
+      text-align: center;
+    }
+
+    #deal, #actions {
+      width: 50%;
+      margin: auto;
+      text-align: center;
+      list-style: none;
+      
+       a, li a {
+         
+          background-color: #ffe000;
+          position: relative;
+          @include gradient-top-bottom(#ffec01,#ffc900);
+          display: block;
+          padding: 5% 5% 3.875% 5%;
+          color: #724a0e;
+          font: 2.5em/1 'bello-pro','Cooper STD', Georgia, serif;
+          text-decoration: none;
+          text-shadow: 0 1px 0px rgba(255,255,255,0.3), 0px -1px 0px rgba(0,0,0,0.2);
+          @include box-shadow(#{
+              inset 0px 2px 0 rgba(255,255,255,0.3), 
+              inset 0px -2px 0 rgba(255,255,255,0.1), 
+              0px 5px 0px 0px #daa206, 
+              0px 5px 0px 2px rgba(0,0,0,0.2)});
+          @include rounded(12px);
+          @include transition(box-shadow 50ms ease-out);
+          
+          &:hover, &:focus { @include box-shadow(#{inset 0px 2px 0 rgba(255,255,255,0.3), inset 0px -2px 0 rgba(255,255,255,0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0,0,0,0.2), 0 0 30px rgba(255,246,0,0.8)}); };
+          &:active {
+            top: 2px;
+            @include box-shadow(#{
+              inset 0px 2px 0 rgba(255,255,255,0.3), 
+              inset 0px -2px 0 rgba(255,255,255,0.1), 
+              0px 3px 0px 0px #daa206, 
+              0px 3px 0px 2px rgba(0,0,0,0.2)});
+          }
+        }
+
+        li{
+          display: block;
+          width: 28%;
+          margin: 0 2%;
+          float: left;
+          a {
+            padding: 1.25em 0;
+            font-size: 1.5em;
+          }
+        } 
+    }
+    
+    
+    
+  }
+  .total {
+    background-color: #809d29;
+    background-color: rgba(208,209,78,0.3);
+    width: 25%;
+    margin: 0 auto;
+    padding: 1em 0;
+    color: #47861a;
+    font-size: 1em;
+    letter-spacing: 0.15em;
+    text-align: center;
+    text-transform: uppercase;
+    @include rounded(9px 9px 0px 0px);
+  }
+  .total.bot {
+    @include rounded( 0 0 9px 9px);
+  }
+  
+  #chips {
+    position: absolute;
+    top: 25%;
+    right: -15%;
+  }
+  
 
     #actions { display: none; }
   }
@@ -111,6 +218,8 @@ body, html { width: 100%; height: 100%; }
 .chip.bet {
 //  box-shadow: 0 0 0px #b00, 0 1px 0px #a00, 0 2px 0px #a00, 0 3px 0px #a00, 0 4px 0px #a00, 0 0 15px #f00;
 }
+
+
 
 // Cards ----------------------------------------------
 .card {

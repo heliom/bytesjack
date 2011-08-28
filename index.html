@@ -10,33 +10,32 @@
   </head>
   <body>
     <div id="game">
+      <h1>BytesJack</h1>
       <div id="dealer-cards">
-        <div class="card"></div>
-        <div class="card back"></div>
-        <div class="card back"></div>
-        <div class="card back"></div>
-        <div class="card back"></div>
       </div>
       
       <div id="ui">
-        <ul id="deal">
-          <li>
-            <div class="chip bet" data-value="1"><span>100b</span></div>
-            <div class="chip" data-value="5"><span>500b</span></div>
-            <div class="chip" data-value="10"><span>1k</span></div>
-          </li>
-          <li><a href="#" onclick="App.deal();">Deal</a></li>
-        </ul>
-        <ul id="actions">
-          <li><a href="#" onclick="App.hit();">Hit</a></li>
-          <li><a href="#" onclick="App.stand();">Stand</a></li>
-          <li><a id="double" href="#" onclick="App.doubledown();">Double</a></li>
-        </ul>
         
-        <div id="dealer-total"></div>
-        <div id="player-total"></div>
+        <div class="total">Dealer's hand <div id="dealer-total"></div></div>
         
-        <div id="bankroll">10k</div>
+        <div class="zone">
+          <div id="bankroll">10k</div>
+          <div id="deal"><a href="#" onclick="App.deal();">Deal</a><span class="shortcut">spacebar</span></div>
+          <ul id="actions">
+            <li><a href="#" onclick="App.hit();">Hit</a><span class="shortcut">spacebar</span></li>
+            <li><a href="#" onclick="App.stand();">Stand</a><span class="shortcut">s</span></li>
+            <li><a id="double" href="#" onclick="App.doubledown();">Double</a><span class="shortcut">d</span></li>
+          </ul>
+        </div>
+        
+        <div class="total bot">Your hand <div id="player-total"></div></div> 
+        
+        <div id="chips">
+          <div class="chip bet" data-value="1"><span>100b</span></div>
+          <div class="chip" data-value="5"><span>500b</span></div>
+          <div class="chip" data-value="10"><span>1k</span></div>
+        </div>
+        
       </div>
       
       <div id="player-cards"></div>
