@@ -306,7 +306,7 @@ App.prototype = (function() { var pro = {};
   {
       addCard('front', 'dealer');
       setTimeout(function(){
-        dealerTotal.html('Dealer score ' + calculateDealerScore());
+        dealerTotal.html(calculateDealerScore());
 
         if ( dealerCards.sum() < 17 ) dealerTurn();
         else end();
