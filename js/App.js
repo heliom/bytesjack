@@ -92,7 +92,26 @@ App.prototype = (function() { var pro = {};
   
   //  Keyboard managment
   var initKeyboardKeys = function() {
+      $(document).bind('keydown', onKeyDown);
       $(document).bind('keyup', onKeyUp);
+  };
+  
+  var onKeyDown = function ( e )
+  {
+      e.preventDefault();
+      
+      switch ( e.keyCode ) {
+        case KEY_SPACE :
+          ( isPlaying )
+            ? actionsNav.children('li:first-child').children('a').addClass('active')
+            : dealNav.children('a').addClass('active');
+        break;
+        case KEY_S : actionsNav.children('li:nth-child(2)').children('a').addClass('active'); break;
+        case KEY_D : actionsNav.children('li:nth-child(3)').children('a').addClass('active'); break;
+        case KEY_1 : selectChip(0); break;
+        case KEY_2 : selectChip(1); break;
+        case KEY_3 : selectChip(2); break;
+      }
   };
   
   var onKeyUp = function ( e )
@@ -100,9 +119,22 @@ App.prototype = (function() { var pro = {};
       e.preventDefault();
       
       switch ( e.keyCode ) {
-        case KEY_SPACE : ( isPlaying ) ? hit() : deal(); break;
-        case KEY_S : stand(); break;
-        case KEY_D : doubledown(); break;
+        case KEY_SPACE :
+          if ( isPlaying ) {
+            hit();
+            actionsNav.children('li:first-child').children('a').removeClass('active') 
+          } else {
+            deal();
+            dealNav.children('a').removeClass('active');
+          }
+        case KEY_S :
+          stand();
+          actionsNav.children('li:nth-child(2)').children('a').removeClass('active');
+        break;
+        case KEY_D :
+          doubledown();
+          actionsNav.children('li:nth-child(3)').children('a').removeClass('active');
+        break;
         case KEY_1 : selectChip(0); break;
         case KEY_2 : selectChip(1); break;
         case KEY_3 : selectChip(2); break;
@@ -400,7 +432,7 @@ App.prototype = (function() { var pro = {};
       }
 
       playerCards.push(value);
-      playerTotal.html('Your score ' + calculatePlayerScore());
+      playerTotal.html(calculatePlayerScore());
     };
 
   var calculatePlayerScore = function()
@@ -430,7 +462,7 @@ App.prototype = (function() { var pro = {};
       });
       
       card.after(newCard).remove();
-      dealerTotal.html('Dealer score ' + calculateDealerScore());
+      dealerTotal.html(calculateDealerScore());
   };
 
   var addToDealerTotal = function ( value )
