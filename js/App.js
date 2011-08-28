@@ -98,8 +98,6 @@ App.prototype = (function() { var pro = {};
   
   var onKeyDown = function ( e )
   {
-      e.preventDefault();
-      
       switch ( e.keyCode ) {
         case KEY_SPACE :
           ( isPlaying )
@@ -330,7 +328,8 @@ App.prototype = (function() { var pro = {};
   var push = function()
   {
       console.log('push');
-      changeBankroll(1);
+      var increment = ( doubled ) ? 2 : 1;
+      changeBankroll(increment);
       stopGame();
   };
 
