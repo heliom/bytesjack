@@ -181,8 +181,8 @@ body, html { width: 100%; height: 100%; }
     @include rotate(180deg);
   }
   
-  #dealer-cards { top: -250px; }
-  #player-cards { bottom: -250px; }
+  #dealer-cards { top: -150px; }
+  #player-cards { bottom: -150px; }
   #player-total, #dealer-total { font-size: 2em; }
 }
 
@@ -368,4 +368,12 @@ body, html { width: 100%; height: 100%; }
 .card.valueK > .icons > span {
   font-size: 6em;
   top: -100px; left: -70px;
+}
+
+// Media Queries
+@media screen and (max-height: 990px) {
+  #game {
+    #dealer-cards { top: -250px; }
+    #player-cards { bottom: -250px; }
+  }
 }

@@ -235,9 +235,9 @@ body, html {
     -o-transform: rotate(180deg);
     transform: rotate(180deg); }
   #game #dealer-cards {
-    top: -250px; }
+    top: -150px; }
   #game #player-cards {
-    bottom: -250px; }
+    bottom: -150px; }
   #game #player-total, #game #dealer-total {
     font-size: 2em; }
 
@@ -564,3 +564,9 @@ body, html {
   font-size: 6em;
   top: -100px;
   left: -70px; }
+
+@media screen and (max-height: 990px) {
+  #game #dealer-cards {
+    top: -250px; }
+  #game #player-cards {
+    bottom: -250px; } }
