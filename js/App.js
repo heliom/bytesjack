@@ -1,5 +1,5 @@
 /*
- *  BytesJack
+ *  BytesJack <https://github.com/EtienneLem/bytesjack>
  *
  *  Dev      Etienne Lemay <http://twitter.com/#!/EtienneLem>
  *  Design   Tristan L'abbé <http://twitter.com/#!/_Tristan>
