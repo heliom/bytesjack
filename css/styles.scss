@@ -1,17 +1,5 @@
 @import "utils";
 
-// Mixins ---------------------------------------------
-@mixin initCard ( $n, $increment, $value )
-{
-	@for $i from 0 through $n - 1 {
-    &:nth-child(#{$i + 1}) {
-      left : #{10 * $i * $value};
-      @if   $increment == 1 { z-index: $i; }
-      @else { z-index: $n + 1 - $i; }
-    }
-  }
-}
-
 // Utils ----------------------------------------------
 * { margin: 0; padding: 0; }
 body, html { width: 100%; height: 100%; }
@@ -183,18 +171,8 @@ body, html { width: 100%; height: 100%; }
     }
   }
   
-  #dealer-cards {
-    top: -250px;
-    
-    .card { @include initCard(10, -1, 1%); }
-  }
-  
-  #player-cards {
-    bottom: -250px;
-    
-    .card { @include initCard(10, 1, 1%); }
-  }
-  
+  #dealer-cards { top: -250px; }
+  #player-cards { bottom: -250px; }
   #player-total, #dealer-total { font-size: 2em; }
 }
 
