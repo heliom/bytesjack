@@ -38,7 +38,7 @@ body, html {
     position: relative;
     top: 0;
     width: 90%;
-    max-width: 1280px;
+    max-width: 1024px;
     margin: 40px auto;
     clear: both;
     color: #dce4c9; }
@@ -247,18 +247,11 @@ body, html {
   float: left;
   margin: 0 10px 0 0;
   padding: 4px;
-  background-color: #007cff;
   position: relative;
   width: 100px;
   height: 100px;
   border-radius: 100%;
   border: 10px dashed #fff;
-  -webkit-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
-  -khtml-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
-  -moz-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
-  -ms-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
-  -o-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
-  box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
@@ -266,9 +259,6 @@ body, html {
   -o-user-select: none;
   user-select: none; }
   .chip span {
-    background-color: #0261f1;
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0274f3), color-stop(1, #037ff4));
-    background-image: -moz-linear-gradient(center bottom, #0274f3 0%, #037ff4 100%);
     display: block;
     width: 100%;
     height: 100%;
@@ -277,13 +267,64 @@ body, html {
     font-size: 2em;
     line-height: 102px;
     text-align: center;
-    text-shadow: 0 -1px 0px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 -1px 0px rgba(0, 0, 0, 0.3); }
+
+.chip.blue {
+  background-color: #007cff;
+  -webkit-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
+  -khtml-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
+  -moz-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
+  -ms-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
+  -o-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
+  box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff; }
+  .chip.blue span {
+    background-color: #0261f1;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0274f3), color-stop(1, #037ff4));
+    background-image: -moz-linear-gradient(center bottom, #0274f3 0%, #037ff4 100%);
     -webkit-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
     -khtml-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
     -moz-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
     -ms-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
     -o-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
     box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1; }
+
+.chip.red {
+  background-color: #f54800;
+  -webkit-box-shadow: 0 0 0px #de2e04, 0 1px 0px #de2e04, 0 2px 0px #de2e04, 0 3px 0px #de2e04, 0 4px 0px #de2e04, 0 -1px 0px #ff6d02;
+  -khtml-box-shadow: 0 0 0px #de2e04, 0 1px 0px #de2e04, 0 2px 0px #de2e04, 0 3px 0px #de2e04, 0 4px 0px #de2e04, 0 -1px 0px #ff6d02;
+  -moz-box-shadow: 0 0 0px #de2e04, 0 1px 0px #de2e04, 0 2px 0px #de2e04, 0 3px 0px #de2e04, 0 4px 0px #de2e04, 0 -1px 0px #ff6d02;
+  -ms-box-shadow: 0 0 0px #de2e04, 0 1px 0px #de2e04, 0 2px 0px #de2e04, 0 3px 0px #de2e04, 0 4px 0px #de2e04, 0 -1px 0px #ff6d02;
+  -o-box-shadow: 0 0 0px #de2e04, 0 1px 0px #de2e04, 0 2px 0px #de2e04, 0 3px 0px #de2e04, 0 4px 0px #de2e04, 0 -1px 0px #ff6d02;
+  box-shadow: 0 0 0px #de2e04, 0 1px 0px #de2e04, 0 2px 0px #de2e04, 0 3px 0px #de2e04, 0 4px 0px #de2e04, 0 -1px 0px #ff6d02; }
+  .chip.red span {
+    background-color: #eb4603;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ed4300), color-stop(1, #ef4d00));
+    background-image: -moz-linear-gradient(center bottom, #ed4300 0%, #ef4d00 100%);
+    -webkit-box-shadow: 0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400;
+    -khtml-box-shadow: 0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400;
+    -moz-box-shadow: 0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400;
+    -ms-box-shadow: 0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400;
+    -o-box-shadow: 0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400;
+    box-shadow: 0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400; }
+
+.chip.yellow {
+  background-color: #f3cf00;
+  -webkit-box-shadow: 0 0 0px #cdaf00, 0 1px 0px #cdaf00, 0 2px 0px #cdaf00, 0 3px 0px #cdaf00, 0 4px 0px #cdaf00, 0 -1px 0px #fddc00;
+  -khtml-box-shadow: 0 0 0px #cdaf00, 0 1px 0px #cdaf00, 0 2px 0px #cdaf00, 0 3px 0px #cdaf00, 0 4px 0px #cdaf00, 0 -1px 0px #fddc00;
+  -moz-box-shadow: 0 0 0px #cdaf00, 0 1px 0px #cdaf00, 0 2px 0px #cdaf00, 0 3px 0px #cdaf00, 0 4px 0px #cdaf00, 0 -1px 0px #fddc00;
+  -ms-box-shadow: 0 0 0px #cdaf00, 0 1px 0px #cdaf00, 0 2px 0px #cdaf00, 0 3px 0px #cdaf00, 0 4px 0px #cdaf00, 0 -1px 0px #fddc00;
+  -o-box-shadow: 0 0 0px #cdaf00, 0 1px 0px #cdaf00, 0 2px 0px #cdaf00, 0 3px 0px #cdaf00, 0 4px 0px #cdaf00, 0 -1px 0px #fddc00;
+  box-shadow: 0 0 0px #cdaf00, 0 1px 0px #cdaf00, 0 2px 0px #cdaf00, 0 3px 0px #cdaf00, 0 4px 0px #cdaf00, 0 -1px 0px #fddc00; }
+  .chip.yellow span {
+    background-color: #ebc700;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ebcd00), color-stop(1, #ecc300));
+    background-image: -moz-linear-gradient(center bottom, #ebcd00 0%, #ecc300 100%);
+    -webkit-box-shadow: 0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00;
+    -khtml-box-shadow: 0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00;
+    -moz-box-shadow: 0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00;
+    -ms-box-shadow: 0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00;
+    -o-box-shadow: 0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00;
+    box-shadow: 0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00; }
 
 .card {
   font-size: 1.5em;
