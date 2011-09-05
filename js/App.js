@@ -15,7 +15,7 @@ var App = function() { this.initialize.apply(this, arguments) };
 App.prototype = (function() { var pro = {};
 
   //  Contants
-  var ANIN_DELAY  = 300,
+  var ANIM_DELAY  = 300,
       KEY_SPACE   = 32,
       KEY_S       = 83,
       KEY_D       = 68,
@@ -152,7 +152,6 @@ App.prototype = (function() { var pro = {};
       for ( var i = 0; i < types.length; i++ ) {
         for ( var j = 1; j <= 13; j++ ) {
           var value = ( j > 10 ) ? 10 : j;
-          value = 4;
           cards.push({ card:j, value: value, type: types[i] });
         };
       }
@@ -160,7 +159,7 @@ App.prototype = (function() { var pro = {};
       cards.shuffle();
   };
 
-  var addCard = function ( side, player )
+  var addCard = function ( side, player, callback )
   {
       var cardData  = cards[cardsIndex],
           container = ( player == 'player' ) ? pCardsContainer : dCardsContainer,
@@ -191,8 +190,10 @@ App.prototype = (function() { var pro = {};
           centerContainer(container);
           if ( player == 'player' ) addToPlayerTotal(cardData.value);
           else                      addToDealerTotal(cardData.value);
+          
           canDoAction = true;
-        }, 275);
+          if ( callback != undefined ) callback.call();
+        }, ANIM_DELAY);
       }, 10);
   };
   
@@ -245,9 +246,7 @@ App.prototype = (function() { var pro = {};
           for ( var i=1, l=value; i <= l; i++ ) {
             icons += '<span>'+cardIcon+'</span>';
           }
-        } else {
-          icons = ( value == 11 ) ? '<span>♝</span>' : ( value == 12 ) ? '<span>♛</span>' : ( value == 13 ) ? '<span>♚</span>' : '';
-        }
+        } else icons = ( value == 11 ) ? '<span>♝</span>' : ( value == 12 ) ? '<span>♛</span>' : ( value == 13 ) ? '<span>♚</span>' : '';
       
         card =  $('<div data-id="'+id+'" class="card value'+cardValue+' '+type+'">'+corner+'<div class="icons">'+icons+'</div>'+corner+'</div>');
       }
@@ -291,10 +290,9 @@ App.prototype = (function() { var pro = {};
       if ( !isPlaying || !canDoAction || isStanding || gameEnded ) return;
       
       doubleBtn.addClass('desactivate');
-      addCard('front', 'player');
-      setTimeout(function(){
+      addCard('front', 'player', function(){
         if ( playerCards.sum() > 21 ) lose('busted');
-      }, ANIN_DELAY);
+      });
   };
 
   var stand = function()
@@ -304,21 +302,21 @@ App.prototype = (function() { var pro = {};
       console.log('stand');
       isStanding = true;
       revealDealerCard();
+      
       setTimeout(function(){
         if ( dealerCards.sum() < 17 ) dealerTurn();
         else end();
-      }, ANIN_DELAY);
+      }, ANIM_DELAY);
   };
 
   var dealerTurn = function()
   {
-      addCard('front', 'dealer');
-      setTimeout(function(){
+      addCard('front', 'dealer', function(){
         dealerTotal.html(calculateDealerScore());
 
         if ( dealerCards.sum() < 17 ) dealerTurn();
         else end();
-      }, ANIN_DELAY);
+      });
   };
 
   var doubledown = function()
@@ -327,12 +325,10 @@ App.prototype = (function() { var pro = {};
 
       changeBankroll(-1);
       doubled = true;
-      addCard('front', 'player');
-      
-      setTimeout(function(){
+      addCard('front', 'player', function(){
         if ( playerCards.sum() > 21 ) lose('busted');
         else stand();
-      }, ANIN_DELAY);
+      });
   };
 
   var push = function()
@@ -403,19 +399,16 @@ App.prototype = (function() { var pro = {};
   var ditributeCards = function()
   {
       canDoAction = false;
-      addCard('front', 'player');
-      setTimeout(function(){
-        addCard('front', 'dealer');
-        setTimeout(function(){
-          addCard('front', 'player');
-          setTimeout(function(){
-            addCard('back', 'dealer');
-            setTimeout(function(){
+      
+      addCard('front', 'player', function(){
+        addCard('front', 'dealer', function(){
+          addCard('front', 'player', function(){
+            addCard('back', 'dealer', function(){
               checkBlackjack();
-            }, ANIN_DELAY);
-          }, ANIN_DELAY);
-        }, ANIN_DELAY);
-      }, ANIN_DELAY);
+            });
+          });
+        });
+      });
       
       dealNav.hide();
       actionsNav.show();
