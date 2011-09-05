@@ -52,7 +52,7 @@ App.prototype = (function() { var pro = {};
       chips           = $('#chips'),
       allChips        = $('.chip'),
       bank            = 100,
-      bankroll        = $('#bankroll'),
+      bankroll        = $('#bankroll > div'),
       doubled         = false,
       currentBet      = allChips.first().data('value'),
       resizeTimer     = null,

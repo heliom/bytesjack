@@ -43,8 +43,9 @@ body, html {
     clear: both;
     color: #dce4c9; }
     #game #ui .zone {
+      position: relative;
       width: auto;
-      overflow: hidden;
+      height: 116px;
       border: 9px solid #809d29;
       border-color: rgba(208, 209, 78, 0.3);
       padding: 2%;
@@ -58,9 +59,16 @@ body, html {
         width: 20%;
         float: left; }
       #game #ui .zone #bankroll {
+        position: relative;
         font-size: 4.5em;
         margin-right: 5%;
         text-align: center; }
+        #game #ui .zone #bankroll span {
+          position: absolute;
+          top: -65%;
+          font-size: 0.25em;
+          text-transform: uppercase;
+          color: rgba(208, 209, 78, 0.3); }
       #game #ui .zone #deal, #game #ui .zone #actions {
         width: 50%;
         margin: auto;
@@ -144,7 +152,8 @@ body, html {
       border-radius: 0 0 9px 9px; }
     #game #ui #chips {
       position: absolute;
-      top: 25%;
+      width: 0;
+      top: 8%;
       right: 0; }
       #game #ui #chips .chip {
         position: absolute;
@@ -273,7 +282,7 @@ body, html {
   margin: 0 10px 0 0;
   padding: 4px;
   position: relative;
-  width: 100px;
+  width: 100px !important;
   height: 100px;
   border-radius: 100%;
   border: 10px dashed #fff;
