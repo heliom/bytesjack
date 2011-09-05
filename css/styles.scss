@@ -49,7 +49,7 @@ body, html { width: 100%; height: 100%; }
 #ui {
   position: relative;
   top: 0;
-  width: 90%;
+  width: 75%;
   // max-width: 1280px;
   max-width: 1024px;
   margin: 40px auto;
@@ -145,7 +145,12 @@ body, html { width: 100%; height: 100%; }
   #chips {
     position: absolute;
     top: 25%;
-    right: -15%;
+    right: 0;
+    
+    .chip { position: absolute; top: 0; left: 0; @include transition(all 250ms ease-out); }
+    .chip:nth-child(1) { left: auto; right: 10px; &::before{ display: none; } }
+    .chip:nth-child(2) { left: 10px; top: -50px; &::before{ top: -25%; } }
+    .chip:nth-child(3) { left: 10px; top: 50px;  &::before{ top: 115%; } }
   }
   
 
@@ -155,7 +160,6 @@ body, html { width: 100%; height: 100%; }
   #player-cards, #dealer-cards {
     position: absolute;
     left: 50%;
-    //margin: 0 0 0 -25%;
     width: 100%; height: 460px;
     @include transition(all 200ms ease-out);
     
@@ -210,6 +214,15 @@ body, html { width: 100%; height: 100%; }
 		text-align: center;
 		text-shadow: 0 -1px 0px rgba(0,0,0,0.3);
 	}
+	
+	&::before {
+	  position: absolute;
+    color: #77a421;
+    font-size: 0.65em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    left: 49%;
+	}
 }
 
 .chip.bet {
@@ -225,6 +238,8 @@ body, html { width: 100%; height: 100%; }
     @include gradient-top-bottom(#037ff4, #0274f3);
     @include box-shadow(#{0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1});
   }
+  
+  &::before { content: '2'; }
 }
 
 .chip.red {
@@ -236,6 +251,8 @@ body, html { width: 100%; height: 100%; }
     @include gradient-top-bottom(#ef4d00, #ed4300);
     @include box-shadow(#{0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400});
   }
+  
+  &::before { content: '1'; }
 }
 
 .chip.yellow {
@@ -247,6 +264,8 @@ body, html { width: 100%; height: 100%; }
     @include gradient-top-bottom(#ecc300, #ebcd00);
     @include box-shadow(#{0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00});
   }
+  
+  &::before { content: '3'; }
 }
 
 

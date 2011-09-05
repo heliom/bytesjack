@@ -37,7 +37,7 @@ body, html {
   #game #ui {
     position: relative;
     top: 0;
-    width: 90%;
+    width: 75%;
     max-width: 1024px;
     margin: 40px auto;
     clear: both;
@@ -145,7 +145,32 @@ body, html {
     #game #ui #chips {
       position: absolute;
       top: 25%;
-      right: -15%; }
+      right: 0; }
+      #game #ui #chips .chip {
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-transition: all 250ms ease-out;
+        -khtml-transition: all 250ms ease-out;
+        -moz-transition: all 250ms ease-out;
+        -ms-transition: all 250ms ease-out;
+        -o-transition: all 250ms ease-out;
+        transition: all 250ms ease-out; }
+      #game #ui #chips .chip:nth-child(1) {
+        left: auto;
+        right: 10px; }
+        #game #ui #chips .chip:nth-child(1)::before {
+          display: none; }
+      #game #ui #chips .chip:nth-child(2) {
+        left: 10px;
+        top: -50px; }
+        #game #ui #chips .chip:nth-child(2)::before {
+          top: -25%; }
+      #game #ui #chips .chip:nth-child(3) {
+        left: 10px;
+        top: 50px; }
+        #game #ui #chips .chip:nth-child(3)::before {
+          top: 115%; }
     #game #ui #actions {
       display: none; }
   #game #player-cards, #game #dealer-cards {
@@ -268,6 +293,13 @@ body, html {
     line-height: 102px;
     text-align: center;
     text-shadow: 0 -1px 0px rgba(0, 0, 0, 0.3); }
+  .chip::before {
+    position: absolute;
+    color: #77a421;
+    font-size: 0.65em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    left: 49%; }
 
 .chip.blue {
   background-color: #007cff;
@@ -287,6 +319,8 @@ body, html {
     -ms-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
     -o-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
     box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1; }
+  .chip.blue::before {
+    content: '2'; }
 
 .chip.red {
   background-color: #f54800;
@@ -306,6 +340,8 @@ body, html {
     -ms-box-shadow: 0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400;
     -o-box-shadow: 0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400;
     box-shadow: 0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400; }
+  .chip.red::before {
+    content: '1'; }
 
 .chip.yellow {
   background-color: #f3cf00;
@@ -325,6 +361,8 @@ body, html {
     -ms-box-shadow: 0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00;
     -o-box-shadow: 0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00;
     box-shadow: 0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00; }
+  .chip.yellow::before {
+    content: '3'; }
 
 .card {
   font-size: 1.5em;

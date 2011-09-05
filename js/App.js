@@ -49,6 +49,7 @@ App.prototype = (function() { var pro = {};
       dealerTotal     = $('#dealer-total'),
       dealerCards     = [],
       dealerAces      = 0,
+      chips           = $('#chips'),
       allChips        = $('.chip'),
       bank            = 100,
       bankroll        = $('#bankroll'),
@@ -497,6 +498,8 @@ App.prototype = (function() { var pro = {};
         allChips.removeClass('bet');
         chip.addClass('bet');
         changeBet(chip.data('value'));
+        
+        chips.prepend(chip);
       });
   };
 
