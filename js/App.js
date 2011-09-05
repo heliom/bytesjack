@@ -384,6 +384,7 @@ App.prototype = (function() { var pro = {};
             var newChip = chipsAvailable.last();
             newChip.addClass('bet');
             changeBet(newChip.data('value'));
+            chips.prepend(newChip);
           }
            
         } else if ( chip.hasClass('desactivate') ) chip.removeClass('desactivate');
