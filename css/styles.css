@@ -180,6 +180,8 @@ body, html {
         top: 50px; }
         #game #ui #chips .chip:nth-child(3)::before {
           top: 115%; }
+    #game #ui #chips.disabled .chip:nth-child(2), #game #ui #chips.disabled .chip:nth-child(3) {
+      opacity: 0; }
     #game #ui #actions {
       display: none; }
   #game #player-cards, #game #dealer-cards {

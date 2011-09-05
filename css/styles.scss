@@ -153,6 +153,10 @@ body, html { width: 100%; height: 100%; }
     .chip:nth-child(3) { left: 10px; top: 50px; &::before{ top: 115%; } }
   }
   
+  #chips.disabled {
+    .chip:nth-child(2), .chip:nth-child(3) { opacity: 0; }
+  }
+  
 
     #actions { display: none; }
   }

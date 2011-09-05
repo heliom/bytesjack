@@ -371,6 +371,7 @@ App.prototype = (function() { var pro = {};
       isPlaying = false;
       dealNav.show();
       actionsNav.hide();
+      chips.removeClass('disabled');
       
       allChips.each(function(i){
         var chip = $(this);
@@ -408,6 +409,7 @@ App.prototype = (function() { var pro = {};
       
       dealNav.hide();
       actionsNav.show();
+      chips.addClass('disabled');
   };
 
   var checkBlackjack = function()
