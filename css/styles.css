@@ -35,16 +35,18 @@ body, html {
     letter-spacing: 0.1em;
     text-transform: uppercase; }
   #game #ui {
-    position: relative;
-    top: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 75%;
     max-width: 1024px;
-    margin: 40px auto;
+    margin: -15% 0 0 0;
     clear: both;
     color: #dce4c9; }
     #game #ui .zone {
       position: relative;
       width: auto;
+      left: -50%;
       height: 116px;
       border: 9px solid #809d29;
       border-color: rgba(208, 209, 78, 0.3);
@@ -63,9 +65,12 @@ body, html {
         font-size: 4.5em;
         margin-right: 5%;
         text-align: center; }
-        #game #ui .zone #bankroll span {
+        #game #ui .zone #bankroll::before {
+          content: 'Your bytes';
           position: absolute;
-          top: -65%;
+          width: 100px;
+          top: -60px;
+          left: 45px;
           font-size: 0.25em;
           text-transform: uppercase;
           color: rgba(208, 209, 78, 0.3); }
@@ -127,10 +132,11 @@ body, html {
             padding: 1.25em 0;
             font-size: 1.5em; }
     #game #ui .total {
+      position: relative;
+      left: -12%;
       background-color: #809d29;
       background-color: rgba(208, 209, 78, 0.3);
       width: 25%;
-      margin: 0 auto;
       padding: 1em 0;
       color: #47861a;
       font-size: 1em;
@@ -180,6 +186,16 @@ body, html {
         top: 50px; }
         #game #ui #chips .chip:nth-child(3)::before {
           top: 115%; }
+      #game #ui #chips::before {
+        content: 'Your bet';
+        position: absolute;
+        text-align: right;
+        width: 100px;
+        top: -52px;
+        right: 45px;
+        font-size: 1.125em;
+        text-transform: uppercase;
+        color: rgba(208, 209, 78, 0.3); }
     #game #ui #chips.disabled .chip:nth-child(2), #game #ui #chips.disabled .chip:nth-child(3) {
       opacity: 0; }
     #game #ui #actions {
@@ -223,11 +239,18 @@ body, html {
   float: left;
   margin: 0 10px 0 0;
   padding: 4px;
+  background-color: #007cff;
   position: relative;
   width: 100px !important;
   height: 100px;
   border-radius: 100%;
   border: 10px dashed #fff;
+  -webkit-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
+  -khtml-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
+  -moz-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
+  -ms-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
+  -o-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
+  box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
@@ -243,7 +266,16 @@ body, html {
     font-size: 2em;
     line-height: 102px;
     text-align: center;
-    text-shadow: 0 -1px 0px rgba(0, 0, 0, 0.3); }
+    text-shadow: 0 -1px 0px rgba(0, 0, 0, 0.3);
+    background-color: #0261f1;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0274f3), color-stop(1, #037ff4));
+    background-image: -moz-linear-gradient(center bottom, #0274f3 0%, #037ff4 100%);
+    -webkit-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
+    -khtml-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
+    -moz-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
+    -ms-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
+    -o-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
+    box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1; }
   .chip::before {
     position: absolute;
     color: #77a421;
@@ -359,13 +391,169 @@ body, html {
       height: 1px; }
       .card div .icons > div {
         position: relative; }
+  .card .icons {
+    position: absolute;
+    top: 50%;
+    left: 50%; }
+    .card .icons span {
+      position: absolute;
+      font-size: 4em;
+      left: -26px; }
 
 .card.back {
   background-color: #fd4000;
-  background: #fd4000 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAATElEQVQYGWP4/9XN+P///wy4MEQClyKgOEInuiIoH6EAZA1MEYwGiqEqQFYEdRcTAwFAUAGqFTC7YTSKG5AEwWEC5UNMQJeEOhDkKwDfGrdliFgHkAAAAABJRU5ErkJggg==); }
+  background: #fd4000 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAATElEQVQYGWP4/9XN+P///wy4MEQClyKgOEInuiIoH6EAZA1MEYwGiqEqQFYEdRcTAwFAUAGqFTC7YTSKG5AEwWEC5UNMQJeEOhDkKwDfGrdliFgHkAAAAABJRU5ErkJggg=="); }
 
 .card.hearts, .card.diamonds {
   color: #c00; }
 
 .card.spades, .card.clubs {
   color: #111; }
+
+.card.valueA > .icons span {
+  top: -70px; }
+
+.card.value2 > .icons span:nth-child(1),
+.card.value3 > .icons span:nth-child(1) {
+  top: -170px; }
+.card.value2 > .icons span:nth-child(2),
+.card.value3 > .icons span:nth-child(2) {
+  bottom: -170px; }
+.card.value2 > .icons span:nth-child(3),
+.card.value3 > .icons span:nth-child(3) {
+  top: -65px; }
+
+.card.value4 > .icons span:nth-child(1),
+.card.value5 > .icons span:nth-child(1) {
+  top: -170px;
+  left: -90px; }
+.card.value4 > .icons span:nth-child(2),
+.card.value5 > .icons span:nth-child(2) {
+  top: -170px;
+  right: -90px;
+  left: auto; }
+.card.value4 > .icons span:nth-child(3),
+.card.value5 > .icons span:nth-child(3) {
+  bottom: -170px;
+  left: -90px; }
+.card.value4 > .icons span:nth-child(4),
+.card.value5 > .icons span:nth-child(4) {
+  bottom: -170px;
+  right: -90px;
+  left: auto; }
+.card.value4 > .icons span:nth-child(5),
+.card.value5 > .icons span:nth-child(5) {
+  top: -65px; }
+
+.card.value6 > .icons span:nth-child(1),
+.card.value7 > .icons span:nth-child(1),
+.card.value8 > .icons span:nth-child(1) {
+  top: -170px;
+  left: -90px; }
+.card.value6 > .icons span:nth-child(2),
+.card.value7 > .icons span:nth-child(2),
+.card.value8 > .icons span:nth-child(2) {
+  top: -170px;
+  right: -90px;
+  left: auto; }
+.card.value6 > .icons span:nth-child(3),
+.card.value7 > .icons span:nth-child(3),
+.card.value8 > .icons span:nth-child(3) {
+  bottom: -170px;
+  left: -90px; }
+.card.value6 > .icons span:nth-child(4),
+.card.value7 > .icons span:nth-child(4),
+.card.value8 > .icons span:nth-child(4) {
+  bottom: -170px;
+  right: -90px;
+  left: auto; }
+.card.value6 > .icons span:nth-child(5),
+.card.value7 > .icons span:nth-child(5),
+.card.value8 > .icons span:nth-child(5) {
+  top: -65px;
+  left: -90px; }
+.card.value6 > .icons span:nth-child(6),
+.card.value7 > .icons span:nth-child(6),
+.card.value8 > .icons span:nth-child(6) {
+  top: -65px;
+  right: -90px;
+  left: auto; }
+.card.value6 > .icons span:nth-child(7),
+.card.value7 > .icons span:nth-child(7),
+.card.value8 > .icons span:nth-child(7) {
+  top: -120px; }
+.card.value6 > .icons span:nth-child(8),
+.card.value7 > .icons span:nth-child(8),
+.card.value8 > .icons span:nth-child(8) {
+  bottom: -120px; }
+
+.card.value9 > .icons span:nth-child(1) {
+  top: -190px;
+  left: -90px; }
+.card.value9 > .icons span:nth-child(2) {
+  top: -110px;
+  left: -90px; }
+.card.value9 > .icons span:nth-child(3) {
+  bottom: -110px;
+  left: -90px; }
+.card.value9 > .icons span:nth-child(4) {
+  bottom: -190px;
+  left: -90px; }
+.card.value9 > .icons span:nth-child(5) {
+  top: -190px;
+  right: -90px;
+  left: auto; }
+.card.value9 > .icons span:nth-child(6) {
+  top: -110px;
+  right: -90px;
+  left: auto; }
+.card.value9 > .icons span:nth-child(7) {
+  bottom: -110px;
+  right: -90px;
+  left: auto; }
+.card.value9 > .icons span:nth-child(8) {
+  bottom: -190px;
+  right: -90px;
+  left: auto; }
+.card.value9 > .icons span:nth-child(9) {
+  top: -65px; }
+
+.card.value10 > .icons span:nth-child(1) {
+  top: -190px;
+  left: -90px; }
+.card.value10 > .icons span:nth-child(2) {
+  top: -110px;
+  left: -90px; }
+.card.value10 > .icons span:nth-child(3) {
+  bottom: -110px;
+  left: -90px; }
+.card.value10 > .icons span:nth-child(4) {
+  bottom: -190px;
+  left: -90px; }
+.card.value10 > .icons span:nth-child(5) {
+  top: -190px;
+  right: -90px;
+  left: auto; }
+.card.value10 > .icons span:nth-child(6) {
+  top: -110px;
+  right: -90px;
+  left: auto; }
+.card.value10 > .icons span:nth-child(7) {
+  bottom: -110px;
+  right: -90px;
+  left: auto; }
+.card.value10 > .icons span:nth-child(8) {
+  bottom: -190px;
+  right: -90px;
+  left: auto; }
+.card.value10 > .icons span:nth-child(9) {
+  top: -155px; }
+.card.value10 > .icons span:nth-child(10) {
+  bottom: -155px; }
+
+.card.valueJ > .icons > span,
+.card.valueQ > .icons > span,
+.card.valueK > .icons > span {
+  font-size: 6em;
+  top: -100px;
+  left: -70px; }

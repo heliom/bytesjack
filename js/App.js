@@ -52,7 +52,7 @@ App.prototype = (function() { var pro = {};
       chips           = $('#chips'),
       allChips        = $('.chip'),
       bank            = 100,
-      bankroll        = $('#bankroll > div'),
+      bankroll        = $('#bankroll'),
       doubled         = false,
       currentBet      = allChips.first().data('value'),
       resizeTimer     = null,
@@ -152,6 +152,7 @@ App.prototype = (function() { var pro = {};
       for ( var i = 0; i < types.length; i++ ) {
         for ( var j = 1; j <= 13; j++ ) {
           var value = ( j > 10 ) ? 10 : j;
+          value = 4;
           cards.push({ card:j, value: value, type: types[i] });
         };
       }
@@ -238,9 +239,17 @@ App.prototype = (function() { var pro = {};
         var cardValue = ( value == 1 ) ? 'A' : ( value == 11 ) ? 'J' : ( value == 12 ) ? 'Q' : ( value == 13 ) ? 'K' : value,
             cardIcon  = ( type == 'hearts' ) ? '♥' : ( type == 'diamonds' ) ? '♦' : ( type == 'spades' ) ? '♠' : '♣',
             corner    = '<div><span>'+cardValue+'</span><span>'+cardIcon+'</span></div>',
-            icons     = '<div><div class="cl"></div><div class="cc"></div><div class="cr"></div></div>';
+            icons     = '';
+        
+        if ( value <= 10 ) {
+          for ( var i=1, l=value; i <= l; i++ ) {
+            icons += '<span>'+cardIcon+'</span>';
+          }
+        } else {
+          icons = ( value == 11 ) ? '<span>♝</span>' : ( value == 12 ) ? '<span>♛</span>' : ( value == 13 ) ? '<span>♚</span>' : '';
+        }
       
-        card =  $('<div data-id="'+id+'" class="card '+type+'">'+corner+'<div class="icons">'+icons+'</div>'+corner+'</div>');
+        card =  $('<div data-id="'+id+'" class="card value'+cardValue+' '+type+'">'+corner+'<div class="icons">'+icons+'</div>'+corner+'</div>');
       }
     
       return card;
