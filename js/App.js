@@ -205,12 +205,16 @@ App.prototype = (function() { var pro = {};
           pattern   = ( PATTERNS[numCards] ) ? PATTERNS[numCards] : PATTERNS[PATTERNS.length-1];
       
       cards.each(function(i){
-        var deg = ( i < pattern.length ) ? pattern[i].deg : pattern[pattern.length-1].deg;
-            top = ( i < pattern.length ) ? pattern[i].top : pattern[pattern.length-1].top + (20 * (i - pattern.length + 1));
+        var deg     = ( i < pattern.length ) ? pattern[i].deg : pattern[pattern.length-1].deg;
+            offset  = ( i < pattern.length ) ? pattern[i].top : pattern[pattern.length-1].top + (20 * (i - pattern.length + 1));
         
         $(this).css({
           '-webkit-transform' : 'rotate('+ deg * increment +'deg)',
-          'top' : top * -increment + 'px'
+          '-khtml-transform' : 'rotate('+ deg * increment +'deg)',
+          '-moz-transform' : 'rotate('+ deg * increment +'deg)',
+          '-ms-transform' : 'rotate('+ deg * increment +'deg)',
+          'transform' : 'rotate('+ deg * increment +'deg)',
+          'top' : offset * -increment + 'px'
         });
       });
   };
@@ -274,6 +278,7 @@ App.prototype = (function() { var pro = {};
         doubled     = false;
         canDoAction = true;
         isStanding  = false;
+        $('#message').remove();
       }
     
       pCardsContainer.html('');
@@ -291,7 +296,7 @@ App.prototype = (function() { var pro = {};
       
       doubleBtn.addClass('desactivate');
       addCard('front', 'player', function(){
-        if ( playerCards.sum() > 21 ) lose('busted');
+        if ( playerCards.sum() > 21 ) lose('lose-busted');
       });
   };
 
@@ -299,7 +304,6 @@ App.prototype = (function() { var pro = {};
   {
       if ( !isPlaying || !canDoAction || isStanding || gameEnded ) return;
       
-      console.log('stand');
       isStanding = true;
       revealDealerCard();
       
@@ -326,14 +330,14 @@ App.prototype = (function() { var pro = {};
       changeBankroll(-1);
       doubled = true;
       addCard('front', 'player', function(){
-        if ( playerCards.sum() > 21 ) lose('busted');
+        if ( playerCards.sum() > 21 ) lose('lose-busted');
         else stand();
       });
   };
 
-  var push = function()
+  var push = function ( msg )
   {
-      console.log('push');
+      showMessage(msg);
       var increment = ( doubled ) ? 2 : 1;
       changeBankroll(increment);
       stopGame();
@@ -341,7 +345,7 @@ App.prototype = (function() { var pro = {};
 
   var win = function ( msg )
   {
-      console.log('win', msg);
+      showMessage(msg);
       var increment = ( doubled ) ? 4 : 2;
       changeBankroll(increment);
       stopGame();
@@ -349,9 +353,32 @@ App.prototype = (function() { var pro = {};
 
   var lose = function ( msg )
   {
-      console.log('lose', msg);
+      showMessage(msg);
       changeBankroll(0);
       stopGame();
+  };
+  
+  var showMessage = function ( status )
+  {
+      var msg     = document.createElement('div'),
+          content = '';
+          
+      msg.className = status;
+      msg.id        = 'message';
+          
+      switch ( status ) {
+        case 'win': content = 'You win'; break;
+        case 'win-blackjack': content = 'You win - Blackjack'; break;
+        case 'win-dealer-busted': content = 'You win - Dealer busted'; break;
+        case 'lose': content = 'You lose'; break;
+        case 'lose-blackjack': content = 'You lose - Blackjack'; break;
+        case 'lose-busted': content = 'You lose - Busted'; break;
+        case 'push': content = 'Push - No winner'; break;
+        default: content = 'Something broke, don’t know what happened...'; break;
+      }
+      
+      msg.innerHTML = content;
+      pCardsContainer.after(msg);
   };
 
   var end = function()
@@ -359,15 +386,15 @@ App.prototype = (function() { var pro = {};
       var pScore  = playerCards.sum(),
           dScore  = dealerCards.sum();
 
-      if ( dScore > 21 ) win('dealer busted');
-      else if ( dScore > pScore ) lose('');
-      else if ( pScore > dScore ) win('');
-      else if ( pScore == dScore ) push();
+      if ( dScore > 21 ) win('win-dealer-busted');
+      else if ( dScore > pScore ) lose('lose');
+      else if ( pScore > dScore ) win('win');
+      else if ( pScore == dScore ) push('push');
   };
   
   var endGame = function()
   {
-      console.log('Game has ended');
+      showMessage('Game over');
       gameEnded = true;
   };
 
@@ -420,10 +447,10 @@ App.prototype = (function() { var pro = {};
       var pScore  = playerCards.sum(),
           dScore  = dealerCards.sum();
       
-      if ( pScore == 21 && dScore == 21 ) push();
-      else if ( pScore == 21 ) win('blackjack');
+      if ( pScore == 21 && dScore == 21 ) push('Push - No winner');
+      else if ( pScore == 21 ) win('win-blackjack');
       else if ( dScore == 21 ) {
-        lose('blackjack');
+        lose('lose-blackjack');
         revealDealerCard();
       }
   };
@@ -526,3 +553,128 @@ return pro })();
 */
 Array.prototype.shuffle = function() { for(var j, x, i = this.length; i; j = Math.floor(Math.random() * i), x = this[--i], this[i] = this[j], this[j] = x); }
 Array.prototype.sum = function() { for(var s = 0, i = this.length; i; s += this[--i]); return s; };
+
+/* 
+ * Browser Detect <http://teev.io/blog/text/13423292>
+*/
+var BrowserDetect = {
+    init: function () {
+        this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
+        this.version = this.searchVersion(navigator.userAgent)
+        || this.searchVersion(navigator.appVersion)
+        || "an unknown version";
+        this.OS = this.searchString(this.dataOS) || "an unknown OS";
+
+        var b = document.documentElement;
+        b.setAttribute('browser',  this.browser);
+        b.setAttribute('version', this.version );		
+        b.setAttribute('os', this.OS);
+    },
+    searchString: function (data) {
+        for (var i=0;i<data.length;i++)	{
+            var dataString = data[i].string;
+            var dataProp = data[i].prop;
+            this.versionSearchString = data[i].versionSearch || data[i].identity;
+            if (dataString) {
+                if (dataString.indexOf(data[i].subString) != -1)
+                return data[i].identity;
+            }
+            else if (dataProp)
+            return data[i].identity;
+        }
+    },
+    searchVersion: function (dataString) {
+        var index = dataString.indexOf(this.versionSearchString);
+        if (index == -1) return;
+        return parseFloat(dataString.substring(index+this.versionSearchString.length+1));
+    },
+    dataBrowser: [
+    {
+        string: navigator.userAgent,
+        subString: "Chrome",
+        identity: "Chrome"
+    },
+    { 	string: navigator.userAgent,
+        subString: "OmniWeb",
+        versionSearch: "OmniWeb/",
+        identity: "OmniWeb"
+    },
+    {
+        string: navigator.vendor,
+        subString: "Apple",
+        identity: "Safari",
+        versionSearch: "Version"
+    },
+    {
+        prop: window.opera,
+        identity: "Opera",
+        versionSearch: "Version"
+    },
+    {
+        string: navigator.vendor,
+        subString: "iCab",
+        identity: "iCab"
+    },
+    {
+        string: navigator.vendor,
+        subString: "KDE",
+        identity: "Konqueror"
+    },
+    {
+        string: navigator.userAgent,
+        subString: "Firefox",
+        identity: "Firefox"
+    },
+    {
+        string: navigator.vendor,
+        subString: "Camino",
+        identity: "Camino"
+    },
+    {		// for newer Netscapes (6+)
+        string: navigator.userAgent,
+        subString: "Netscape",
+        identity: "Netscape"
+    },
+    {
+        string: navigator.userAgent,
+        subString: "MSIE",
+        identity: "Explorer",
+        versionSearch: "MSIE"
+    },
+    {
+        string: navigator.userAgent,
+        subString: "Gecko",
+        identity: "Mozilla",
+        versionSearch: "rv"
+    },
+    { 		// for older Netscapes (4-)
+        string: navigator.userAgent,
+        subString: "Mozilla",
+        identity: "Netscape",
+        versionSearch: "Mozilla"
+    }
+    ],
+    dataOS : [
+    {
+        string: navigator.platform,
+        subString: "Win",
+        identity: "Windows"
+    },
+    {
+        string: navigator.platform,
+        subString: "Mac",
+        identity: "Mac"
+    },
+    {
+        string: navigator.userAgent,
+        subString: "iPhone",
+        identity: "iPhone/iPod"
+    },
+    {
+        string: navigator.platform,
+        subString: "Linux",
+        identity: "Linux"
+    }
+    ]
+};
+BrowserDetect.init();
