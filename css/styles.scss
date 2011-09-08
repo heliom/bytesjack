@@ -12,6 +12,7 @@ body, html { width: 100%; height: 100%; }
   overflow: hidden;
   position: relative;
   width: 100%; height: 100%;
+  min-height: 360px;
   font: 400 16px/1.4 'futura-pt', Helvetica, Arial, sans-serif;
   
   h1 {
@@ -34,8 +35,9 @@ body, html { width: 100%; height: 100%; }
 // UI -------------------------------------------------
 #ui {
   position: absolute;
-  top: 50%; left: 50%;
-  width: 75%; max-width: 1024px;
+  top: 48%; left: 50%;
+  width: 75%; max-width: 1280px;
+  height: 30%; max-height: 300px;
   margin: -15% 0 0 0;
   clear: both;
   color: #dce4c9;
@@ -44,7 +46,7 @@ body, html { width: 100%; height: 100%; }
     position: relative;
     width: auto;
     left: -50%;
-    height: 116px;
+    height: 45%; max-height: 110px;
     border: 9px solid #809d29;
     border-color: rgba(208,209,78,0.3);
     padding: 2%;
@@ -52,28 +54,29 @@ body, html { width: 100%; height: 100%; }
     
     div, ul {
       width: 20%;
-      float: left;
     }
     
     #bankroll {
-      position: relative;
+      position: absolute;
+      top: 50%; left: 0;
       font-size: 4.5em;
-      margin-right: 5%;
+      margin: -50px 5% 0 0;
       text-align: center;
       
-      &::before {
-        content: 'Your bytes';
-        position: absolute;
-        width: 100px;
-        top: -60px; left: 45px;
-        font-size: 0.25em;
-        text-transform: uppercase;
-        color: rgba(208,209,78,0.3);
-      }
+     // &::before {
+     //        content: 'Your bytes';
+     //        position: absolute;
+     //        width: 100%;
+     //        top: -50px; left: 0;
+     //        font-size: 0.25em;
+     //        text-transform: uppercase;
+     //        color: rgba(208,209,78,0.3);
+     //      }
     }
 
     #deal, #actions {
       width: 50%;
+      height: 100%;
       margin: auto;
       text-align: center;
       list-style: none;
@@ -83,6 +86,7 @@ body, html { width: 100%; height: 100%; }
           position: relative;
           @include gradient-top-bottom(#ffec01,#ffc900);
           display: block;
+          max-height: 47px;
           padding: 5% 5% 3.875% 5%;
           color: #724a0e;
           font: 2.5em/1 'bello-pro','Cooper STD', Georgia, serif;
@@ -109,7 +113,7 @@ body, html { width: 100%; height: 100%; }
 
         li {
           display: block;
-          width: 28%;
+          width: 29.4%;
           margin: 0 2%;
           float: left;
           a {
@@ -122,16 +126,21 @@ body, html { width: 100%; height: 100%; }
     .total {
       position: relative;
       left: -12%;
-      background-color: #809d29;
-      background-color: rgba(208,209,78,0.3);
+      //background-color: #809d29;
+      //      background-color: rgba(208,209,78,0.3);
       width: 25%;
       padding: 1em 0;
-      color: #47861a;
+      color: rgba(208,209,78,0.3);
       font-size: 1em;
       letter-spacing: 0.15em;
       text-align: center;
       text-transform: uppercase;
       @include rounded(9px 9px 0px 0px);
+      
+      .tn {
+        float: right;
+        
+      }
     }
     .total.bot {
       @include rounded( 0 0 9px 9px);
@@ -140,7 +149,7 @@ body, html { width: 100%; height: 100%; }
     #chips {
       position: absolute;
       width: 0;
-      top: 8%;
+      top: 0;
       right: 0;
     
       .chip { position: absolute; top: 0; left: 0; @include transition(all 250ms ease-out); }
@@ -148,16 +157,16 @@ body, html { width: 100%; height: 100%; }
       .chip:nth-child(2) { left: 10px; top: -50px; &::before{ top: -25%; } }
       .chip:nth-child(3) { left: 10px; top: 50px; &::before{ top: 115%; } }
     
-      &::before {
-        content: 'Your bet';
-        position: absolute;
-        text-align: right;
-        width: 100px;
-        top: -52px; right: 45px;
-        font-size: 1.125em;
-        text-transform: uppercase;
-        color: rgba(208,209,78,0.3);
-      }
+      //&::before {
+      //        content: 'Your bet';
+      //        position: absolute;
+      //        text-align: right;
+      //        width: 100%;
+      //        top: -50px; left: 0;
+      //        font-size: 1.125em;
+      //        text-transform: uppercase;
+      //        color: rgba(208,209,78,0.3);
+      //      }
     }
   
     #chips.disabled { .chip:nth-child(2), .chip:nth-child(3) { opacity: 0; } }
@@ -183,7 +192,7 @@ body, html { width: 100%; height: 100%; }
   
   #dealer-cards { top: -150px; }
   #player-cards { bottom: -150px; }
-  #player-total, #dealer-total { font-size: 2em; }
+  #player-total, #dealer-total { font-size: 1em; color: #fff; }
 }
 
 #message {
@@ -192,7 +201,10 @@ body, html { width: 100%; height: 100%; }
   bottom: 8%; left: 0;
   width: 100%;
   text-align: center;
-  font-size: 10em;
+  font-size: 5em;
+  font-weight: bold;
+  letter-spacing: -0.1em;
+  text-transform: uppercase;
 }
 
 // Chips ----------------------------------------------
@@ -210,7 +222,7 @@ body, html { width: 100%; height: 100%; }
 	@include noselect();
 	@include rounded(100px);
 	
-  //  -webkit-transform: perspective(500px) rotateX(45deg); Only for wide wide screens?
+//    -webkit-transform: perspective(500px) rotateX(45deg); 
 	
 	span {
 		display: block;
@@ -391,5 +403,124 @@ html[browser="Firefox"] {
   #game {
     #dealer-cards { top: -250px; }
     #player-cards { bottom: -250px; }
+  }
+}
+@media screen and (max-height: 600px) {
+  #game {
+    #dealer-cards { top: -350px; }
+    #player-cards { bottom: -350px; }
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  #game {
+    
+    .chip {
+      padding: 4px;
+    	width: 80px !important;
+    	height: 80px;
+    	
+    	span {
+    		font-size: 1.5em;
+    		line-height: 82px;
+    	}
+  	}
+  }
+}
+@media screen and (max-width: 768px) { // New #zone layout
+  #game {
+    
+    #ui {
+      width: 95%; 
+      height: 40%; max-height: 500px;
+      
+      .zone {
+        height: 80%; max-height: 300px;
+        @include rounded(21px);
+        
+        #deal, #actions {
+          position: absolute;
+          top: auto;
+          bottom: 5%;
+          width: 96%;
+          height: auto;
+          
+        }
+        .shortcut {
+          display: none;
+        }
+        #bankroll {
+          top: 0;
+          margin: 0;
+        }
+        
+      }
+    }
+    
+  }
+}
+@media screen and (max-width: 480px) {
+  #game {
+    
+    .chip {
+      padding: 4px;
+    	width: 80px !important;
+    	height: 80px;
+    	
+    	span {
+    		font-size: 1.5em;
+    		line-height: 82px;
+    	}
+  	}
+  	
+  	// Cards ----------------------------------------------
+    .card {
+      font-size: 1.5em;
+      position: relative;
+      width: 220px; height: 337.333333px;
+
+
+      .icons {
+       display: none;
+      }
+    }
+  }
+}
+@media screen and (max-width: 320px) {
+  #game {
+    font-size: 12px;
+    
+    .chip {
+      padding: 4px;
+    	width: 30px !important;
+    	height: 30px;
+    	margin: 3px;
+    	border: 3px dashed #fff;
+    	@include noselect();
+    	@include rounded(100px);
+    	
+    	span {
+    		font-size: 1em;
+    		line-height: 30px;
+    	}
+  	}
+  	
+  	#dealer-cards { top: -150px; }
+    #player-cards { bottom: -350px; }
+    
+  	// Cards ----------------------------------------------
+    .card {
+      font-size: 1.5em;
+      position: relative;
+      width: 150px; height: 230px;
+
+
+      .icons {
+       display: none;
+      }
+    }
+  	
+  	
   }
 }
