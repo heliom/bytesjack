@@ -74,6 +74,10 @@ App.prototype = (function() { var pro = {};
       initBet();
       initResize();
       initKeyboardKeys();
+      
+      setTimeout(function(){
+        window.scrollTo(0, 1)
+      }, 500);
   }
   
   //  Resize management
