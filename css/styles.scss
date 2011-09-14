@@ -35,10 +35,10 @@ body, html { width: 100%; height: 100%; }
 // UI -------------------------------------------------
 #ui {
   position: absolute;
-  top: 48%; left: 50%;
+  top: 50%; left: 50%;
   width: 75%; max-width: 1280px;
   height: 30%; max-height: 300px;
-  margin: -15% 0 0 0;
+  margin: -6.5% 0 0 0;
   clear: both;
   color: #dce4c9;
 
@@ -86,7 +86,7 @@ body, html { width: 100%; height: 100%; }
           position: relative;
           @include gradient-top-bottom(#ffec01,#ffc900);
           display: block;
-          max-height: 47px;
+          //height: 50%;
           padding: 5% 5% 3.875% 5%;
           color: #724a0e;
           font: 2.5em/1 'bello-pro','Cooper STD', Georgia, serif;
@@ -428,6 +428,7 @@ html[browser="Firefox"] {
   	}
   }
 }
+
 @media screen and (max-width: 768px) { // New #zone layout
   #game {
     
@@ -454,12 +455,30 @@ html[browser="Firefox"] {
           top: 0;
           margin: 0;
         }
+      } //.zone
+      
+      #chips {
+        width: auto;
+        top: 10px; right: 2px;
         
-      }
-    }
-    
-  }
+        .chip {
+          //position: static;
+          //float: left;
+          float: none;
+          opacity: 0.2;
+          top: 0 !important; left: auto !important;
+          
+          &::before { display: none; }
+          &.bet { opacity: 1; }
+          &.red { right: 236px; }
+          &.blue { right: 118px; }
+          &.yellow { right: 0px; }
+        }
+      } // #chips
+    } // #ui
+  } // #gane
 }
+
 @media screen and (max-width: 480px) {
   #game {
     
@@ -474,12 +493,10 @@ html[browser="Firefox"] {
     	}
   	}
   	
-  	// Cards ----------------------------------------------
     .card {
       font-size: 1.5em;
       position: relative;
       width: 220px; height: 337.333333px;
-
 
       .icons {
        display: none;
@@ -487,29 +504,37 @@ html[browser="Firefox"] {
     }
   }
 }
+
 @media screen and (max-width: 320px) {
   #game {
     font-size: 12px;
     
-    .chip {
-      padding: 4px;
-    	width: 30px !important;
-    	height: 30px;
-    	margin: 3px;
-    	border: 3px dashed #fff;
-    	@include noselect();
-    	@include rounded(100px);
-    	
-    	span {
-    		font-size: 1em;
-    		line-height: 30px;
+    #ui {
+      margin: -22% 0 0 0;
+      
+      #chips .chip {
+        padding: 4px;
+      	width: 30px !important;
+      	height: 30px;
+      	margin: 3px;
+      	border: 3px dashed #fff;
+      	@include noselect();
+      	@include rounded(100px);
+
+      	span {
+      		font-size: 1em;
+      		line-height: 30px;
+      	}
+
+      	&.red { right: 98px; }
+        &.blue { right: 49px; }
+        &.yellow { right: 0px; }
     	}
-  	}
+    }
   	
   	#dealer-cards { top: -150px; }
     #player-cards { bottom: -350px; }
     
-  	// Cards ----------------------------------------------
     .card {
       font-size: 1.5em;
       position: relative;
@@ -520,7 +545,5 @@ html[browser="Firefox"] {
        display: none;
       }
     }
-  	
-  	
   }
 }

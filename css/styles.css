@@ -37,13 +37,13 @@ body, html {
     text-transform: uppercase; }
   #game #ui {
     position: absolute;
-    top: 48%;
+    top: 50%;
     left: 50%;
     width: 75%;
     max-width: 1280px;
     height: 30%;
     max-height: 300px;
-    margin: -15% 0 0 0;
+    margin: -6.5% 0 0 0;
     clear: both;
     color: #dce4c9; }
     #game #ui .zone {
@@ -82,7 +82,6 @@ body, html {
           background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffc900), color-stop(1, #ffec01));
           background-image: -moz-linear-gradient(center bottom, #ffc900 0%, #ffec01 100%);
           display: block;
-          max-height: 47px;
           padding: 5% 5% 3.875% 5%;
           color: #724a0e;
           font: 2.5em/1 "bello-pro", "Cooper STD", Georgia, serif;
@@ -621,7 +620,26 @@ html[browser="Firefox"] .chip {
         display: none; }
       #game #ui .zone #bankroll {
         top: 0;
-        margin: 0; } }
+        margin: 0; }
+    #game #ui #chips {
+      width: auto;
+      top: 10px;
+      right: 2px; }
+      #game #ui #chips .chip {
+        float: none;
+        opacity: 0.2;
+        top: 0 !important;
+        left: auto !important; }
+        #game #ui #chips .chip::before {
+          display: none; }
+        #game #ui #chips .chip.bet {
+          opacity: 1; }
+        #game #ui #chips .chip.red {
+          right: 236px; }
+        #game #ui #chips .chip.blue {
+          right: 118px; }
+        #game #ui #chips .chip.yellow {
+          right: 0px; } }
 @media screen and (max-width: 480px) {
   #game .chip {
     padding: 4px;
@@ -640,27 +658,35 @@ html[browser="Firefox"] .chip {
 @media screen and (max-width: 320px) {
   #game {
     font-size: 12px; }
-    #game .chip {
-      padding: 4px;
-      width: 30px !important;
-      height: 30px;
-      margin: 3px;
-      border: 3px dashed #fff;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      -o-user-select: none;
-      user-select: none;
-      -webkit-border-radius: 100px;
-      -khtml-border-radius: 100px;
-      -moz-border-radius: 100px;
-      -ms-border-radius: 100px;
-      -o-border-radius: 100px;
-      border-radius: 100px; }
-      #game .chip span {
-        font-size: 1em;
-        line-height: 30px; }
+    #game #ui {
+      margin: -22% 0 0 0; }
+      #game #ui #chips .chip {
+        padding: 4px;
+        width: 30px !important;
+        height: 30px;
+        margin: 3px;
+        border: 3px dashed #fff;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+        -webkit-border-radius: 100px;
+        -khtml-border-radius: 100px;
+        -moz-border-radius: 100px;
+        -ms-border-radius: 100px;
+        -o-border-radius: 100px;
+        border-radius: 100px; }
+        #game #ui #chips .chip span {
+          font-size: 1em;
+          line-height: 30px; }
+        #game #ui #chips .chip.red {
+          right: 98px; }
+        #game #ui #chips .chip.blue {
+          right: 49px; }
+        #game #ui #chips .chip.yellow {
+          right: 0px; }
     #game #dealer-cards {
       top: -150px; }
     #game #player-cards {
