@@ -415,7 +415,6 @@ html[browser="Firefox"] {
 
 @media screen and (max-width: 1024px) {
   #game {
-    
     .chip {
       padding: 4px;
     	width: 80px !important;
@@ -479,6 +478,29 @@ html[browser="Firefox"] {
   } // #gane
 }
 
+@media screen and (max-width: 768px) and (max-height: 655px) {
+  #game {
+    font-size: 12px;
+    
+    #ui .zone #chips .chip {
+      padding: 4px;
+    	width: 30px !important;
+    	height: 30px;
+    	margin: 3px;
+    	border: 3px dashed #fff;
+    	
+    	span {
+    		font-size: 1em;
+    		line-height: 30px;
+    	}
+    	
+    	&.red { right: 98px; }
+      &.blue { right: 49px; }
+      &.yellow { right: 0px; }
+  	}
+  }
+}
+
 @media screen and (max-width: 480px) {
   #game {
     
@@ -518,8 +540,6 @@ html[browser="Firefox"] {
       	height: 30px;
       	margin: 3px;
       	border: 3px dashed #fff;
-      	@include noselect();
-      	@include rounded(100px);
 
       	span {
       		font-size: 1em;

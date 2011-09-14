@@ -197,7 +197,7 @@ App.prototype = (function() { var pro = {};
           
           canDoAction = true;
           if ( callback != undefined ) callback.call();
-        }, ANIM_DELAY);
+        }, ANIM_DELAY + 100);
       }, 10);
   };
   
@@ -209,7 +209,7 @@ App.prototype = (function() { var pro = {};
           pattern   = ( PATTERNS[numCards] ) ? PATTERNS[numCards] : PATTERNS[PATTERNS.length-1];
       
       cards.each(function(i){
-        var deg     = ( i < pattern.length ) ? pattern[i].deg : pattern[pattern.length-1].deg;
+        var deg     = ( i < pattern.length ) ? pattern[i].deg : pattern[pattern.length-1].deg,
             offset  = ( i < pattern.length ) ? pattern[i].top : pattern[pattern.length-1].top + (20 * (i - pattern.length + 1));
         
         $(this).css({

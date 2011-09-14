@@ -640,6 +640,24 @@ html[browser="Firefox"] .chip {
           right: 118px; }
         #game #ui #chips .chip.yellow {
           right: 0px; } }
+@media screen and (max-width: 768px) and (max-height: 655px) {
+  #game {
+    font-size: 12px; }
+    #game #ui .zone #chips .chip {
+      padding: 4px;
+      width: 30px !important;
+      height: 30px;
+      margin: 3px;
+      border: 3px dashed #fff; }
+      #game #ui .zone #chips .chip span {
+        font-size: 1em;
+        line-height: 30px; }
+      #game #ui .zone #chips .chip.red {
+        right: 98px; }
+      #game #ui .zone #chips .chip.blue {
+        right: 49px; }
+      #game #ui .zone #chips .chip.yellow {
+        right: 0px; } }
 @media screen and (max-width: 480px) {
   #game .chip {
     padding: 4px;
@@ -665,19 +683,7 @@ html[browser="Firefox"] .chip {
         width: 30px !important;
         height: 30px;
         margin: 3px;
-        border: 3px dashed #fff;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        -o-user-select: none;
-        user-select: none;
-        -webkit-border-radius: 100px;
-        -khtml-border-radius: 100px;
-        -moz-border-radius: 100px;
-        -ms-border-radius: 100px;
-        -o-border-radius: 100px;
-        border-radius: 100px; }
+        border: 3px dashed #fff; }
         #game #ui #chips .chip span {
           font-size: 1em;
           line-height: 30px; }
