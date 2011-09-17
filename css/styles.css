@@ -52,6 +52,7 @@ body, html {
       left: -50%;
       height: 45%;
       max-height: 110px;
+      min-height: 90px;
       border: 9px solid #809d29;
       border-color: rgba(208, 209, 78, 0.3);
       padding: 2%;
@@ -578,14 +579,18 @@ body, html {
 html[browser="Firefox"] .chip {
   border-color: rgba(255, 255, 255, 0.1); }
 
-@media screen and (max-height: 990px) {
+/*@media screen and (max-height: 990px) {
+  #game {
+    #dealer-cards { top: -200px; }
+    #player-cards { bottom: -300px; }
+  }
+}*/
+@media screen and (max-height: 910px) {
   #game #dealer-cards {
-    top: -200px; }
+    top: -300px; }
   #game #player-cards {
     bottom: -300px; } }
-@media screen and (max-height: 600px) {
-  #game #dealer-cards {
-    top: -200px; }
+@media screen and (max-height: 620px) {
   #game #player-cards {
     bottom: -350px; } }
 @media screen and (max-width: 1024px) {
@@ -603,7 +608,7 @@ html[browser="Firefox"] .chip {
     width: 95%;
     height: 40%;
     max-height: 500px;
-    top: 30%; }
+    top: 35%; }
     #game #ui .zone {
       height: 66%;
       max-height: 300px;
@@ -643,7 +648,7 @@ html[browser="Firefox"] .chip {
           right: 118px; }
         #game #ui #chips .chip.yellow {
           right: 0px; } }
-@media screen and (max-width: 768px) and (max-height: 655px) {
+@media screen and (max-width: 768px) and (max-height: 825px) {
   #game {
     font-size: 12px; }
     #game #ui .zone #chips .chip {
@@ -680,7 +685,15 @@ html[browser="Firefox"] .chip {
   #game {
     font-size: 12px; }
     #game #ui {
-      margin: -22% 0 0 0; }
+      margin: -9% 0 0 0; }
+      #game #ui .zone {
+        padding: 1% 2%; }
+        #game #ui .zone #bankroll {
+          top: -7px;
+          font-size: 3.3em; }
+        #game #ui .zone #deal li a,
+        #game #ui .zone #actions li a {
+          padding: 0.9em 0 !important; }
       #game #ui #chips .chip {
         padding: 4px;
         width: 30px !important;
