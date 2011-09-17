@@ -35,7 +35,7 @@ body, html { width: 100%; height: 100%; }
 // UI -------------------------------------------------
 #ui {
   position: absolute;
-  top: 50%; left: 50%;
+  top: 40%; left: 50%;
   width: 75%; max-width: 1280px;
   height: 30%; max-height: 300px;
   margin: -6.5% 0 0 0;
@@ -190,8 +190,8 @@ body, html { width: 100%; height: 100%; }
     @include rotate(180deg);
   }
   
-  #dealer-cards { top: -150px; }
-  #player-cards { bottom: -150px; }
+  #dealer-cards { top: -200px; }
+  #player-cards { bottom: -250px; }
   #player-total, #dealer-total { font-size: 1em; color: #fff; }
 }
 
@@ -401,13 +401,13 @@ html[browser="Firefox"] {
 // Media Queries
 @media screen and (max-height: 990px) {
   #game {
-    #dealer-cards { top: -250px; }
-    #player-cards { bottom: -250px; }
+    #dealer-cards { top: -200px; }
+    #player-cards { bottom: -300px; }
   }
 }
 @media screen and (max-height: 600px) {
   #game {
-    #dealer-cards { top: -350px; }
+    #dealer-cards { top: -200px; }
     #player-cards { bottom: -350px; }
   }
 }
@@ -431,18 +431,24 @@ html[browser="Firefox"] {
 @media screen and (max-width: 768px) { // New #zone layout
   #game {
     
+    h1 {
+      margin: 10% auto 0 auto;
+    }
+    
     #ui {
       width: 95%; 
       height: 40%; max-height: 500px;
       
+      top: 30%;
+      
       .zone {
-        height: 80%; max-height: 300px;
+        height: 66%; max-height: 300px;
         @include rounded(21px);
         
         #deal, #actions {
           position: absolute;
           top: auto;
-          bottom: 5%;
+          bottom: 10%;
           width: 96%;
           height: auto;
           
@@ -452,7 +458,7 @@ html[browser="Firefox"] {
         }
         #bankroll {
           top: 0;
-          margin: 0;
+          margin: 4%;
         }
       } //.zone
       
@@ -551,9 +557,6 @@ html[browser="Firefox"] {
         &.yellow { right: 0px; }
     	}
     }
-  	
-  	#dealer-cards { top: -150px; }
-    #player-cards { bottom: -350px; }
     
     .card {
       font-size: 1.5em;

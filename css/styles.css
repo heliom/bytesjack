@@ -37,7 +37,7 @@ body, html {
     text-transform: uppercase; }
   #game #ui {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     width: 75%;
     max-width: 1280px;
@@ -222,9 +222,9 @@ body, html {
     -o-transform: rotate(180deg);
     transform: rotate(180deg); }
   #game #dealer-cards {
-    top: -150px; }
+    top: -200px; }
   #game #player-cards {
-    bottom: -150px; }
+    bottom: -250px; }
   #game #player-total, #game #dealer-total {
     font-size: 1em;
     color: #fff; }
@@ -580,12 +580,12 @@ html[browser="Firefox"] .chip {
 
 @media screen and (max-height: 990px) {
   #game #dealer-cards {
-    top: -250px; }
+    top: -200px; }
   #game #player-cards {
-    bottom: -250px; } }
+    bottom: -300px; } }
 @media screen and (max-height: 600px) {
   #game #dealer-cards {
-    top: -350px; }
+    top: -200px; }
   #game #player-cards {
     bottom: -350px; } }
 @media screen and (max-width: 1024px) {
@@ -597,12 +597,15 @@ html[browser="Firefox"] .chip {
       font-size: 1.5em;
       line-height: 82px; } }
 @media screen and (max-width: 768px) {
+  #game h1 {
+    margin: 10% auto 0 auto; }
   #game #ui {
     width: 95%;
     height: 40%;
-    max-height: 500px; }
+    max-height: 500px;
+    top: 30%; }
     #game #ui .zone {
-      height: 80%;
+      height: 66%;
       max-height: 300px;
       -webkit-border-radius: 21px;
       -khtml-border-radius: 21px;
@@ -613,14 +616,14 @@ html[browser="Firefox"] .chip {
       #game #ui .zone #deal, #game #ui .zone #actions {
         position: absolute;
         top: auto;
-        bottom: 5%;
+        bottom: 10%;
         width: 96%;
         height: auto; }
       #game #ui .zone .shortcut {
         display: none; }
       #game #ui .zone #bankroll {
         top: 0;
-        margin: 0; }
+        margin: 4%; }
     #game #ui #chips {
       width: auto;
       top: 10px;
@@ -693,10 +696,6 @@ html[browser="Firefox"] .chip {
           right: 49px; }
         #game #ui #chips .chip.yellow {
           right: 0px; }
-    #game #dealer-cards {
-      top: -150px; }
-    #game #player-cards {
-      bottom: -350px; }
     #game .card {
       font-size: 1.5em;
       position: relative;
