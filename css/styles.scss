@@ -7,22 +7,24 @@ body, html { width: 100%; height: 100%; }
 
 // Game -----------------------------------------------
 #game {
-  background-color: #466d19;
+  background-color: #466d19; 
   @include gradient-radial(#65981e, #184d08);
   overflow: hidden;
   position: relative;
   width: 100%; height: 100%;
-  min-height: 360px;
+  min-height: 480px;
   font: 400 16px/1.4 'futura-pt', Helvetica, Arial, sans-serif;
   
   h1 {
-    font: 5em/1 'bello-pro','Cooper STD', Georgia, serif;
+    font: 5em/1.5 'bello-pro','Cooper STD', Georgia, serif;
     margin: 5% auto;
-    color: #507c18;
+    color: #5f881b;
     text-align: center;
-    text-shadow: 0px 0px 1px rgba(25,48,0,0.1), 0px 1px 0px rgba(152,184,42,0.3);
+    text-shadow: 0px 1px 0px rgba(152,184,42,0.5), 0px -1px 0px rgba(25,48,0,0.3);
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 1)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #72941f;
   }
-  
   .shortcut {
     display: block;
     padding: 1em 0;
@@ -86,7 +88,6 @@ body, html { width: 100%; height: 100%; }
           position: relative;
           @include gradient-top-bottom(#ffec01,#ffc900);
           display: block;
-          //height: 50%;
           padding: 5% 5% 3.875% 5%;
           color: #724a0e;
           font: 2.5em/1 'bello-pro','Cooper STD', Georgia, serif;
@@ -117,7 +118,7 @@ body, html { width: 100%; height: 100%; }
           margin: 0 2%;
           float: left;
           a {
-            padding: 1.25em 0;
+            padding: 22% 5% 20% 5%;
             font-size: 1.5em;
           }
         }
@@ -200,11 +201,32 @@ body, html { width: 100%; height: 100%; }
   position: absolute;
   bottom: 8%; left: 0;
   width: 100%;
-  text-align: center;
+  opacity: 0;
+  color: #ffd801;
   font-size: 5em;
   font-weight: bold;
-  letter-spacing: -0.1em;
-  text-transform: uppercase;
+  font-family: 'bello-pro';
+  line-height: 1;
+  text-align: center;
+  text-shadow:
+      0px 2px 0px #daa206, 
+      0px 2px 2px rgba(0,0,0,0.2);
+      
+  span {
+    display: block;
+    clear: both;
+    opacity: 0.6;
+    font-family: 'futura-pt', Helvetica, Arial, sans-serif;
+    font-size: 0.5em;
+    text-transform: uppercase;
+  }
+  -webkit-animation: messageFade 2s ease-in-out;
+}
+@-webkit-keyframes messageFade {
+    0%      { opacity: 0; /*letter-spacing: 0em;*/ }
+    10%     { opacity: 1; }    
+    70%     { opacity: 1; }
+    100%    { opacity: 0; /*letter-spacing: 0.6em;*/ }
 }
 
 // Chips ----------------------------------------------
@@ -399,21 +421,37 @@ html[browser="Firefox"] {
 }
 
 // Media Queries
-/*@media screen and (max-height: 990px) {
-  #game {
-    #dealer-cards { top: -200px; }
-    #player-cards { bottom: -300px; }
-  }
-}*/
 @media screen and (max-height: 910px) {
   #game {
     #dealer-cards { top: -300px; }
     #player-cards { bottom: -300px; }
   }
 }
-@media screen and (max-height: 620px) {
+@media screen and (max-height: 660px) {
   #game {
+    #dealer-cards { top: -350px; }
     #player-cards { bottom: -350px; }
+  }
+}
+@media screen and (max-height: 550px) and (max-width: 768px) {
+  #game {
+    #dealer-cards { top: -350px; }
+    #player-cards { bottom: -350px; }
+  }
+}
+@media screen and (max-height: 620px) and (max-width: 480px) {
+  #game {
+    #dealer-cards { top: -200px; }
+  }
+}
+@media screen and (max-height: 550px) and (max-width: 320px) {
+  #game {
+    #dealer-cards { top: -150px; }
+  }
+}
+@media screen and (max-height: 320px) and (max-width: 480px) {
+  #game {
+    #dealer-cards { top: -250px; }
   }
 }
 
@@ -475,7 +513,7 @@ html[browser="Firefox"] {
           //position: static;
           //float: left;
           float: none;
-          opacity: 0.2;
+          opacity: 0.35;
           top: 0 !important; left: auto !important;
           
           &::before { display: none; }
@@ -537,17 +575,38 @@ html[browser="Firefox"] {
     }
   }
 }
+@media screen and (max-width: 480px) and (max-height: 320px){
+  #game {
+  	h1 {
+  	  margin: 2% auto 0 auto;
+  	}
+   
+    #ui{
+      margin: -15% 0 0 0;
+      .zone {
+        height: 70%
+      }
+    } 
+  }
+}
 
 @media screen and (max-width: 320px) {
   #game {
     font-size: 12px;
+    min-height: 420px;
+    
+    h1 {
+      font-size: 4em;
+      margin: 2%;
+    }
     
     #ui {
-      margin: -9% 0 0 0;
+      margin: -15% 0 0 0;
       
       .zone {
         padding: 1% 2%;
-      
+        height: 75%;
+        
         #bankroll {
           top: -7px;
           font-size: 3.3em;
