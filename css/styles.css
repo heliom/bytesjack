@@ -125,6 +125,20 @@ body, html {
             -ms-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 3px 0px 0px #daa206, 0px 3px 0px 2px rgba(0, 0, 0, 0.2);
             -o-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 3px 0px 0px #daa206, 0px 3px 0px 2px rgba(0, 0, 0, 0.2);
             box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 3px 0px 0px #daa206, 0px 3px 0px 2px rgba(0, 0, 0, 0.2); }
+        #game #ui .zone #deal a.desactivate, #game #ui .zone #deal a.desactivate:hover, #game #ui .zone #actions a.desactivate, #game #ui .zone #actions a.desactivate:hover {
+          opacity: 1;
+          cursor: default;
+          background-color: #cac6be;
+          background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #9c9486), color-stop(1, #dad7d2));
+          background-image: -moz-linear-gradient(center bottom, #9c9486 0%, #dad7d2 100%);
+          color: #aaa395;
+          text-shadow: 0 1px 0px rgba(255, 255, 255, 0.2), 0px -1px 0px rgba(0, 0, 0, 0.1);
+          -webkit-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.4), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #898367, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
+          -khtml-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.4), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #898367, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
+          -moz-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.4), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #898367, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
+          -ms-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.4), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #898367, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
+          -o-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.4), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #898367, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.4), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #898367, 0px 5px 0px 2px rgba(0, 0, 0, 0.2); }
         #game #ui .zone #deal li, #game #ui .zone #actions li {
           display: block;
           width: 29.4%;
@@ -133,12 +147,17 @@ body, html {
           #game #ui .zone #deal li a, #game #ui .zone #actions li a {
             padding: 22% 5% 20% 5%;
             font-size: 1.5em; }
+      #game #ui .zone #deal a {
+        -webkit-animation: dealPulse 1s ease-in-out alternate infinite;
+        -webkit-animation-delay: 2s; }
     #game #ui .total {
       position: relative;
-      left: -12%;
+      left: -12.5%;
+      background-color: #809d29;
+      background-color: rgba(208, 209, 78, 0.3);
       width: 25%;
-      padding: 1em 0;
-      color: rgba(208, 209, 78, 0.3);
+      padding: 0.75em 0;
+      color: #437714;
       font-size: 1em;
       letter-spacing: 0.15em;
       text-align: center;
@@ -149,8 +168,6 @@ body, html {
       -ms-border-radius: 9px 9px 0px 0px;
       -o-border-radius: 9px 9px 0px 0px;
       border-radius: 9px 9px 0px 0px; }
-      #game #ui .total .tn {
-        float: right; }
     #game #ui .total.bot {
       -webkit-border-radius: 0 0 9px 9px;
       -khtml-border-radius: 0 0 9px 9px;
@@ -227,9 +244,9 @@ body, html {
     -o-transform: rotate(180deg);
     transform: rotate(180deg); }
   #game #dealer-cards {
-    top: -200px; }
+    top: -180px; }
   #game #player-cards {
-    bottom: -250px; }
+    bottom: -230px; }
   #game #player-total, #game #dealer-total {
     font-size: 1em;
     color: #fff; }
@@ -240,22 +257,36 @@ body, html {
   bottom: 8%;
   left: 0;
   width: 100%;
-  opacity: 0;
+  opacity: 1;
   color: #ffd801;
   font-size: 5em;
   font-weight: bold;
   font-family: 'bello-pro';
+  font-size: 5em;
   line-height: 1;
   text-align: center;
-  text-shadow: 0px 2px 0px #daa206, 0px 2px 2px rgba(0, 0, 0, 0.2);
-  -webkit-animation: messageFade 2s ease-in-out; }
+  text-shadow: 0px 2px 0px #daa206, 0px 2px 12px rgba(0, 0, 0, 0.25);
+  -webkit-animation: fadeIn 200ms ease-in-out; }
   #message span {
     display: block;
     clear: both;
-    opacity: 0.6;
+    opacity: 0.7;
+    color: #000;
     font-family: 'futura-pt', Helvetica, Arial, sans-serif;
     font-size: 0.5em;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    text-shadow: none; }
+
+#message.lose, #message.lose-busted, #message.lose-blackjack {
+  color: #ff6900;
+  text-shadow: 0 -1px 1px #ff8300, 0px 2px 0px #ff5100, 0px 4px 9px rgba(0, 0, 0, 0.25); }
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+
+  100% {
+    opacity: 1; } }
 
 @-webkit-keyframes messageFade {
   0% {
@@ -271,6 +302,13 @@ body, html {
   100% {
     opacity: 0;
     /*letter-spacing: 0.6em;*/ } }
+
+@-webkit-keyframes dealPulse {
+  0% {
+    -webkit-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 6px rgba(255, 246, 0, 0.8); }
+
+  100% {
+    -webkit-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 40px rgba(255, 246, 0, 0.8); } }
 
 .chip {
   cursor: pointer;
@@ -453,10 +491,10 @@ body, html {
   background: #fd4000 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAATElEQVQYGWP4/9XN+P///wy4MEQClyKgOEInuiIoH6EAZA1MEYwGiqEqQFYEdRcTAwFAUAGqFTC7YTSKG5AEwWEC5UNMQJeEOhDkKwDfGrdliFgHkAAAAABJRU5ErkJggg=="); }
 
 .card.hearts, .card.diamonds {
-  color: #c00; }
+  color: #ff3600; }
 
 .card.spades, .card.clubs {
-  color: #111; }
+  color: #2a2016; }
 
 .card.valueA > .icons span {
   top: -70px; }
@@ -707,20 +745,24 @@ html[browser="Firefox"] .chip {
       #game #ui .zone #chips .chip.yellow {
         right: 0px; } }
 @media screen and (max-width: 480px) {
-  #game .chip {
-    padding: 4px;
-    width: 80px !important;
-    height: 80px; }
-    #game .chip span {
+  #game {
+    font-size: 12px; }
+    #game #ui .zone #bankroll {
+      font-size: 4em; }
+    #game .chip {
+      padding: 4px;
+      width: 80px !important;
+      height: 80px; }
+      #game .chip span {
+        font-size: 1.5em;
+        line-height: 82px; }
+    #game .card {
       font-size: 1.5em;
-      line-height: 82px; }
-  #game .card {
-    font-size: 1.5em;
-    position: relative;
-    width: 220px;
-    height: 337.333333px; }
-    #game .card .icons {
-      display: none; } }
+      position: relative;
+      width: 220px;
+      height: 337.333333px; }
+      #game .card .icons {
+        display: none; } }
 @media screen and (max-width: 480px) and (max-height: 320px) {
   #game h1 {
     margin: 2% auto 0 auto; }
@@ -730,7 +772,6 @@ html[browser="Firefox"] .chip {
       height: 70%; } }
 @media screen and (max-width: 320px) {
   #game {
-    font-size: 12px;
     min-height: 420px; }
     #game h1 {
       font-size: 4em;
@@ -741,11 +782,8 @@ html[browser="Firefox"] .chip {
         padding: 1% 2%;
         height: 75%; }
         #game #ui .zone #bankroll {
-          top: -7px;
-          font-size: 3.3em; }
-        #game #ui .zone #deal li a,
-        #game #ui .zone #actions li a {
-          padding: 0.9em 0 !important; }
+          top: -3px;
+          font-size: 4em; }
       #game #ui #chips .chip {
         padding: 4px;
         width: 30px !important;
