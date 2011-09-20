@@ -51,7 +51,7 @@ App.prototype = (function() { var pro = {};
       dealerAces      = 0,
       chips           = $('#chips'),
       allChips        = $('.chip'),
-      bank            = 100,
+      bank            = 10,
       bankroll        = $('#bankroll'),
       doubled         = false,
       currentBet      = allChips.first().data('value'),
@@ -364,8 +364,11 @@ App.prototype = (function() { var pro = {};
   
   var showMessage = function ( status )
   {
-      var msg     = document.createElement('div'),
-          content = '';
+      var msg       = document.createElement('div'),
+          content   = '',
+          message   = $('#message');
+          
+      if ( message.size() > 0 ) message.remove();
           
       msg.className = status;
       msg.id        = 'message';
@@ -378,6 +381,7 @@ App.prototype = (function() { var pro = {};
         case 'lose-blackjack': content = 'You loose<span>Blackjack</span>'; break;
         case 'lose-busted': content = 'You loose<span>Busted</span>'; break;
         case 'push': content = 'Push<span>No winner</span>'; break;
+        case 'game-over': content = 'Game over'; break;
         default: content = '<span>Something broke, don’t know what happened...</span>'; break;
       }
       
@@ -398,7 +402,7 @@ App.prototype = (function() { var pro = {};
   
   var endGame = function()
   {
-      showMessage('Game over');
+      showMessage('game-over');
       gameEnded = true;
   };
 
