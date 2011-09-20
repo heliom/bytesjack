@@ -4,7 +4,8 @@
 
 body, html {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  -webkit-font-smoothing: antialiased; }
 
 .desactivate {
   opacity: 0.2; }
@@ -148,7 +149,6 @@ body, html {
             padding: 22% 5% 20% 5%;
             font-size: 1.5em; }
       #game #ui .zone #deal a {
-        -webkit-animation: dealPulse 1s ease-in-out alternate infinite;
         -webkit-animation-delay: 2s; }
     #game #ui .total {
       position: relative;
@@ -245,9 +245,9 @@ body, html {
     -o-transform: rotate(180deg);
     transform: rotate(180deg); }
   #game #dealer-cards {
-    top: -180px; }
+    top: -200px; }
   #game #player-cards {
-    bottom: -230px; }
+    bottom: -120px; }
   #game #player-total, #game #dealer-total {
     font-size: 1em;
     color: #fff; }
@@ -318,6 +318,12 @@ body, html {
   100% {
     -webkit-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 40px rgba(255, 246, 0, 0.8); } }
 
+#chips:hover .chip {
+  opacity: 0.8; }
+
+#chips:hover .chip:hover {
+  opacity: 1; }
+
 .chip {
   cursor: pointer;
   float: left;
@@ -353,7 +359,12 @@ body, html {
   -o-transition: all 100ms ease-out;
   transition: all 100ms ease-out; }
   .chip:hover {
-    margin-top: -4px; }
+    -webkit-transform: rotate(5deg);
+    -khtml-transform: rotate(5deg);
+    -moz-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    -o-transform: rotate(5deg);
+    transform: rotate(5deg); }
   .chip span {
     display: block;
     width: 100%;
@@ -449,6 +460,10 @@ body, html {
   .chip.yellow::before {
     content: '3'; }
 
+#dealer-cards .card {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f9f9f9), color-stop(1, #edeae6));
+  background-image: -moz-linear-gradient(center bottom, #f9f9f9 0%, #edeae6 100%); }
+
 .card {
   font-size: 1.5em;
   z-index: 1;
@@ -463,6 +478,8 @@ body, html {
   -ms-box-shadow: 0 1px 2px rgba(0, 0, 15, 0.5), 1px 5px rgba(0, 0, 15, 0.2);
   -o-box-shadow: 0 1px 2px rgba(0, 0, 15, 0.5), 1px 5px rgba(0, 0, 15, 0.2);
   box-shadow: 0 1px 2px rgba(0, 0, 15, 0.5), 1px 5px rgba(0, 0, 15, 0.2);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #edeae6), color-stop(1, #f9f9f9));
+  background-image: -moz-linear-gradient(center bottom, #edeae6 0%, #f9f9f9 100%);
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
@@ -503,7 +520,7 @@ body, html {
       font-size: 4em;
       left: -26px; }
 
-.card.back {
+#dealer-cards .card.back, #player-cards .card.back {
   background-color: #fd4000;
   background: #fd4000 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAATElEQVQYGWP4/9XN+P///wy4MEQClyKgOEInuiIoH6EAZA1MEYwGiqEqQFYEdRcTAwFAUAGqFTC7YTSKG5AEwWEC5UNMQJeEOhDkKwDfGrdliFgHkAAAAABJRU5ErkJggg=="); }
 
@@ -664,37 +681,22 @@ body, html {
 html[browser="Firefox"] .chip {
   border-color: rgba(255, 255, 255, 0.1); }
 
-@media screen and (min-width:1280px) {
-  #game::before {
-    content: '';
-    background: red;
-    position: absolute;
-    top: -150px;
-    right: -100px;
-    width: 200px;
-    height: 300px;
-    -webkit-transform: rotate(-45deg);
-    -khtml-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    -webkit-box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.5), -3px 0 1px red, -5px 0 0px rgba(255, 255, 255, 0.5), -7px 0 1px red, -9px 0 0px rgba(255, 255, 255, 0.5), -11px 0 0px red, -13px 0 0px rgba(255, 255, 255, 0.5), -15px 0 1px red, -17px 0 0px rgba(255, 255, 255, 0.5), -19px 0 0px red;
-    -khtml-box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.5), -3px 0 1px red, -5px 0 0px rgba(255, 255, 255, 0.5), -7px 0 1px red, -9px 0 0px rgba(255, 255, 255, 0.5), -11px 0 0px red, -13px 0 0px rgba(255, 255, 255, 0.5), -15px 0 1px red, -17px 0 0px rgba(255, 255, 255, 0.5), -19px 0 0px red;
-    -moz-box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.5), -3px 0 1px red, -5px 0 0px rgba(255, 255, 255, 0.5), -7px 0 1px red, -9px 0 0px rgba(255, 255, 255, 0.5), -11px 0 0px red, -13px 0 0px rgba(255, 255, 255, 0.5), -15px 0 1px red, -17px 0 0px rgba(255, 255, 255, 0.5), -19px 0 0px red;
-    -ms-box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.5), -3px 0 1px red, -5px 0 0px rgba(255, 255, 255, 0.5), -7px 0 1px red, -9px 0 0px rgba(255, 255, 255, 0.5), -11px 0 0px red, -13px 0 0px rgba(255, 255, 255, 0.5), -15px 0 1px red, -17px 0 0px rgba(255, 255, 255, 0.5), -19px 0 0px red;
-    -o-box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.5), -3px 0 1px red, -5px 0 0px rgba(255, 255, 255, 0.5), -7px 0 1px red, -9px 0 0px rgba(255, 255, 255, 0.5), -11px 0 0px red, -13px 0 0px rgba(255, 255, 255, 0.5), -15px 0 1px red, -17px 0 0px rgba(255, 255, 255, 0.5), -19px 0 0px red;
-    box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.5), -3px 0 1px red, -5px 0 0px rgba(255, 255, 255, 0.5), -7px 0 1px red, -9px 0 0px rgba(255, 255, 255, 0.5), -11px 0 0px red, -13px 0 0px rgba(255, 255, 255, 0.5), -15px 0 1px red, -17px 0 0px rgba(255, 255, 255, 0.5), -19px 0 0px red; } }
+@media screen and (max-height: 1024px) {
+  #game #dealer-cards {
+    top: -260px; }
+  #game #player-cards {
+    bottom: -240px; } }
 @media screen and (max-height: 910px) {
   #game #dealer-cards {
     top: -300px; }
   #game #player-cards {
     bottom: -300px; } }
+@media screen and (max-height: 768px) {
+  #game #dealer-cards {
+    top: -270px; } }
 @media screen and (max-height: 660px) {
   #game #dealer-cards {
-    top: -350px; }
-  #game #player-cards {
-    bottom: -350px; } }
+    top: -350px; } }
 @media screen and (max-height: 550px) and (max-width: 768px) {
   #game #dealer-cards {
     top: -350px; }
@@ -769,13 +771,13 @@ html[browser="Firefox"] .chip {
     font-size: 12px; }
     #game #ui .zone #chips .chip {
       padding: 4px;
-      width: 30px !important;
-      height: 30px;
+      width: 80px !important;
+      height: 80px;
       margin: 3px;
       border: 3px dashed #fff; }
       #game #ui .zone #chips .chip span {
         font-size: 1em;
-        line-height: 30px; }
+        line-height: 82px; }
       #game #ui .zone #chips .chip.red {
         right: 98px; }
       #game #ui .zone #chips .chip.blue {
@@ -789,11 +791,11 @@ html[browser="Firefox"] .chip {
       font-size: 4em; }
     #game .chip {
       padding: 4px;
-      width: 80px !important;
-      height: 80px; }
+      width: 30px !important;
+      height: 30px; }
       #game .chip span {
         font-size: 1.5em;
-        line-height: 82px; }
+        line-height: 32px; }
     #game .card {
       font-size: 1.5em;
       position: relative;
@@ -818,7 +820,8 @@ html[browser="Firefox"] .chip {
       margin: -15% 0 0 0; }
       #game #ui .zone {
         padding: 1% 2%;
-        height: 75%; }
+        height: 75%;
+        max-height: 160px; }
         #game #ui .zone #bankroll {
           top: -3px;
           font-size: 4em; }

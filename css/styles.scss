@@ -2,7 +2,9 @@
 
 // Utils ----------------------------------------------
 * { margin: 0; padding: 0; }
-body, html { width: 100%; height: 100%; }
+body, html { width: 100%; height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
 .desactivate { opacity: 0.2; }
 
 // Game -----------------------------------------------
@@ -29,8 +31,8 @@ body, html { width: 100%; height: 100%; }
     display: block;
     padding: 1em 0;
     color: #77a421;
-    //color: rgba(0,0,0,0.3);
-    //    text-shadow: 0 1px 0px rgba(255,255,255,0.1);
+//    color: rgba(0,0,0,0.3);
+//        text-shadow: 0 1px 0px rgba(255,255,255,0.1);
     font-size: 0.65em;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -140,7 +142,7 @@ body, html { width: 100%; height: 100%; }
       }
       #deal {
         a {
-          -webkit-animation: dealPulse 1s ease-in-out alternate infinite;
+//          -webkit-animation: dealPulse 1s ease-in-out alternate infinite;
           -webkit-animation-delay: 2s;
         }
       }
@@ -213,8 +215,8 @@ body, html { width: 100%; height: 100%; }
     @include rotate(180deg);
   }
   
-  #dealer-cards { top: -180px; }
-  #player-cards { bottom: -230px; }
+  #dealer-cards { top: -200px; }
+  #player-cards { bottom: -120px; }
   #player-total, #dealer-total { font-size: 1em; color: #fff; }
 }
 
@@ -276,8 +278,8 @@ body, html { width: 100%; height: 100%; }
 
 // Chips ----------------------------------------------
 
-//#chips:hover .chip { opacity: 0.8; }
-//#chips:hover .chip:hover { opacity: 1; }
+#chips:hover .chip { opacity: 0.8; }
+#chips:hover .chip:hover { opacity: 1; }
 .chip {
   cursor: pointer;
   float: left;
@@ -295,7 +297,8 @@ body, html { width: 100%; height: 100%; }
 	
 //    -webkit-transform: perspective(500px) rotateX(45deg); 
 	&:hover{
-    margin-top: -4px;
+//    margin-top: -4px;
+  @include rotate(5deg);
 	}
 	span {
 		display: block;
@@ -315,8 +318,6 @@ body, html { width: 100%; height: 100%; }
 	&::before {
 	  position: absolute;
     color: #77a421;
-    //color: rgba(0,0,0,0.35);
-    //    text-shadow: 0 1px 0 rgba(255,255,255,0.1);
     font-size: 0.65em;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -367,6 +368,9 @@ body, html { width: 100%; height: 100%; }
 
 
 // Cards ----------------------------------------------
+#dealer-cards .card {
+  @include gradient-top-bottom(#edeae6, #f9f9f9);
+}
 .card {
   font-size: 1.5em;
   z-index: 1;
@@ -375,6 +379,7 @@ body, html { width: 100%; height: 100%; }
   background-color: #f9f9f9;
   border-radius: 20px;
   @include box-shadow(#{0 1px 2px rgba(0,0,15,0.5), 1px 5px rgba(0,0,15,0.2)});
+  @include gradient-top-bottom(#f9f9f9, #edeae6);
   @include noselect();
   
   
@@ -405,7 +410,7 @@ body, html { width: 100%; height: 100%; }
   }
 }
 
-.card.back {
+#dealer-cards .card.back, #player-cards .card.back {
   background-color: #fd4000;
   background: #fd4000 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAATElEQVQYGWP4/9XN+P///wy4MEQClyKgOEInuiIoH6EAZA1MEYwGiqEqQFYEdRcTAwFAUAGqFTC7YTSKG5AEwWEC5UNMQJeEOhDkKwDfGrdliFgHkAAAAABJRU5ErkJggg==');  
 }
@@ -478,29 +483,12 @@ html[browser="Firefox"] {
 
 // Media Queries
 @media screen and (min-width:1280px) {
-#game {
-  &::before {
-  content: '';
-  background: red;
-  position: absolute;
-  top: -150px;
-  right: -100px;
-  width: 200px;
-  height: 300px;
-  @include rotate(-45deg);
-  @include box-shadow(#{
-      -1px 0px 1px rgba(255,255,255,0.5),
-      -3px 0 1px red,
-      -5px 0 0px rgba(255,255,255,0.5),
-      -7px 0 1px red,
-      -9px 0 0px rgba(255,255,255,0.5),
-      -11px 0 0px red,
-      -13px 0 0px rgba(255,255,255,0.5),
-      -15px 0 1px red,
-      -17px 0 0px rgba(255,255,255,0.5),
-      -19px 0 0px red
-      });
-    }
+
+}
+@media screen and (max-height: 1024px) {
+  #game {
+    #dealer-cards { top: -260px; }
+    #player-cards { bottom: -240px; }
   }
 }
 @media screen and (max-height: 910px) {
@@ -509,10 +497,14 @@ html[browser="Firefox"] {
     #player-cards { bottom: -300px; }
   }
 }
+@media screen and (max-height: 768px) {
+  #game {
+    #dealer-cards { top: -270px; }
+  }
+}
 @media screen and (max-height: 660px) {
   #game {
     #dealer-cards { top: -350px; }
-    #player-cards { bottom: -350px; }
   }
 }
 @media screen and (max-height: 550px) and (max-width: 768px) {
@@ -615,14 +607,14 @@ html[browser="Firefox"] {
     
     #ui .zone #chips .chip {
       padding: 4px;
-    	width: 30px !important;
-    	height: 30px;
+    	width: 80px !important;
+    	height: 80px;
     	margin: 3px;
     	border: 3px dashed #fff;
     	
     	span {
     		font-size: 1em;
-    		line-height: 30px;
+    		line-height: 82px;
     	}
     	
     	&.red { right: 98px; }
@@ -635,6 +627,7 @@ html[browser="Firefox"] {
 @media screen and (max-width: 480px) {
   #game {
     font-size: 12px;
+    
     #ui {
       .zone {
         #bankroll {
@@ -643,16 +636,14 @@ html[browser="Firefox"] {
       }
     }
     
-    
-    
     .chip {
       padding: 4px;
-    	width: 80px !important;
-    	height: 80px;
+    	width: 30px !important;
+    	height: 30px;
     	
     	span {
     		font-size: 1.5em;
-    		line-height: 82px;
+    		line-height: 32px;
     	}
   	}
   	
@@ -697,6 +688,7 @@ html[browser="Firefox"] {
       .zone {
         padding: 1% 2%;
         height: 75%;
+        max-height: 160px;
         
         #bankroll {
           top: -3px;
