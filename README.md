@@ -8,6 +8,7 @@ Features
 - HMTL / CSS only deck of cards. No image whatsoever.
 - Client side scripting only.
 - Under 10k (zipped).
+- Okay, we do have one tiny Data-URI...sorry :(
 
 TODO (Future releases...maybe)
 ------------------------------
