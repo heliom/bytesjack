@@ -375,7 +375,7 @@ App.prototype = (function() { var pro = {};
         case 'win-blackjack': content = 'You win<span>Blackjack</span>'; break;
         case 'win-dealer-busted': content = 'You win<span>Dealer busted</span>'; break;
         case 'lose': content = 'You loose'; break;
-        case 'lose-blackjack': content = 'You loose</span>Blackjack</span>'; break;
+        case 'lose-blackjack': content = 'You loose<span>Blackjack</span>'; break;
         case 'lose-busted': content = 'You loose<span>Busted</span>'; break;
         case 'push': content = 'Push<span>No winner</span>'; break;
         default: content = '<span>Something broke, don’t know what happened...</span>'; break;

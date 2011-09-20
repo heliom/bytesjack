@@ -14,7 +14,7 @@ body, html { width: 100%; height: 100%; }
   width: 100%; height: 100%;
   min-height: 480px;
   font: 400 16px/1.4 'futura-pt', Helvetica, Arial, sans-serif;
-  
+   
   h1 {
     font: 5em/1.5 'bello-pro','Cooper STD', Georgia, serif;
     margin: 5% auto;
@@ -29,6 +29,8 @@ body, html { width: 100%; height: 100%; }
     display: block;
     padding: 1em 0;
     color: #77a421;
+    //color: rgba(0,0,0,0.3);
+    //    text-shadow: 0 1px 0px rgba(255,255,255,0.1);
     font-size: 0.65em;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -157,6 +159,7 @@ body, html { width: 100%; height: 100%; }
       letter-spacing: 0.15em;
       text-align: center;
       text-transform: uppercase;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.1);
       @include rounded(9px 9px 0px 0px);
       
       #player-total, #dealer-total {
@@ -175,8 +178,8 @@ body, html { width: 100%; height: 100%; }
     
       .chip { position: absolute; top: 0; left: 0; @include transition(all 250ms ease-out); }
       .chip:nth-child(1) { left: auto; right: 10px; &::before{ display: none; } }
-      .chip:nth-child(2) { left: 10px; top: -50px; &::before{ top: -25%; } }
-      .chip:nth-child(3) { left: 10px; top: 50px; &::before{ top: 115%; } }
+      .chip:nth-child(2) { left: 10px; top: -70px; &::before{ top: -25%; } }
+      .chip:nth-child(3) { left: 10px; top: 70px; &::before{ top: 115%; } }
     
       //&::before {
       //                    content: 'Your bet';
@@ -193,7 +196,6 @@ body, html { width: 100%; height: 100%; }
     #chips.disabled { .chip:nth-child(2), .chip:nth-child(3) { opacity: 0; } }
     #actions { display: none; }
   }
-  
   #player-cards, #dealer-cards {
     position: absolute;
     left: 50%;
@@ -231,30 +233,35 @@ body, html { width: 100%; height: 100%; }
   text-align: center;
   text-shadow:
       0px 2px 0px #daa206, 
-      0px 2px 12px rgba(0,0,0,0.25);
+      0px 1px 6px rgba(0,0,0,0.1);
       
   span {
     display: block;
     clear: both;
-    opacity: 0.7;
     color: #000;
     font-family: 'futura-pt', Helvetica, Arial, sans-serif;
     font-size: 0.5em;
+    font-weight: bold;
     text-transform: uppercase;
     text-shadow: none;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.1);
   }
-  -webkit-animation: fadeIn 200ms ease-in-out;
+  -webkit-animation: fadeIn 1000ms ease-in-out;
 }
 #message.lose, #message.lose-busted, #message.lose-blackjack {
-  color: #ff6900;
+  color: #ff4400;
   text-shadow:
-      0 -1px 1px #ff8300,
-      0px 2px 0px #ff5100, 
-      0px 4px 9px rgba(0,0,0,0.25);
+      0 -1px 1px #ff5700,
+      0px 2px 0px #ff3a00, 
+      0px 4px 9px rgba(0,0,0,0.2);
+    span {
+      color: #522f20;
+    }
 }
 @-webkit-keyframes fadeIn {
-    0%      { opacity: 0; }
-    100%    { opacity: 1; }
+    0%      { opacity: 0; bottom: 0; }
+    75%     { opacity: 1; }
+    100%    { bottom: 8%; }
 }
 @-webkit-keyframes messageFade {
     0%      { opacity: 0; /*letter-spacing: 0em;*/ }
@@ -268,6 +275,9 @@ body, html { width: 100%; height: 100%; }
   }
 
 // Chips ----------------------------------------------
+
+//#chips:hover .chip { opacity: 0.8; }
+//#chips:hover .chip:hover { opacity: 1; }
 .chip {
   cursor: pointer;
   float: left;
@@ -278,12 +288,15 @@ body, html { width: 100%; height: 100%; }
 	width: 100px !important;
 	height: 100px;
 	border: 10px dashed #fff;
-	@include box-shadow(#{0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff});
+	@include box-shadow(#{0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff, 0 4px 9px rgba(0,0,0,0.2)});
 	@include noselect();
 	@include rounded(100px);
+	@include transition(all 100ms ease-out);
 	
 //    -webkit-transform: perspective(500px) rotateX(45deg); 
-	
+	&:hover{
+    margin-top: -4px;
+	}
 	span {
 		display: block;
 		width: 100%;
@@ -302,16 +315,19 @@ body, html { width: 100%; height: 100%; }
 	&::before {
 	  position: absolute;
     color: #77a421;
+    //color: rgba(0,0,0,0.35);
+    //    text-shadow: 0 1px 0 rgba(255,255,255,0.1);
     font-size: 0.65em;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     left: 49%;
 	}
+	
 }
 
 .chip.blue {
   background-color: #007cff;
-  @include box-shadow(#{0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff});
+  @include box-shadow(#{0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff, 0 3px 9px rgba(0,0,0,0.2)});
   
   span {
     background-color: #0261f1;
@@ -324,7 +340,7 @@ body, html { width: 100%; height: 100%; }
 
 .chip.red {
   background-color: #f54800;
-  @include box-shadow(#{0 0 0px #de2e04, 0 1px 0px #de2e04, 0 2px 0px #de2e04, 0 3px 0px #de2e04, 0 4px 0px #de2e04, 0 -1px 0px #ff6d02});
+  @include box-shadow(#{0 0 0px #de2e04, 0 1px 0px #de2e04, 0 2px 0px #de2e04, 0 3px 0px #de2e04, 0 4px 0px #de2e04, 0 -1px 0px #ff6d02, 0 3px 9px rgba(0,0,0,0.2)});
   
   span {
     background-color: #eb4603;
@@ -337,7 +353,7 @@ body, html { width: 100%; height: 100%; }
 
 .chip.yellow {
   background-color: #f3cf00;
-  @include box-shadow(#{0 0 0px #cdaf00, 0 1px 0px #cdaf00, 0 2px 0px #cdaf00, 0 3px 0px #cdaf00, 0 4px 0px #cdaf00, 0 -1px 0px #fddc00});
+  @include box-shadow(#{0 0 0px #cdaf00, 0 1px 0px #cdaf00, 0 2px 0px #cdaf00, 0 3px 0px #cdaf00, 0 4px 0px #cdaf00, 0 -1px 0px #fddc00, 0 3px 9px rgba(0,0,0,0.2)});
   
   span {
     background-color: #ebc700;
@@ -353,12 +369,14 @@ body, html { width: 100%; height: 100%; }
 // Cards ----------------------------------------------
 .card {
   font-size: 1.5em;
+  z-index: 1;
   position: relative;
   width: 300px; height: 460px;
   background-color: #f9f9f9;
   border-radius: 20px;
-  @include box-shadow(0 0 5px rgba(0,0,15px,0.2));
+  @include box-shadow(#{0 1px 2px rgba(0,0,15,0.5), 1px 5px rgba(0,0,15,0.2)});
   @include noselect();
+  
   
   div {
     position: absolute;
@@ -459,6 +477,32 @@ html[browser="Firefox"] {
 }
 
 // Media Queries
+@media screen and (min-width:1280px) {
+#game {
+  &::before {
+  content: '';
+  background: red;
+  position: absolute;
+  top: -150px;
+  right: -100px;
+  width: 200px;
+  height: 300px;
+  @include rotate(-45deg);
+  @include box-shadow(#{
+      -1px 0px 1px rgba(255,255,255,0.5),
+      -3px 0 1px red,
+      -5px 0 0px rgba(255,255,255,0.5),
+      -7px 0 1px red,
+      -9px 0 0px rgba(255,255,255,0.5),
+      -11px 0 0px red,
+      -13px 0 0px rgba(255,255,255,0.5),
+      -15px 0 1px red,
+      -17px 0 0px rgba(255,255,255,0.5),
+      -19px 0 0px red
+      });
+    }
+  }
+}
 @media screen and (max-height: 910px) {
   #game {
     #dealer-cards { top: -300px; }
