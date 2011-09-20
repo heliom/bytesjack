@@ -482,9 +482,6 @@ html[browser="Firefox"] {
 }
 
 // Media Queries
-@media screen and (min-width:1280px) {
-
-}
 @media screen and (max-height: 1024px) {
   #game {
     #dealer-cards { top: -260px; }
@@ -493,7 +490,6 @@ html[browser="Firefox"] {
 }
 @media screen and (max-height: 910px) {
   #game {
-    #dealer-cards { top: -300px; }
     #player-cards { bottom: -300px; }
   }
 }
@@ -607,18 +603,18 @@ html[browser="Firefox"] {
     
     #ui .zone #chips .chip {
       padding: 4px;
-    	width: 80px !important;
-    	height: 80px;
+    	width: 50px !important;
+    	height: 50px;
     	margin: 3px;
-    	border: 3px dashed #fff;
+    	border: 4px dashed #fff;
     	
     	span {
-    		font-size: 1em;
-    		line-height: 82px;
+    		font-size: 1.4em;
+    		line-height: 52px;
     	}
     	
-    	&.red { right: 98px; }
-      &.blue { right: 49px; }
+    	&.red { right: 145px; }
+      &.blue { right: 72px; }
       &.yellow { right: 0px; }
   	}
   }
@@ -636,15 +632,19 @@ html[browser="Firefox"] {
       }
     }
     
-    .chip {
+    #ui .zone #chips .chip {
       padding: 4px;
     	width: 30px !important;
     	height: 30px;
     	
     	span {
-    		font-size: 1.5em;
+    		font-size: 1em;
     		line-height: 32px;
     	}
+    	
+    	&.red { right: 98px; }
+      &.blue { right: 49px; }
+      &.yellow { right: 0px; }
   	}
   	
     .card {

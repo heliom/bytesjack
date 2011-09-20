@@ -687,8 +687,6 @@ html[browser="Firefox"] .chip {
   #game #player-cards {
     bottom: -240px; } }
 @media screen and (max-height: 910px) {
-  #game #dealer-cards {
-    top: -300px; }
   #game #player-cards {
     bottom: -300px; } }
 @media screen and (max-height: 768px) {
@@ -771,17 +769,17 @@ html[browser="Firefox"] .chip {
     font-size: 12px; }
     #game #ui .zone #chips .chip {
       padding: 4px;
-      width: 80px !important;
-      height: 80px;
+      width: 50px !important;
+      height: 50px;
       margin: 3px;
-      border: 3px dashed #fff; }
+      border: 4px dashed #fff; }
       #game #ui .zone #chips .chip span {
-        font-size: 1em;
-        line-height: 82px; }
+        font-size: 1.4em;
+        line-height: 52px; }
       #game #ui .zone #chips .chip.red {
-        right: 98px; }
+        right: 145px; }
       #game #ui .zone #chips .chip.blue {
-        right: 49px; }
+        right: 72px; }
       #game #ui .zone #chips .chip.yellow {
         right: 0px; } }
 @media screen and (max-width: 480px) {
@@ -789,13 +787,19 @@ html[browser="Firefox"] .chip {
     font-size: 12px; }
     #game #ui .zone #bankroll {
       font-size: 4em; }
-    #game .chip {
+    #game #ui .zone #chips .chip {
       padding: 4px;
       width: 30px !important;
       height: 30px; }
-      #game .chip span {
-        font-size: 1.5em;
+      #game #ui .zone #chips .chip span {
+        font-size: 1em;
         line-height: 32px; }
+      #game #ui .zone #chips .chip.red {
+        right: 98px; }
+      #game #ui .zone #chips .chip.blue {
+        right: 49px; }
+      #game #ui .zone #chips .chip.yellow {
+        right: 0px; }
     #game .card {
       font-size: 1.5em;
       position: relative;
