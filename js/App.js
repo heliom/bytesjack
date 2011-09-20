@@ -404,6 +404,11 @@ App.prototype = (function() { var pro = {};
   {
       showMessage('game-over');
       gameEnded = true;
+      
+      var overlay = document.createElement('div');
+      overlay.id = 'overlay';
+      
+      $('body').append(overlay);
   };
 
   var stopGame = function()
