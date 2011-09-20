@@ -51,7 +51,7 @@ App.prototype = (function() { var pro = {};
       dealerAces      = 0,
       chips           = $('#chips'),
       allChips        = $('.chip'),
-      bank            = 10,
+      bank            = 100,
       bankroll        = $('#bankroll'),
       doubled         = false,
       currentBet      = allChips.first().data('value'),
