@@ -143,7 +143,7 @@ body, html {
         #game #ui .zone #deal li, #game #ui .zone #actions li {
           display: block;
           width: 29.4%;
-          margin: 0 2%;
+          margin: 0 1%;
           float: left; }
           #game #ui .zone #deal li a, #game #ui .zone #actions li a {
             padding: 22% 5% 20% 5%;
@@ -703,6 +703,9 @@ body, html {
 
 html[browser="Firefox"] .chip {
   border-color: rgba(255, 255, 255, 0.1); }
+
+html[browser="Safari"] #game #ui .zone #deal li, html[browser="Safari"] #game #ui .zone #actions li {
+  margin: 0 2%; }
 
 @media screen and (max-height: 1024px) {
   #game #dealer-cards {
