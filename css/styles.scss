@@ -627,7 +627,7 @@ html[os="iPhone/iPod"] {
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 575px) {
   #game {
     font-size: 12px;
     
@@ -643,6 +643,7 @@ html[os="iPhone/iPod"] {
       padding: 4px;
     	width: 30px !important;
     	height: 30px;
+    	border: 3px dashed #fff;
     	
     	span {
     		font-size: 1em;
