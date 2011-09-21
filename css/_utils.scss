@@ -17,7 +17,7 @@
   	}
   	
   	@mixin gradient-radial ( $center, $edge, $size:farthest-corner ) {
-  	  background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 260, from($center), to($edge));
+  	  background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 560, from($center), to($edge));
       background-image: -webkit-radial-gradient(center center, ellipse $size, $center, $edge );
   		background-image: -moz-radial-gradient(center center, ellipse $size, $center, $edge );
   		background-image: -ms-radial-gradient(center center, ellipse $size, $center, $edge );

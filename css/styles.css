@@ -12,7 +12,7 @@ body, html {
 
 #game {
   background-color: #466d19;
-  background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 260, from(#65981e), to(#184d08));
+  background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 560, from(#65981e), to(#184d08));
   background-image: -webkit-radial-gradient(center center, ellipse farthest-corner, #65981e, #184d08);
   background-image: -moz-radial-gradient(center center, ellipse farthest-corner, #65981e, #184d08);
   background-image: -ms-radial-gradient(center center, ellipse farthest-corner, #65981e, #184d08);
@@ -27,12 +27,12 @@ body, html {
   #game h1 {
     font: 5em/1.5 "bello-pro", "Cooper STD", Georgia, serif;
     margin: 5% auto;
-    color: #5f881b;
     text-align: center;
-    text-shadow: 0px 1px 0px rgba(152, 184, 42, 0.5), 0px -1px 0px rgba(25, 48, 0, 0.3);
-    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(black));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: #72941f; }
+    color: #2b5204;
+    text-shadow: 0 -1px 3px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(152, 184, 42, 0.15), 0 1px 4px rgba(152, 184, 42, 0.2);
+    text-align: center;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(white));
+    -webkit-background-clip: text; }
   #game .shortcut {
     display: block;
     padding: 1em 0;
@@ -105,12 +105,12 @@ body, html {
           -ms-border-radius: 12px;
           -o-border-radius: 12px;
           border-radius: 12px;
-          -webkit-transition: box-shadow 50ms ease-out;
-          -khtml-transition: box-shadow 50ms ease-out;
-          -moz-transition: box-shadow 50ms ease-out;
-          -ms-transition: box-shadow 50ms ease-out;
-          -o-transition: box-shadow 50ms ease-out;
-          transition: box-shadow 50ms ease-out; }
+          -webkit-transition: box-shadow 150ms ease-out;
+          -khtml-transition: box-shadow 150ms ease-out;
+          -moz-transition: box-shadow 150ms ease-out;
+          -ms-transition: box-shadow 150ms ease-out;
+          -o-transition: box-shadow 150ms ease-out;
+          transition: box-shadow 150ms ease-out; }
           #game #ui .zone #deal a:hover, #game #ui .zone #deal a:focus, #game #ui .zone #deal li a:hover, #game #ui .zone #deal li a:focus, #game #ui .zone #actions a:hover, #game #ui .zone #actions a:focus, #game #ui .zone #actions li a:hover, #game #ui .zone #actions li a:focus {
             -webkit-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 246, 0, 0.8);
             -khtml-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 246, 0, 0.8);
@@ -132,6 +132,12 @@ body, html {
           background-color: #cac6be;
           background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #9c9486), color-stop(1, #dad7d2));
           background-image: -moz-linear-gradient(center bottom, #9c9486 0%, #dad7d2 100%);
+          -webkit-transition: none;
+          -khtml-transition: none;
+          -moz-transition: none;
+          -ms-transition: none;
+          -o-transition: none;
+          transition: none;
           color: #aaa395;
           text-shadow: 0 1px 0px rgba(255, 255, 255, 0.2), 0px -1px 0px rgba(0, 0, 0, 0.1);
           -webkit-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.4), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #898367, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
@@ -148,15 +154,13 @@ body, html {
           #game #ui .zone #deal li a, #game #ui .zone #actions li a {
             padding: 22% 5% 20% 5%;
             font-size: 1.5em; }
-      #game #ui .zone #deal a {
-        -webkit-animation-delay: 2s; }
     #game #ui .total {
       position: relative;
       left: -12.5%;
       background-color: #809d29;
       background-color: rgba(208, 209, 78, 0.3);
       width: 25%;
-      padding: 0.75em 0;
+      padding: 0.75em 0 0.5em 0;
       color: #437714;
       font-size: 1em;
       letter-spacing: 0.15em;
@@ -175,7 +179,8 @@ body, html {
       -moz-border-radius: 0 0 9px 9px;
       -ms-border-radius: 0 0 9px 9px;
       -o-border-radius: 0 0 9px 9px;
-      border-radius: 0 0 9px 9px; }
+      border-radius: 0 0 9px 9px;
+      padding: 0.5em 0 0.75em 0; }
     #game #ui #chips {
       position: absolute;
       width: 0;
@@ -222,6 +227,7 @@ body, html {
     -o-transition: all 200ms ease-out;
     transition: all 200ms ease-out; }
     #game #player-cards .card, #game #dealer-cards .card {
+      background-color: #f9f9f9;
       position: absolute;
       top: 0;
       left: 0;
@@ -231,12 +237,23 @@ body, html {
       -ms-transition: all 250ms ease-in-out;
       -o-transition: all 250ms ease-in-out;
       transition: all 250ms ease-in-out;
-      -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-      -khtml-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-      -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-      -ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-      -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); }
+      -webkit-box-shadow: inset 0 0 1px white, inset 0 0 60px rgba(139, 118, 109, 0.1), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
+      -khtml-box-shadow: inset 0 0 1px white, inset 0 0 60px rgba(139, 118, 109, 0.1), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
+      -moz-box-shadow: inset 0 0 1px white, inset 0 0 60px rgba(139, 118, 109, 0.1), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
+      -ms-box-shadow: inset 0 0 1px white, inset 0 0 60px rgba(139, 118, 109, 0.1), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
+      -o-box-shadow: inset 0 0 1px white, inset 0 0 60px rgba(139, 118, 109, 0.1), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
+      box-shadow: inset 0 0 1px white, inset 0 0 60px rgba(139, 118, 109, 0.1), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
+      background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #edeae6), color-stop(1, #f5f5f5));
+      background-image: -moz-linear-gradient(center bottom, #edeae6 0%, #f5f5f5 100%); }
+      #game #player-cards .card.back, #game #dealer-cards .card.back {
+        background-color: #fd4000;
+        -webkit-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
+        -khtml-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
+        -moz-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
+        -ms-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
+        -o-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
+        box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
+        background: #fd4000 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAATElEQVQYGWP4/9XN+P///wy4MEQClyKgOEInuiIoH6EAZA1MEYwGiqEqQFYEdRcTAwFAUAGqFTC7YTSKG5AEwWEC5UNMQJeEOhDkKwDfGrdliFgHkAAAAABJRU5ErkJggg=="); }
   #game #dealer-cards .card > .icons {
     -webkit-transform: rotate(180deg);
     -khtml-transform: rotate(180deg);
@@ -246,6 +263,9 @@ body, html {
     transform: rotate(180deg); }
   #game #dealer-cards {
     top: -200px; }
+    #game #dealer-cards .card {
+      background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f9f9f9), color-stop(1, #edeae6));
+      background-image: -moz-linear-gradient(center bottom, #f9f9f9 0%, #edeae6 100%); }
   #game #player-cards {
     bottom: -120px; }
   #game #player-total, #game #dealer-total {
@@ -271,7 +291,7 @@ body, html {
   #message span {
     display: block;
     clear: both;
-    color: #000;
+    color: #3c2f29;
     font-family: 'futura-pt', Helvetica, Arial, sans-serif;
     font-size: 0.5em;
     font-weight: bold;
@@ -283,10 +303,10 @@ body, html {
     -webkit-animation: fadeInGameOver 1000ms ease-in-out; }
 
 #message.lose, #message.lose-busted, #message.lose-blackjack, #message.game-over {
-  color: #ff4400;
-  text-shadow: 0 -1px 1px #ff5700, 0px 2px 0px #ff3a00, 0px 4px 9px rgba(0, 0, 0, 0.2); }
+  color: #f14700;
+  text-shadow: 0 -1px 0px #f36c30, 0px 2px 0px #cf3600, 0px 4px 21px rgba(60, 47, 41, 0.17); }
   #message.lose span, #message.lose-busted span, #message.lose-blackjack span, #message.game-over span {
-    color: #522f20; }
+    color: #3c2f29; }
 
 #overlay {
   position: absolute;
@@ -483,26 +503,13 @@ body, html {
   .chip.yellow::before {
     content: '3'; }
 
-#dealer-cards .card {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f9f9f9), color-stop(1, #edeae6));
-  background-image: -moz-linear-gradient(center bottom, #f9f9f9 0%, #edeae6 100%); }
-
 .card {
   font-size: 1.5em;
   z-index: 1;
   position: relative;
   width: 300px;
   height: 460px;
-  background-color: #f9f9f9;
   border-radius: 20px;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 15, 0.5), 1px 5px rgba(0, 0, 15, 0.2);
-  -khtml-box-shadow: 0 1px 2px rgba(0, 0, 15, 0.5), 1px 5px rgba(0, 0, 15, 0.2);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 15, 0.5), 1px 5px rgba(0, 0, 15, 0.2);
-  -ms-box-shadow: 0 1px 2px rgba(0, 0, 15, 0.5), 1px 5px rgba(0, 0, 15, 0.2);
-  -o-box-shadow: 0 1px 2px rgba(0, 0, 15, 0.5), 1px 5px rgba(0, 0, 15, 0.2);
-  box-shadow: 0 1px 2px rgba(0, 0, 15, 0.5), 1px 5px rgba(0, 0, 15, 0.2);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #edeae6), color-stop(1, #f9f9f9));
-  background-image: -moz-linear-gradient(center bottom, #edeae6 0%, #f9f9f9 100%);
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
@@ -543,15 +550,11 @@ body, html {
       font-size: 4em;
       left: -26px; }
 
-#dealer-cards .card.back, #player-cards .card.back {
-  background-color: #fd4000;
-  background: #fd4000 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAATElEQVQYGWP4/9XN+P///wy4MEQClyKgOEInuiIoH6EAZA1MEYwGiqEqQFYEdRcTAwFAUAGqFTC7YTSKG5AEwWEC5UNMQJeEOhDkKwDfGrdliFgHkAAAAABJRU5ErkJggg=="); }
-
 .card.hearts, .card.diamonds {
-  color: #ff3600; }
+  color: #f14000; }
 
 .card.spades, .card.clubs {
-  color: #2a2016; }
+  color: #3c2f29; }
 
 .card.valueA > .icons span {
   top: -70px; }
@@ -842,10 +845,12 @@ html[browser="Safari"] #game #ui .zone #deal li, html[browser="Safari"] #game #u
       height: 70%; } }
 @media screen and (max-width: 320px) {
   #game {
-    min-height: 420px; }
+    min-height: 420px;
+    background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 260, from(#65981e), to(#184d08)); }
     #game h1 {
       font-size: 4em;
-      margin: 2%; }
+      margin: 2%;
+      color: #2b4f05; }
     #game #ui {
       margin: -15% 0 0 0; }
       #game #ui .zone {

@@ -17,15 +17,25 @@ body, html { width: 100%; height: 100%;
   min-height: 480px;
   font: 400 16px/1.4 'futura-pt', Helvetica, Arial, sans-serif;
    
+ // h1 {
+ //     font: 5em/1.5 'bello-pro','Cooper STD', Georgia, serif;
+ //     margin: 5% auto;
+ //     color: #5f881b;
+ //     text-align: center;
+ //    text-shadow: 0px 1px 0px rgba(152,184,42,0.5), 0px -1px 0px rgba(25,48,0,0.3);
+ //    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 1)));
+ //    -webkit-background-clip: text;
+ //    -webkit-text-fill-color: #72941f;
+ //   }
   h1 {
-    font: 5em/1.5 'bello-pro','Cooper STD', Georgia, serif;
-    margin: 5% auto;
-    color: #5f881b;
-    text-align: center;
-    text-shadow: 0px 1px 0px rgba(152,184,42,0.5), 0px -1px 0px rgba(25,48,0,0.3);
-    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 1)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: #72941f;
+          font: 5em/1.5 'bello-pro','Cooper STD', Georgia, serif;
+           margin: 5% auto;
+           text-align: center;
+          color: #2b5204;
+          text-shadow: 0 -1px 3px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.3), 0 1px 0 rgba(152,184,42,0.15), 0 1px 4px rgba(152,184,42,0.2);
+          text-align: center;
+          -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(255,255,255, 1)));
+          -webkit-background-clip: text;
   }
   .shortcut {
     display: block;
@@ -68,16 +78,6 @@ body, html { width: 100%; height: 100%;
       font-size: 4.5em;
       margin: -50px 5% 0 0;
       text-align: center;
-      
-     // &::before {
-     //        content: 'Your bytes';
-     //        position: absolute;
-     //        width: 100%;
-     //        top: -50px; left: 0;
-     //        font-size: 0.25em;
-     //        text-transform: uppercase;
-     //        color: rgba(208,209,78,0.3);
-     //      }
     }
 
     #deal, #actions {
@@ -103,7 +103,7 @@ body, html { width: 100%; height: 100%;
               0px 5px 0px 0px #daa206, 
               0px 5px 0px 2px rgba(0,0,0,0.2)});
           @include rounded(12px);
-          @include transition(box-shadow 50ms ease-out);
+          @include transition(#{box-shadow 150ms ease-out});
           
           &:hover, &:focus { @include box-shadow(#{inset 0px 2px 0 rgba(255,255,255,0.3), inset 0px -2px 0 rgba(255,255,255,0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0,0,0,0.2), 0 0 30px rgba(255,246,0,0.8)}); };
           &:active, &.active {
@@ -120,6 +120,7 @@ body, html { width: 100%; height: 100%;
           cursor: default;
           background-color: #cac6be;
           @include gradient-top-bottom(#dad7d2,#9c9486);
+          @include transition(none);
           color: #aaa395;
           text-shadow: 0 1px 0px rgba(255,255,255,0.2), 0px -1px 0px rgba(0,0,0,0.1);
           @include box-shadow(#{
@@ -142,8 +143,8 @@ body, html { width: 100%; height: 100%;
       }
       #deal {
         a {
-//          -webkit-animation: dealPulse 1s ease-in-out alternate infinite;
-          -webkit-animation-delay: 2s;
+          //-webkit-animation: dealPulse 1s ease-in-out alternate infinite;
+          //          -webkit-animation-delay: 2s;
         }
       }
     } // #zone
@@ -154,7 +155,7 @@ body, html { width: 100%; height: 100%;
       background-color: #809d29;
       background-color: rgba(208,209,78,0.3);
       width: 25%;
-      padding: 0.75em 0;
+      padding: 0.75em 0 0.5em 0;
       color: #437714;
       //color: rgba(208,209,78,0.3);
       font-size: 1em;
@@ -163,13 +164,10 @@ body, html { width: 100%; height: 100%;
       text-transform: uppercase;
       text-shadow: 0 1px 0 rgba(255,255,255,0.1);
       @include rounded(9px 9px 0px 0px);
-      
-      #player-total, #dealer-total {
-//        float: right;
-      }
     }
     .total.bot {
       @include rounded( 0 0 9px 9px);
+      padding: 0.5em 0 0.75em 0;
     }
   
     #chips {
@@ -182,17 +180,6 @@ body, html { width: 100%; height: 100%;
       .chip:nth-child(1) { left: auto; right: 10px; &::before{ display: none; } }
       .chip:nth-child(2) { left: 10px; top: -70px; &::before{ top: -25%; } }
       .chip:nth-child(3) { left: 10px; top: 70px; &::before{ top: 115%; } }
-    
-      //&::before {
-      //                    content: 'Your bet';
-      //                    position: absolute;
-      //                    text-align: right;
-      //                    width: 100%;
-      //                    top: -50px; left: 0;
-      //                    font-size: 1.125em;
-      //                    text-transform: uppercase;
-      //                    color: rgba(208,209,78,0.3);
-      //                  }
     }
   
     #chips.disabled { .chip:nth-child(2), .chip:nth-child(3) { opacity: 0; } }
@@ -205,17 +192,28 @@ body, html { width: 100%; height: 100%;
     @include transition(all 200ms ease-out);
     
     .card {
+      background-color: #f9f9f9;
       position: absolute;
       top: 0; left: 0;
       @include transition(all 250ms ease-in-out);
-      @include box-shadow(0 1px 3px rgba(0,0,0,0.2));
+      @include box-shadow(#{inset 0 0 1px #fff, inset 0 0 60px rgba(139,118,109,0.1), 0 1px 3px rgba(0,0,15,0.3), 0 0 5px rgba(0,0,15,0.1)});
+      @include gradient-top-bottom(#f5f5f5, #edeae6);
+      &.back {
+          background-color: #fd4000;
+          @include box-shadow(#{inset 0 0 50px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,15,0.3), 0 0 5px rgba(0,0,15,0.1)});
+          background: #fd4000 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAATElEQVQYGWP4/9XN+P///wy4MEQClyKgOEInuiIoH6EAZA1MEYwGiqEqQFYEdRcTAwFAUAGqFTC7YTSKG5AEwWEC5UNMQJeEOhDkKwDfGrdliFgHkAAAAABJRU5ErkJggg==');  
+      }
     }
   }
   #dealer-cards .card > .icons {
     @include rotate(180deg);
   }
   
-  #dealer-cards { top: -200px; }
+  #dealer-cards { top: -200px;
+    .card {
+       @include gradient-top-bottom(#edeae6, #f9f9f9);
+    }
+  }
   #player-cards { bottom: -120px; }
   #player-total, #dealer-total { font-size: 1em; color: #fff; }
 }
@@ -240,7 +238,7 @@ body, html { width: 100%; height: 100%;
   span {
     display: block;
     clear: both;
-    color: #000;
+    color: #3c2f29;
     font-family: 'futura-pt', Helvetica, Arial, sans-serif;
     font-size: 0.5em;
     font-weight: bold;
@@ -256,13 +254,13 @@ body, html { width: 100%; height: 100%;
   }
 }
 #message.lose, #message.lose-busted, #message.lose-blackjack, #message.game-over {
-  color: #ff4400;
+  color: #f14700;
   text-shadow:
-      0 -1px 1px #ff5700,
-      0px 2px 0px #ff3a00, 
-      0px 4px 9px rgba(0,0,0,0.2);
+      0 -1px 0px #f36c30,
+      0px 2px 0px #cf3600, 
+      0px 4px 21px rgba(60,47,41,0.17);
     span {
-      color: #522f20;
+      color: #3c2f29;
     }
 }
 #overlay {
@@ -385,18 +383,12 @@ body, html { width: 100%; height: 100%;
 
 
 // Cards ----------------------------------------------
-#dealer-cards .card {
-  @include gradient-top-bottom(#edeae6, #f9f9f9);
-}
 .card {
   font-size: 1.5em;
   z-index: 1;
   position: relative;
   width: 300px; height: 460px;
-  background-color: #f9f9f9;
   border-radius: 20px;
-  @include box-shadow(#{0 1px 2px rgba(0,0,15,0.5), 1px 5px rgba(0,0,15,0.2)});
-  @include gradient-top-bottom(#f9f9f9, #edeae6);
   @include noselect();
   
   
@@ -427,13 +419,8 @@ body, html { width: 100%; height: 100%;
   }
 }
 
-#dealer-cards .card.back, #player-cards .card.back {
-  background-color: #fd4000;
-  background: #fd4000 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAATElEQVQYGWP4/9XN+P///wy4MEQClyKgOEInuiIoH6EAZA1MEYwGiqEqQFYEdRcTAwFAUAGqFTC7YTSKG5AEwWEC5UNMQJeEOhDkKwDfGrdliFgHkAAAAABJRU5ErkJggg==');  
-}
-
-.card.hearts, .card.diamonds { color: #ff3600; }
-.card.spades, .card.clubs { color: #2a2016; }
+.card.hearts, .card.diamonds { color: #f14000; }
+.card.spades, .card.clubs { color: #3c2f29; }
 .card.valueA > .icons span { top: -70px; }
 .card.value2 > .icons,
 .card.value3 > .icons {
@@ -699,10 +686,13 @@ html[browser="Safari"] {
 @media screen and (max-width: 320px) {
   #game {
     min-height: 420px;
+    background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 260, from(#65981e), to(#184d08));
     
     h1 {
       font-size: 4em;
       margin: 2%;
+      color: #2b4f05;
+//      text-shadow: 0 -1px 3px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.25), 0 1px 0 rgba(152,184,42,0.15), 0 1px 4px rgba(152,184,42,0.1);
     }
     
     #ui {
