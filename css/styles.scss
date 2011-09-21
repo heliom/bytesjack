@@ -16,33 +16,21 @@ body, html { width: 100%; height: 100%;
   width: 100%; height: 100%;
   min-height: 480px;
   font: 400 16px/1.4 'futura-pt', Helvetica, Arial, sans-serif;
-   
- // h1 {
- //     font: 5em/1.5 'bello-pro','Cooper STD', Georgia, serif;
- //     margin: 5% auto;
- //     color: #5f881b;
- //     text-align: center;
- //    text-shadow: 0px 1px 0px rgba(152,184,42,0.5), 0px -1px 0px rgba(25,48,0,0.3);
- //    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 1)));
- //    -webkit-background-clip: text;
- //    -webkit-text-fill-color: #72941f;
- //   }
+
   h1 {
-          font: 5em/1.5 'bello-pro','Cooper STD', Georgia, serif;
-           margin: 5% auto;
-           text-align: center;
-          color: #2b5204;
-          text-shadow: 0 -1px 3px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.3), 0 1px 0 rgba(152,184,42,0.15), 0 1px 4px rgba(152,184,42,0.2);
-          text-align: center;
-          -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(255,255,255, 1)));
-          -webkit-background-clip: text;
+    font: 5em/1.5 'bello-pro','Cooper STD', Georgia, serif;
+    margin: 5% auto;
+    text-align: center;
+    color: #2b5204;
+    text-shadow: 0 -1px 3px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.3), 0 1px 0 rgba(152,184,42,0.15), 0 1px 4px rgba(152,184,42,0.2);
+    text-align: center;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(255,255,255, 1)));
+    -webkit-background-clip: text;
   }
   .shortcut {
     display: block;
     padding: 1em 0;
     color: #77a421;
-//    color: rgba(0,0,0,0.3);
-//        text-shadow: 0 1px 0px rgba(255,255,255,0.1);
     font-size: 0.65em;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -70,6 +58,16 @@ body, html { width: 100%; height: 100%;
     
     div, ul {
       width: 20%;
+    }
+    
+    .label {
+      position: absolute;
+      top: -30px; left: 5%;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      color: rgba(208,209,78,0.3);
+      
+      &.right { left: auto; right: 5%; }
     }
     
     #bankroll {
@@ -141,12 +139,6 @@ body, html { width: 100%; height: 100%;
           }
         }
       }
-      #deal {
-        a {
-          //-webkit-animation: dealPulse 1s ease-in-out alternate infinite;
-          //          -webkit-animation-delay: 2s;
-        }
-      }
     } // #zone
      
     .total {
@@ -157,7 +149,6 @@ body, html { width: 100%; height: 100%;
       width: 25%;
       padding: 0.75em 0 0.5em 0;
       color: #437714;
-      //color: rgba(208,209,78,0.3);
       font-size: 1em;
       letter-spacing: 0.15em;
       text-align: center;
@@ -189,6 +180,7 @@ body, html { width: 100%; height: 100%;
     position: absolute;
     left: 50%;
     width: 100%; height: 460px;
+    -webkit-transform: translate3d(0,0,0);
     @include transition(all 200ms ease-out);
     
     .card {
@@ -246,11 +238,11 @@ body, html { width: 100%; height: 100%;
     text-shadow: none;
     text-shadow: 0 1px 4px rgba(0,0,0,0.1);
   }
-  -webkit-animation: fadeIn 1000ms ease-in-out;
+  -webkit-animation: fadeIn3d 1000ms ease-in-out;
   
   &.game-over {
     bottom: 45%;
-    -webkit-animation: fadeInGameOver 1000ms ease-in-out;
+    -webkit-animation: fadeIn3d 1000ms ease-in-out;
   }
 }
 #message.lose, #message.lose-busted, #message.lose-blackjack, #message.game-over {
@@ -268,17 +260,13 @@ body, html { width: 100%; height: 100%;
   z-index: 998;
   top: 0; left: 0;
   width: 100%; height: 100%;
+  min-height: 420px;
   background-color: rgba(0,0,0,0.6);
 }
-@-webkit-keyframes fadeIn {
-    0%      { opacity: 0; bottom: 0; }
+@-webkit-keyframes fadeIn3d {
+    0%      { opacity: 0; @include translate3d(#{0,0,0}); }
     75%     { opacity: 1; }
-    100%    { bottom: 8%; }
-}
-@-webkit-keyframes fadeInGameOver {
-    0%      { opacity: 0; bottom: 25%; }
-    75%     { opacity: 1; }
-    100%    { bottom: 45%; }
+    100%    { @include translate3d(#{0,-75px,0}); }
 }
 @-webkit-keyframes messageFade {
     0%      { opacity: 0; /*letter-spacing: 0em;*/ }
@@ -310,10 +298,8 @@ body, html { width: 100%; height: 100%;
 	@include rounded(100px);
 	@include transition(all 100ms ease-out);
 	
-//    -webkit-transform: perspective(500px) rotateX(45deg); 
 	&:hover{
-//    margin-top: -4px;
-  @include rotate(5deg);
+    @include rotate(5deg);
 	}
 	span {
 		display: block;
@@ -489,6 +475,14 @@ html[browser="Safari"] {
   #game #ui .zone #deal li, #game #ui .zone #actions li {
     margin: 0 2%;
   }
+  
+  #message { bottom: 0; @include translate3d(#{0,-75px,0}); }
+}
+
+html[os="iPhone/iPod"] {
+  #game #player-cards .card, #game #dealer-cards .card {
+    @include transition(none);
+  }
 }
 
 // Media Queries
@@ -590,8 +584,6 @@ html[browser="Safari"] {
         top: 10px; right: 2px;
         
         .chip {
-          //position: static;
-          //float: left;
           float: none;
           opacity: 0.35;
           top: 0 !important; left: auto !important;
@@ -630,7 +622,7 @@ html[browser="Safari"] {
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 575px) {
   #game {
     font-size: 12px;
     
@@ -646,6 +638,7 @@ html[browser="Safari"] {
       padding: 4px;
     	width: 30px !important;
     	height: 30px;
+    	border: 3px dashed #fff;
     	
     	span {
     		font-size: 1em;
@@ -692,7 +685,6 @@ html[browser="Safari"] {
       font-size: 4em;
       margin: 2%;
       color: #2b4f05;
-//      text-shadow: 0 -1px 3px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.25), 0 1px 0 rgba(152,184,42,0.15), 0 1px 4px rgba(152,184,42,0.1);
     }
     
     #ui {
@@ -706,11 +698,6 @@ html[browser="Safari"] {
         #bankroll {
           top: -3px;
           font-size: 4em;
-        }
-        
-        #deal li a,
-        #actions li a {
-//          padding: 0.9em 0 !important;
         }
       }
       

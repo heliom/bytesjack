@@ -58,7 +58,8 @@ App.prototype = (function() { var pro = {};
       resizeTimer     = null,
       canDoAction     = true,
       isStanding      = false,
-      gameEnded       = false;
+      gameEnded       = false,
+      html            = $('html');
       
   //  public
   pro.initialize = function(opts) { initialize() };
@@ -237,7 +238,10 @@ App.prototype = (function() { var pro = {};
       if ( lastCard.size() == 0 ) return;
       
       totalWidth = lastCard.position().left + lastCard.width();
-      container.css('margin-left', -totalWidth / 2 + 'px');
+      if ( html.attr('browser') == 'Safari' )
+        container.css('-webkit-transform', 'translate3d('+ -totalWidth / 2 +'px,0,0)');
+      else
+        container.css('margin-left', -totalWidth / 2 + 'px');
   };
   
   var buildCard = function (id, type, value, side)
