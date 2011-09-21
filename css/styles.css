@@ -277,7 +277,7 @@ body, html {
   line-height: 1;
   text-align: center;
   text-shadow: 0px 2px 0px #daa206, 0px 1px 6px rgba(0, 0, 0, 0.1);
-  -webkit-animation: fadeIn 1000ms ease-in-out; }
+  -webkit-animation: fadeIn3d 1000ms ease-in-out; }
   #message span {
     display: block;
     clear: both;
@@ -290,7 +290,7 @@ body, html {
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); }
   #message.game-over {
     bottom: 45%;
-    -webkit-animation: fadeInGameOver 1000ms ease-in-out; }
+    -webkit-animation: fadeIn3d 1000ms ease-in-out; }
 
 #message.lose, #message.lose-busted, #message.lose-blackjack, #message.game-over {
   color: #ff4400;
@@ -307,17 +307,6 @@ body, html {
   height: 100%;
   min-height: 420px;
   background-color: rgba(0, 0, 0, 0.6); }
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    bottom: 0; }
-
-  75% {
-    opacity: 1; }
-
-  100% {
-    bottom: 8%; } }
 
 @-webkit-keyframes fadeIn3d {
   0% {
@@ -339,17 +328,6 @@ body, html {
     -ms-transform: translate3d(0, -75px, 0);
     -o-transform: translate3d(0, -75px, 0);
     transform: translate3d(0, -75px, 0); } }
-
-@-webkit-keyframes fadeInGameOver {
-  0% {
-    opacity: 0;
-    bottom: 25%; }
-
-  75% {
-    opacity: 1; }
-
-  100% {
-    bottom: 45%; } }
 
 @-webkit-keyframes messageFade {
   0% {
@@ -745,11 +723,7 @@ html[browser="Safari"] #message {
   -moz-transform: translate3d(0, -75px, 0);
   -ms-transform: translate3d(0, -75px, 0);
   -o-transform: translate3d(0, -75px, 0);
-  transform: translate3d(0, -75px, 0);
-  -webkit-animation: fadeIn3d 1000ms ease-in-out; }
-  html[browser="Safari"] #message.game-over {
-    bottom: 45%;
-    -webkit-animation: fadeIn3d 1000ms ease-in-out; }
+  transform: translate3d(0, -75px, 0); }
 
 html[os="iPhone/iPod"] #game #player-cards .card, html[os="iPhone/iPod"] #game #dealer-cards .card {
   -webkit-transition: none;

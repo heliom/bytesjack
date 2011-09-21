@@ -258,11 +258,11 @@ body, html { width: 100%; height: 100%;
     text-shadow: none;
     text-shadow: 0 1px 4px rgba(0,0,0,0.1);
   }
-  -webkit-animation: fadeIn 1000ms ease-in-out;
+  -webkit-animation: fadeIn3d 1000ms ease-in-out;
   
   &.game-over {
     bottom: 45%;
-    -webkit-animation: fadeInGameOver 1000ms ease-in-out;
+    -webkit-animation: fadeIn3d 1000ms ease-in-out;
   }
 }
 #message.lose, #message.lose-busted, #message.lose-blackjack, #message.game-over {
@@ -283,20 +283,10 @@ body, html { width: 100%; height: 100%;
   min-height: 420px;
   background-color: rgba(0,0,0,0.6);
 }
-@-webkit-keyframes fadeIn {
-    0%      { opacity: 0; bottom: 0; }
-    75%     { opacity: 1; }
-    100%    { bottom: 8%; }
-}
 @-webkit-keyframes fadeIn3d {
     0%      { opacity: 0; @include translate3d(#{0,0,0}); }
     75%     { opacity: 1; }
     100%    { @include translate3d(#{0,-75px,0}); }
-}
-@-webkit-keyframes fadeInGameOver {
-    0%      { opacity: 0; bottom: 25%; }
-    75%     { opacity: 1; }
-    100%    { bottom: 45%; }
 }
 @-webkit-keyframes messageFade {
     0%      { opacity: 0; /*letter-spacing: 0em;*/ }
@@ -520,15 +510,7 @@ html[browser="Safari"] {
   }
   
   
-  #message {
-    bottom: 0; @include translate3d(#{0,-75px,0});
-    -webkit-animation: fadeIn3d 1000ms ease-in-out;
-    
-    &.game-over {
-      bottom: 45%;
-      -webkit-animation: fadeIn3d 1000ms ease-in-out;
-    }
-  }
+  #message { bottom: 0; @include translate3d(#{0,-75px,0}); }
 }
 
 html[os="iPhone/iPod"] {
