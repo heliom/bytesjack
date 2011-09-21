@@ -71,11 +71,11 @@ body, html {
         width: 20%; }
       #game #ui .zone .label {
         position: absolute;
-        top: -30px;
+        top: -37px;
         left: 5%;
         font-size: 0.9em;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.15em;
         color: rgba(208, 209, 78, 0.3); }
         #game #ui .zone .label.right {
           left: auto;
@@ -792,6 +792,8 @@ html[os="iPhone/iPod"] #game #player-cards .card, html[os="iPhone/iPod"] #game #
       -ms-border-radius: 21px;
       -o-border-radius: 21px;
       border-radius: 21px; }
+      #game #ui .zone .label {
+        top: -30px; }
       #game #ui .zone #deal, #game #ui .zone #actions {
         position: absolute;
         top: auto;

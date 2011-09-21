@@ -62,10 +62,10 @@ body, html { width: 100%; height: 100%;
     
     .label {
       position: absolute;
-      top: -30px; left: 5%;
+      top: -37px; left: 5%;
       font-size: 0.9em;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.15em;
       color: rgba(208,209,78,0.3);
       
       &.right { left: auto; right: 5%; }
@@ -563,6 +563,8 @@ html[os="iPhone/iPod"] {
       .zone {
         height: 66%; max-height: 300px;
         @include rounded(21px);
+        
+        .label { top: -30px; }
         
         #deal, #actions {
           position: absolute;
