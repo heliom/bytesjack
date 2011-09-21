@@ -104,7 +104,7 @@ body, html { width: 100%; height: 100%;
           @include rounded(12px);
           @include transition(#{box-shadow 150ms ease-out});
           
-          &:hover, &:focus { @include box-shadow(#{inset 0px 2px 0 rgba(255,255,255,0.3), inset 0px -2px 0 rgba(255,255,255,0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0,0,0,0.2), 0 0 30px rgba(255,246,0,0.8)}); };
+          //&:hover, &:focus { @include box-shadow(#{inset 0px 2px 0 rgba(255,255,255,0.3), inset 0px -2px 0 rgba(255,255,255,0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0,0,0,0.2), 0 0 30px rgba(255,246,0,0.8)}); };
           &:active, &.active {
             top: 2px;
             @include box-shadow(#{
@@ -191,10 +191,8 @@ body, html { width: 100%; height: 100%;
       top: 0; left: 0;
       @include transition(all 250ms ease-in-out);
       @include box-shadow(#{inset 0 0 1px #fff, inset 0 0 60px rgba(139,118,109,0.1), 0 1px 3px rgba(0,0,15,0.3), 0 0 5px rgba(0,0,15,0.1)});
-      @include gradient-top-bottom(#f5f5f5, #edeae6);
       &.back {
           background-color: #fd4000;
-          @include box-shadow(#{inset 0 0 50px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,15,0.3), 0 0 5px rgba(0,0,15,0.1)});
           background: #fd4000 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAATElEQVQYGWP4/9XN+P///wy4MEQClyKgOEInuiIoH6EAZA1MEYwGiqEqQFYEdRcTAwFAUAGqFTC7YTSKG5AEwWEC5UNMQJeEOhDkKwDfGrdliFgHkAAAAABJRU5ErkJggg==');  
       }
     }
@@ -270,27 +268,13 @@ body, html { width: 100%; height: 100%;
     75%     { opacity: 1; }
     100%    { @include translate3d(#{0,-75px,0}); }
 }
-@-webkit-keyframes messageFade {
-    0%      { opacity: 0; /*letter-spacing: 0em;*/ }
-    10%     { opacity: 1; }    
-    70%     { opacity: 1; }
-    100%    { opacity: 0; /*letter-spacing: 0.6em;*/ }
-}
-@-webkit-keyframes dealPulse {
-      0%  { -webkit-box-shadow: inset 0px 2px 0 rgba(255,255,255,0.3), inset 0px -2px 0 rgba(255,255,255,0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0,0,0,0.2), 0 0 6px rgba(255,246,0,0.8); }
-      100% { -webkit-box-shadow: inset 0px 2px 0 rgba(255,255,255,0.3), inset 0px -2px 0 rgba(255,255,255,0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0,0,0,0.2), 0 0 40px rgba(255,246,0,0.8); }
-  }
 
 // Chips ----------------------------------------------
-
-#chips:hover .chip { opacity: 0.8; }
-#chips:hover .chip:hover { opacity: 1; }
 .chip {
   cursor: pointer;
   float: left;
   margin: 0 10px 0 0;
   padding: 4px;
-	background-color: #007cff;
 	position: relative;
 	width: 100px !important;
 	height: 100px;
@@ -300,9 +284,6 @@ body, html { width: 100%; height: 100%;
 	@include rounded(100px);
 	@include transition(all 100ms ease-out);
 	
-	&:hover{
-    @include rotate(5deg);
-	}
 	span {
 		display: block;
 		width: 100%;
@@ -312,10 +293,7 @@ body, html { width: 100%; height: 100%;
 		line-height: 102px;
 		text-align: center;
 		text-shadow: 0 -1px 0px rgba(0,0,0,0.3);
-		background-color: #0261f1;
 		@include rounded(100px);
-    @include gradient-top-bottom(#037ff4, #0274f3);
-    @include box-shadow(#{0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1});
 	}
 	
 	&::before {
@@ -334,10 +312,10 @@ body, html { width: 100%; height: 100%;
   @include box-shadow(#{0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff, 0 3px 9px rgba(0,0,0,0.2)});
   
   span {
-    background-color: #0261f1;
-    @include gradient-top-bottom(#037ff4, #0274f3);
-    @include box-shadow(#{0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1});
-  }
+      background-color: #0261f1;
+      @include gradient-top-bottom(#037ff4, #0274f3);
+      @include box-shadow(#{0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1});
+    }
   
   &::before { content: '2'; }
 }
@@ -347,10 +325,10 @@ body, html { width: 100%; height: 100%;
   @include box-shadow(#{0 0 0px #de2e04, 0 1px 0px #de2e04, 0 2px 0px #de2e04, 0 3px 0px #de2e04, 0 4px 0px #de2e04, 0 -1px 0px #ff6d02, 0 3px 9px rgba(0,0,0,0.2)});
   
   span {
-    background-color: #eb4603;
-    @include gradient-top-bottom(#ef4d00, #ed4300);
-    @include box-shadow(#{0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400});
-  }
+      background-color: #eb4603;
+      @include gradient-top-bottom(#ef4d00, #ed4300);
+      @include box-shadow(#{0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400});
+    }
   
   &::before { content: '1'; }
 }
@@ -360,10 +338,10 @@ body, html { width: 100%; height: 100%;
   @include box-shadow(#{0 0 0px #cdaf00, 0 1px 0px #cdaf00, 0 2px 0px #cdaf00, 0 3px 0px #cdaf00, 0 4px 0px #cdaf00, 0 -1px 0px #fddc00, 0 3px 9px rgba(0,0,0,0.2)});
   
   span {
-    background-color: #ebc700;
-    @include gradient-top-bottom(#ecc300, #ebcd00);
-    @include box-shadow(#{0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00});
-  }
+      background-color: #ebc700;
+      @include gradient-top-bottom(#ecc300, #ebcd00);
+      @include box-shadow(#{0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00});
+    }
   
   &::before { content: '3'; }
 }

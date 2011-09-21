@@ -21,8 +21,6 @@
       background-image: -webkit-radial-gradient(center center, ellipse $size, $center, $edge );
   		background-image: -moz-radial-gradient(center center, ellipse $size, $center, $edge );
   		background-image: -ms-radial-gradient(center center, ellipse $size, $center, $edge );
-  		background-image: -o-radial-gradient(center center, ellipse $size, $center, $edge );
-  		background-image: -khtml-radial-gradient(center center, ellipse $size, $center, $edge );
   	}
 
 //  Animation
@@ -63,12 +61,16 @@
 //	Utils
 	  @mixin prefixes ( $key, $value, $prefix:'' )
   	{
-  		$prefixes: -webkit, -khtml, -moz, -ms, -o;
-  		@if $prefix != '' { $prefixes: $prefix }
+  		$prefixes: -webkit, -moz, -ms;
+  		@if $key == 'transition' { $prefixes: -webkit, -moz }
+  		@else if $key == 'transform' { $prefixes: -webkit, -moz }
+  		@else if $key == 'border-radius' { $prefixes: -ms }
+  		@else if $key == 'box-shadow' { $prefixes: -ms }
   		@each $prefix in $prefixes {
   			#{$prefix}-#{$key} : $value;
   		}
-  		@if $prefix == '' { #{$key} : $value; }
+  		@if $key == 'border-radius' { #{$key} : $value; }
+  		@else if $key == 'box-shadow' { #{$key} : $value; }
   	}
 	
   	@mixin noselect() {

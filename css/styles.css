@@ -16,8 +16,6 @@ body, html {
   background-image: -webkit-radial-gradient(center center, ellipse farthest-corner, #65981e, #184d08);
   background-image: -moz-radial-gradient(center center, ellipse farthest-corner, #65981e, #184d08);
   background-image: -ms-radial-gradient(center center, ellipse farthest-corner, #65981e, #184d08);
-  background-image: -o-radial-gradient(center center, ellipse farthest-corner, #65981e, #184d08);
-  background-image: -khtml-radial-gradient(center center, ellipse farthest-corner, #65981e, #184d08);
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -61,11 +59,7 @@ body, html {
       border: 9px solid #809d29;
       border-color: rgba(208, 209, 78, 0.3);
       padding: 2%;
-      -webkit-border-radius: 30px;
-      -khtml-border-radius: 30px;
-      -moz-border-radius: 30px;
       -ms-border-radius: 30px;
-      -o-border-radius: 30px;
       border-radius: 30px; }
       #game #ui .zone div, #game #ui .zone ul {
         width: 20%; }
@@ -104,38 +98,15 @@ body, html {
           font: 2.5em/1 "bello-pro", "Cooper STD", Georgia, serif;
           text-decoration: none;
           text-shadow: 0 1px 0px rgba(255, 255, 255, 0.3), 0px -1px 0px rgba(0, 0, 0, 0.2);
-          -webkit-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
-          -khtml-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
-          -moz-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
           -ms-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
-          -o-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
           box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
-          -webkit-border-radius: 12px;
-          -khtml-border-radius: 12px;
-          -moz-border-radius: 12px;
           -ms-border-radius: 12px;
-          -o-border-radius: 12px;
           border-radius: 12px;
           -webkit-transition: box-shadow 150ms ease-out;
-          -khtml-transition: box-shadow 150ms ease-out;
-          -moz-transition: box-shadow 150ms ease-out;
-          -ms-transition: box-shadow 150ms ease-out;
-          -o-transition: box-shadow 150ms ease-out;
-          transition: box-shadow 150ms ease-out; }
-          #game #ui .zone #deal a:hover, #game #ui .zone #deal a:focus, #game #ui .zone #deal li a:hover, #game #ui .zone #deal li a:focus, #game #ui .zone #actions a:hover, #game #ui .zone #actions a:focus, #game #ui .zone #actions li a:hover, #game #ui .zone #actions li a:focus {
-            -webkit-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 246, 0, 0.8);
-            -khtml-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 246, 0, 0.8);
-            -moz-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 246, 0, 0.8);
-            -ms-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 246, 0, 0.8);
-            -o-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 246, 0, 0.8);
-            box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 246, 0, 0.8); }
+          -moz-transition: box-shadow 150ms ease-out; }
           #game #ui .zone #deal a:active, #game #ui .zone #deal a.active, #game #ui .zone #deal li a:active, #game #ui .zone #deal li a.active, #game #ui .zone #actions a:active, #game #ui .zone #actions a.active, #game #ui .zone #actions li a:active, #game #ui .zone #actions li a.active {
             top: 2px;
-            -webkit-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 3px 0px 0px #daa206, 0px 3px 0px 2px rgba(0, 0, 0, 0.2);
-            -khtml-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 3px 0px 0px #daa206, 0px 3px 0px 2px rgba(0, 0, 0, 0.2);
-            -moz-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 3px 0px 0px #daa206, 0px 3px 0px 2px rgba(0, 0, 0, 0.2);
             -ms-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 3px 0px 0px #daa206, 0px 3px 0px 2px rgba(0, 0, 0, 0.2);
-            -o-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 3px 0px 0px #daa206, 0px 3px 0px 2px rgba(0, 0, 0, 0.2);
             box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 3px 0px 0px #daa206, 0px 3px 0px 2px rgba(0, 0, 0, 0.2); }
         #game #ui .zone #deal a.desactivate, #game #ui .zone #deal a.desactivate:hover, #game #ui .zone #actions a.desactivate, #game #ui .zone #actions a.desactivate:hover {
           opacity: 1;
@@ -144,18 +115,10 @@ body, html {
           background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #9c9486), color-stop(1, #dad7d2));
           background-image: -moz-linear-gradient(center bottom, #9c9486 0%, #dad7d2 100%);
           -webkit-transition: none;
-          -khtml-transition: none;
           -moz-transition: none;
-          -ms-transition: none;
-          -o-transition: none;
-          transition: none;
           color: #aaa395;
           text-shadow: 0 1px 0px rgba(255, 255, 255, 0.2), 0px -1px 0px rgba(0, 0, 0, 0.1);
-          -webkit-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.4), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #898367, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
-          -khtml-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.4), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #898367, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
-          -moz-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.4), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #898367, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
           -ms-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.4), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #898367, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
-          -o-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.4), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #898367, 0px 5px 0px 2px rgba(0, 0, 0, 0.2);
           box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.4), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #898367, 0px 5px 0px 2px rgba(0, 0, 0, 0.2); }
         #game #ui .zone #deal li, #game #ui .zone #actions li {
           display: block;
@@ -178,18 +141,10 @@ body, html {
       text-align: center;
       text-transform: uppercase;
       text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
-      -webkit-border-radius: 9px 9px 0px 0px;
-      -khtml-border-radius: 9px 9px 0px 0px;
-      -moz-border-radius: 9px 9px 0px 0px;
       -ms-border-radius: 9px 9px 0px 0px;
-      -o-border-radius: 9px 9px 0px 0px;
       border-radius: 9px 9px 0px 0px; }
     #game #ui .total.bot {
-      -webkit-border-radius: 0 0 9px 9px;
-      -khtml-border-radius: 0 0 9px 9px;
-      -moz-border-radius: 0 0 9px 9px;
       -ms-border-radius: 0 0 9px 9px;
-      -o-border-radius: 0 0 9px 9px;
       border-radius: 0 0 9px 9px;
       padding: 0.5em 0 0.75em 0; }
     #game #ui #chips {
@@ -202,11 +157,7 @@ body, html {
         top: 0;
         left: 0;
         -webkit-transition: all 250ms ease-out;
-        -khtml-transition: all 250ms ease-out;
-        -moz-transition: all 250ms ease-out;
-        -ms-transition: all 250ms ease-out;
-        -o-transition: all 250ms ease-out;
-        transition: all 250ms ease-out; }
+        -moz-transition: all 250ms ease-out; }
       #game #ui #chips .chip:nth-child(1) {
         left: auto;
         right: 10px; }
@@ -233,11 +184,7 @@ body, html {
     height: 460px;
     -webkit-transform: translate3d(0, 0, 0);
     -webkit-transition: all 200ms ease-out;
-    -khtml-transition: all 200ms ease-out;
-    -moz-transition: all 200ms ease-out;
-    -ms-transition: all 200ms ease-out;
-    -o-transition: all 200ms ease-out;
-    transition: all 200ms ease-out; }
+    -moz-transition: all 200ms ease-out; }
     #game #player-cards .card, #game #dealer-cards .card {
       -webkit-backface-visibility: hidden;
       background-color: #f9f9f9;
@@ -245,35 +192,15 @@ body, html {
       top: 0;
       left: 0;
       -webkit-transition: all 250ms ease-in-out;
-      -khtml-transition: all 250ms ease-in-out;
       -moz-transition: all 250ms ease-in-out;
-      -ms-transition: all 250ms ease-in-out;
-      -o-transition: all 250ms ease-in-out;
-      transition: all 250ms ease-in-out;
-      -webkit-box-shadow: inset 0 0 1px white, inset 0 0 60px rgba(139, 118, 109, 0.1), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
-      -khtml-box-shadow: inset 0 0 1px white, inset 0 0 60px rgba(139, 118, 109, 0.1), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
-      -moz-box-shadow: inset 0 0 1px white, inset 0 0 60px rgba(139, 118, 109, 0.1), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
       -ms-box-shadow: inset 0 0 1px white, inset 0 0 60px rgba(139, 118, 109, 0.1), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
-      -o-box-shadow: inset 0 0 1px white, inset 0 0 60px rgba(139, 118, 109, 0.1), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
-      box-shadow: inset 0 0 1px white, inset 0 0 60px rgba(139, 118, 109, 0.1), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
-      background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #edeae6), color-stop(1, #f5f5f5));
-      background-image: -moz-linear-gradient(center bottom, #edeae6 0%, #f5f5f5 100%); }
+      box-shadow: inset 0 0 1px white, inset 0 0 60px rgba(139, 118, 109, 0.1), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1); }
       #game #player-cards .card.back, #game #dealer-cards .card.back {
         background-color: #fd4000;
-        -webkit-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
-        -khtml-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
-        -moz-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
-        -ms-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
-        -o-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
-        box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 15, 0.3), 0 0 5px rgba(0, 0, 15, 0.1);
         background: #fd4000 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAATElEQVQYGWP4/9XN+P///wy4MEQClyKgOEInuiIoH6EAZA1MEYwGiqEqQFYEdRcTAwFAUAGqFTC7YTSKG5AEwWEC5UNMQJeEOhDkKwDfGrdliFgHkAAAAABJRU5ErkJggg=="); }
   #game #dealer-cards .card > .icons {
     -webkit-transform: rotate(180deg);
-    -khtml-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg); }
+    -moz-transform: rotate(180deg); }
   #game #dealer-cards {
     top: -200px; }
     #game #dealer-cards .card {
@@ -335,92 +262,33 @@ body, html {
   0% {
     opacity: 0;
     -webkit-transform: translate3d(0, 0, 0);
-    -khtml-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0); }
+    -moz-transform: translate3d(0, 0, 0); }
 
   75% {
     opacity: 1; }
 
   100% {
     -webkit-transform: translate3d(0, -75px, 0);
-    -khtml-transform: translate3d(0, -75px, 0);
-    -moz-transform: translate3d(0, -75px, 0);
-    -ms-transform: translate3d(0, -75px, 0);
-    -o-transform: translate3d(0, -75px, 0);
-    transform: translate3d(0, -75px, 0); } }
-
-@-webkit-keyframes messageFade {
-  0% {
-    opacity: 0;
-    /*letter-spacing: 0em;*/ }
-
-  10% {
-    opacity: 1; }
-
-  70% {
-    opacity: 1; }
-
-  100% {
-    opacity: 0;
-    /*letter-spacing: 0.6em;*/ } }
-
-@-webkit-keyframes dealPulse {
-  0% {
-    -webkit-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 6px rgba(255, 246, 0, 0.8); }
-
-  100% {
-    -webkit-box-shadow: inset 0px 2px 0 rgba(255, 255, 255, 0.3), inset 0px -2px 0 rgba(255, 255, 255, 0.1), 0px 5px 0px 0px #daa206, 0px 5px 0px 2px rgba(0, 0, 0, 0.2), 0 0 40px rgba(255, 246, 0, 0.8); } }
-
-#chips:hover .chip {
-  opacity: 0.8; }
-
-#chips:hover .chip:hover {
-  opacity: 1; }
+    -moz-transform: translate3d(0, -75px, 0); } }
 
 .chip {
   cursor: pointer;
   float: left;
   margin: 0 10px 0 0;
   padding: 4px;
-  background-color: #007cff;
   position: relative;
   width: 100px !important;
   height: 100px;
   border: 10px dashed #fff;
-  -webkit-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff, 0 4px 9px rgba(0, 0, 0, 0.2);
-  -khtml-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff, 0 4px 9px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff, 0 4px 9px rgba(0, 0, 0, 0.2);
   -ms-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff, 0 4px 9px rgba(0, 0, 0, 0.2);
-  -o-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff, 0 4px 9px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff, 0 4px 9px rgba(0, 0, 0, 0.2);
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  -webkit-border-radius: 100px;
-  -khtml-border-radius: 100px;
-  -moz-border-radius: 100px;
   -ms-border-radius: 100px;
-  -o-border-radius: 100px;
   border-radius: 100px;
   -webkit-transition: all 100ms ease-out;
-  -khtml-transition: all 100ms ease-out;
-  -moz-transition: all 100ms ease-out;
-  -ms-transition: all 100ms ease-out;
-  -o-transition: all 100ms ease-out;
-  transition: all 100ms ease-out; }
-  .chip:hover {
-    -webkit-transform: rotate(5deg);
-    -khtml-transform: rotate(5deg);
-    -moz-transform: rotate(5deg);
-    -ms-transform: rotate(5deg);
-    -o-transform: rotate(5deg);
-    transform: rotate(5deg); }
+  -moz-transition: all 100ms ease-out; }
   .chip span {
     display: block;
     width: 100%;
@@ -430,21 +298,8 @@ body, html {
     line-height: 102px;
     text-align: center;
     text-shadow: 0 -1px 0px rgba(0, 0, 0, 0.3);
-    background-color: #0261f1;
-    -webkit-border-radius: 100px;
-    -khtml-border-radius: 100px;
-    -moz-border-radius: 100px;
     -ms-border-radius: 100px;
-    -o-border-radius: 100px;
-    border-radius: 100px;
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0274f3), color-stop(1, #037ff4));
-    background-image: -moz-linear-gradient(center bottom, #0274f3 0%, #037ff4 100%);
-    -webkit-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
-    -khtml-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
-    -moz-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
-    -ms-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
-    -o-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
-    box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1; }
+    border-radius: 100px; }
   .chip::before {
     position: absolute;
     color: #77a421;
@@ -455,63 +310,39 @@ body, html {
 
 .chip.blue {
   background-color: #007cff;
-  -webkit-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff, 0 3px 9px rgba(0, 0, 0, 0.2);
-  -khtml-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff, 0 3px 9px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff, 0 3px 9px rgba(0, 0, 0, 0.2);
   -ms-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff, 0 3px 9px rgba(0, 0, 0, 0.2);
-  -o-box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff, 0 3px 9px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 0px #0263e6, 0 1px 0px #0263e6, 0 2px 0px #0263e6, 0 3px 0px #0263e6, 0 4px 0px #0263e6, 0 -1px 0px #01afff, 0 3px 9px rgba(0, 0, 0, 0.2); }
   .chip.blue span {
     background-color: #0261f1;
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0274f3), color-stop(1, #037ff4));
     background-image: -moz-linear-gradient(center bottom, #0274f3 0%, #037ff4 100%);
-    -webkit-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
-    -khtml-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
-    -moz-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
     -ms-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
-    -o-box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1;
     box-shadow: 0 0 0 3px #0277f4, 0 -1px 0 3px #0265f1, 0 1px 0 3px #008dff, inset 0 1px 1px #0784ff, inset 0 -1px 0px #0261f1; }
   .chip.blue::before {
     content: '2'; }
 
 .chip.red {
   background-color: #f54800;
-  -webkit-box-shadow: 0 0 0px #de2e04, 0 1px 0px #de2e04, 0 2px 0px #de2e04, 0 3px 0px #de2e04, 0 4px 0px #de2e04, 0 -1px 0px #ff6d02, 0 3px 9px rgba(0, 0, 0, 0.2);
-  -khtml-box-shadow: 0 0 0px #de2e04, 0 1px 0px #de2e04, 0 2px 0px #de2e04, 0 3px 0px #de2e04, 0 4px 0px #de2e04, 0 -1px 0px #ff6d02, 0 3px 9px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 0 0px #de2e04, 0 1px 0px #de2e04, 0 2px 0px #de2e04, 0 3px 0px #de2e04, 0 4px 0px #de2e04, 0 -1px 0px #ff6d02, 0 3px 9px rgba(0, 0, 0, 0.2);
   -ms-box-shadow: 0 0 0px #de2e04, 0 1px 0px #de2e04, 0 2px 0px #de2e04, 0 3px 0px #de2e04, 0 4px 0px #de2e04, 0 -1px 0px #ff6d02, 0 3px 9px rgba(0, 0, 0, 0.2);
-  -o-box-shadow: 0 0 0px #de2e04, 0 1px 0px #de2e04, 0 2px 0px #de2e04, 0 3px 0px #de2e04, 0 4px 0px #de2e04, 0 -1px 0px #ff6d02, 0 3px 9px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 0px #de2e04, 0 1px 0px #de2e04, 0 2px 0px #de2e04, 0 3px 0px #de2e04, 0 4px 0px #de2e04, 0 -1px 0px #ff6d02, 0 3px 9px rgba(0, 0, 0, 0.2); }
   .chip.red span {
     background-color: #eb4603;
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ed4300), color-stop(1, #ef4d00));
     background-image: -moz-linear-gradient(center bottom, #ed4300 0%, #ef4d00 100%);
-    -webkit-box-shadow: 0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400;
-    -khtml-box-shadow: 0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400;
-    -moz-box-shadow: 0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400;
     -ms-box-shadow: 0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400;
-    -o-box-shadow: 0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400;
     box-shadow: 0 0 0 3px #eb4503, 0 -1px 0 3px #de3400, 0 1px 0 3px #ff5100, inset 0 1px 1px #fd5410, inset 0 -1px 0px #de3400; }
   .chip.red::before {
     content: '1'; }
 
 .chip.yellow {
   background-color: #f3cf00;
-  -webkit-box-shadow: 0 0 0px #cdaf00, 0 1px 0px #cdaf00, 0 2px 0px #cdaf00, 0 3px 0px #cdaf00, 0 4px 0px #cdaf00, 0 -1px 0px #fddc00, 0 3px 9px rgba(0, 0, 0, 0.2);
-  -khtml-box-shadow: 0 0 0px #cdaf00, 0 1px 0px #cdaf00, 0 2px 0px #cdaf00, 0 3px 0px #cdaf00, 0 4px 0px #cdaf00, 0 -1px 0px #fddc00, 0 3px 9px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 0 0px #cdaf00, 0 1px 0px #cdaf00, 0 2px 0px #cdaf00, 0 3px 0px #cdaf00, 0 4px 0px #cdaf00, 0 -1px 0px #fddc00, 0 3px 9px rgba(0, 0, 0, 0.2);
   -ms-box-shadow: 0 0 0px #cdaf00, 0 1px 0px #cdaf00, 0 2px 0px #cdaf00, 0 3px 0px #cdaf00, 0 4px 0px #cdaf00, 0 -1px 0px #fddc00, 0 3px 9px rgba(0, 0, 0, 0.2);
-  -o-box-shadow: 0 0 0px #cdaf00, 0 1px 0px #cdaf00, 0 2px 0px #cdaf00, 0 3px 0px #cdaf00, 0 4px 0px #cdaf00, 0 -1px 0px #fddc00, 0 3px 9px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 0px #cdaf00, 0 1px 0px #cdaf00, 0 2px 0px #cdaf00, 0 3px 0px #cdaf00, 0 4px 0px #cdaf00, 0 -1px 0px #fddc00, 0 3px 9px rgba(0, 0, 0, 0.2); }
   .chip.yellow span {
     background-color: #ebc700;
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ebcd00), color-stop(1, #ecc300));
     background-image: -moz-linear-gradient(center bottom, #ebcd00 0%, #ecc300 100%);
-    -webkit-box-shadow: 0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00;
-    -khtml-box-shadow: 0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00;
-    -moz-box-shadow: 0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00;
     -ms-box-shadow: 0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00;
-    -o-box-shadow: 0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00;
     box-shadow: 0 0 0 3px #eec900, 0 -1px 0 3px #ceaf00, 0 1px 0 3px #e9dc00, inset 0 1px 1px #e9dc00, inset 0 -1px 0px #ceaf00; }
   .chip.yellow::before {
     content: '3'; }
@@ -524,11 +355,8 @@ body, html {
   height: 460px;
   border-radius: 20px;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none; }
+  -ms-user-select: none; }
   .card div {
     position: absolute; }
     .card div:first-child {
@@ -538,11 +366,7 @@ body, html {
       bottom: 2%;
       right: 5%;
       -webkit-transform: rotate(180deg);
-      -khtml-transform: rotate(180deg);
-      -moz-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-      -o-transform: rotate(180deg);
-      transform: rotate(180deg); }
+      -moz-transform: rotate(180deg); }
     .card div span {
       text-align: center;
       display: block; }
@@ -725,19 +549,11 @@ html[browser="Safari"] #game #ui .zone #deal li, html[browser="Safari"] #game #u
 html[browser="Safari"] #message {
   bottom: 0;
   -webkit-transform: translate3d(0, -75px, 0);
-  -khtml-transform: translate3d(0, -75px, 0);
-  -moz-transform: translate3d(0, -75px, 0);
-  -ms-transform: translate3d(0, -75px, 0);
-  -o-transform: translate3d(0, -75px, 0);
-  transform: translate3d(0, -75px, 0); }
+  -moz-transform: translate3d(0, -75px, 0); }
 
 html[os="iPhone/iPod"] #game #player-cards .card, html[os="iPhone/iPod"] #game #dealer-cards .card {
   -webkit-transition: none;
-  -khtml-transition: none;
-  -moz-transition: none;
-  -ms-transition: none;
-  -o-transition: none;
-  transition: none; }
+  -moz-transition: none; }
 
 @media screen and (max-height: 1024px) {
   #game #dealer-cards {
@@ -786,11 +602,7 @@ html[os="iPhone/iPod"] #game #player-cards .card, html[os="iPhone/iPod"] #game #
     #game #ui .zone {
       height: 66%;
       max-height: 300px;
-      -webkit-border-radius: 21px;
-      -khtml-border-radius: 21px;
-      -moz-border-radius: 21px;
       -ms-border-radius: 21px;
-      -o-border-radius: 21px;
       border-radius: 21px; }
       #game #ui .zone .label {
         top: -30px; }
