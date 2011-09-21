@@ -65,7 +65,7 @@
   		@if $key == 'transition' { $prefixes: -webkit, -moz }
   		@else if $key == 'transform' { $prefixes: -webkit, -moz }
   		@else if $key == 'border-radius' { $prefixes: -ms }
-  		@else if $key == 'box-shadow' { $prefixes: -ms }
+  		@else if $key == 'box-shadow' { $prefixes: -webkit, -ms }
   		@each $prefix in $prefixes {
   			#{$prefix}-#{$key} : $value;
   		}
