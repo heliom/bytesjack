@@ -75,6 +75,7 @@ body, html {
         left: 5%;
         font-size: 0.9em;
         text-transform: uppercase;
+        letter-spacing: 0.1em;
         color: rgba(208, 209, 78, 0.3); }
         #game #ui .zone .label.right {
           left: auto;
@@ -238,6 +239,7 @@ body, html {
     -o-transition: all 200ms ease-out;
     transition: all 200ms ease-out; }
     #game #player-cards .card, #game #dealer-cards .card {
+      -webkit-backface-visibility: hidden;
       background-color: #f9f9f9;
       position: absolute;
       top: 0;

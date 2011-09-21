@@ -65,6 +65,7 @@ body, html { width: 100%; height: 100%;
       top: -30px; left: 5%;
       font-size: 0.9em;
       text-transform: uppercase;
+      letter-spacing: 0.1em;
       color: rgba(208,209,78,0.3);
       
       &.right { left: auto; right: 5%; }
@@ -184,6 +185,7 @@ body, html { width: 100%; height: 100%;
     @include transition(all 200ms ease-out);
     
     .card {
+      -webkit-backface-visibility: hidden;
       background-color: #f9f9f9;
       position: absolute;
       top: 0; left: 0;
