@@ -665,6 +665,9 @@ html[os="iPhone/iPod"] {
     }
   }
 }
+@media screen and (max-width: 450px) {
+  #github-ribbon { display: none; }
+}
 @media screen and (max-width: 480px) and (max-height: 320px){
   #game {
   	h1 {

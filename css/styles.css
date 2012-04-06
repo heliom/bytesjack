@@ -868,6 +868,9 @@ html[os="iPhone/iPod"] #game #player-cards .card, html[os="iPhone/iPod"] #game #
       height: 337.333333px; }
       #game .card .icons {
         display: none; } }
+@media screen and (max-width: 450px) {
+  #github-ribbon {
+    display: none; } }
 @media screen and (max-width: 480px) and (max-height: 320px) {
   #game h1 {
     margin: 2% auto 0 auto; }
