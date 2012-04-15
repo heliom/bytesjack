@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
     <title>BytesJack ♠ An HTML Blackjack game</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0;" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
     <link rel="stylesheet" href="css/styles.css" />
 
@@ -12,7 +12,8 @@
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   </head>
   <body>
-   <a id="github-ribbon" href="https://github.com/heliom/bytesjack"><img style="z-index: 1; position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <a id="github-ribbon" href="https://github.com/heliom/bytesjack"><img style="z-index: 1; position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <script>if(navigator.standalone)document.querySelector('#github-ribbon').style.display='none'</script>
     <div id="game">
       <h1>BytesJack</h1>
       <div id="dealer-cards">
